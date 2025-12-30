@@ -29,9 +29,9 @@ const Aboutus = () => {
                             <div className="relative w-full max-w-lg aspect-square lg:aspect-video">
                                 <Image
                                     src="/images/about/vision.webp"
-                                    alt="Best Website Development company in Chennai"
+                                    alt="Illustration representing Syscorp's vision to become a top global brand"
                                     fill
-                                    className="object-cover rounded-xl shadow-lg"
+                                    className="object-cover"
                                 />
                             </div>
                         </div>
@@ -88,9 +88,9 @@ const Aboutus = () => {
                             <div className="relative w-full max-w-lg aspect-square lg:aspect-video">
                                 <Image
                                     src="/images/about/mission.webp"
-                                    alt="Best Website Development company in Chennai"
+                                    alt="Illustration representing Syscorp's mission to empower businesses online"
                                     fill
-                                    className="object-cover rounded-xl shadow-lg"
+                                    className="object-cover"
                                 />
                             </div>
                         </div>

@@ -44,11 +44,12 @@ const Footer = () => {
                                 type="email"
                                 required
                                 placeholder="Enter your email"
-                                className="w-full bg-white text-gray-800 rounded-full px-5 py-3 pr-32 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#3FB5FD]"
+                                className="w-full bg-white text-gray-800 rounded-full px-5 py-3 pr-32 text-sm placeholder-gray-700 focus:outline-none focus:ring-2 focus:ring-[#3FB5FD]"
                             />
+
                             <button
                                 type="submit"
-                                className="absolute right-1 top-1 bottom-1 px-6 rounded-full bg-[#3FB5FD] text-white text-sm font-semibold hover:bg-[#2da3f3] transition"
+                                className="absolute right-1 top-1 bottom-1 px-6 rounded-full bg-[#0b6eda] text-white text-sm font-semibold hover:bg-[#095bb5] transition"
                             >
                                 Subscribe
                             </button>
