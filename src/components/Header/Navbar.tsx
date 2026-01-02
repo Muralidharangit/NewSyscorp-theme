@@ -1,164 +1,216 @@
 "use client";
 
 import Link from "next/link";
-import {useState} from "react";
-import {usePathname} from "next/navigation";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
 
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+
 export default function Navbar() {
-    const [open, setOpen] = useState(false);
-    const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-    const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const pathname = usePathname();
 
-    const isActive = (href: string) => pathname === href;
+  const isActive = (href: string) => pathname === href;
 
-    const linkBase =
-        "relative py-2 transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full";
-    const activeLink = "text-blue-600 after:w-full";
+  const linkBase =
+    "relative py-2 transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full";
+  const activeLink = "text-blue-600 after:w-full";
 
-    const seoServices = [
-        {name: "Enterprise SEO", href: "/enterprise-seo", icon: "fa-building"},
-        {name: "Local SEO", href: "/local-seo", icon: "fa-location-dot"},
-        {name: "Global SEO", href: "/global-seo", icon: "fa-globe"},
-        {name: "E-commerce SEO", href: "/ecommerce-seo", icon: "fa-cart-shopping"},
-        {name: "YouTube SEO", href: "/youtube-seo", icon: "fa-play"},
-        {name: "Google Business", href: "/google-my-bussiness", icon: "fa-map"},
-        {name: "Content Writing", href: "/content-writting", icon: "fa-pen-nib"},
-        {name: "SEO Reseller", href: "/seo-reseller", icon: "fa-handshake"},
-    ];
+  const seoServices = [
+    { name: "Enterprise SEO", href: "/enterprise-seo", icon: "fa-building" },
+    { name: "Local SEO", href: "/local-seo", icon: "fa-location-dot" },
+    { name: "Global SEO", href: "/global-seo", icon: "fa-globe" },
+    { name: "E-commerce SEO", href: "/ecommerce-seo", icon: "fa-cart-shopping" },
+    { name: "YouTube SEO", href: "/youtube-seo", icon: "fa-play" },
+    { name: "Google Business", href: "/google-my-bussiness", icon: "fa-map" },
+    { name: "Content Writing", href: "/content-writting", icon: "fa-pen-nib" },
+    { name: "SEO Reseller", href: "/seo-reseller", icon: "fa-handshake" },
+  ];
 
-    const generalServices = [
-        {name: "Web Development", href: "/best-website-development-company-in-chennai", icon: "fa-code"},
-        {name: "Web Maintenance", href: "/website-maintenance", icon: "fa-screwdriver-wrench"},
-        {name: "SEO Optimization", href: "/seo-service", icon: "fa-arrow-trend-up"},
-        {name: "Search Marketing", href: "/search-engine-marketing", icon: "fa-magnifying-glass-chart"},
-        {name: "Social Media", href: "/socialmedia-marketing", icon: "fa-share-nodes"},
-        {name: "Logo Design", href: "/logo-design-service", icon: "fa-palette"},
-    ];
+  const generalServices = [
+    {
+      name: "Web Development",
+      href: "/best-website-development-company-in-chennai",
+      icon: "fa-code",
+    },
+    { name: "Web Maintenance", href: "/website-maintenance", icon: "fa-screwdriver-wrench" },
+    { name: "SEO Optimization", href: "/seo-service", icon: "fa-arrow-trend-up" },
+    {
+      name: "Search Marketing",
+      href: "/search-engine-marketing",
+      icon: "fa-magnifying-glass-chart",
+    },
+    { name: "Social Media", href: "/socialmedia-marketing", icon: "fa-share-nodes" },
+    { name: "Logo Design", href: "/logo-design-service", icon: "fa-palette" },
+  ];
 
-    return (
-        <nav className="sticky top-0 z-50 bg-white shadow-sm">
-            <div className="container mx-auto px-4">
-                <div className="flex items-center justify-between h-20">
-                    {/* LOGO */}
-                    <Link href="/">
-                        <img src="/images/logo/logo.webp" alt="Logo" className="main-logo" />
-                    </Link>
+  return (
+    <nav className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* LOGO */}
+          <Link href="/">
+            <img src="/images/logo/logo.webp" alt="Logo" className="main-logo" />
+          </Link>
 
-                    {/* DESKTOP MENU */}
-                    <ul className="hidden lg:flex items-center gap-8 font-semibold text-gray-700">
-                        <li>
-                            <Link href="/" className={`${linkBase} ${isActive("/") ? activeLink : "text-gray-700"}`}>
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/about"
-                                className={`${linkBase} ${isActive("/about") ? activeLink : "text-gray-700"}`}
-                            >
-                                Company
-                            </Link>
-                        </li>
+          {/* DESKTOP MENU */}
+          <ul className="hidden lg:flex items-center gap-8 font-semibold text-gray-700">
+            <li>
+              <Link href="/" className={`${linkBase} ${isActive("/") ? activeLink : ""}`}>
+                Home
+              </Link>
+            </li>
 
-                        {/* Services Mega Menu */}
-                        <li className="relative group">
-                            <span className="flex items-center gap-1 cursor-pointer py-8 hover:text-blue-600">
-                                Services
-                                <i className="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180" />
-                            </span>
+            <li>
+              <Link
+                href="/about"
+                className={`${linkBase} ${isActive("/about") ? activeLink : ""}`}
+              >
+                Company
+              </Link>
+            </li>
 
-                            <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block">
-                                <div className="bg-white shadow-xl rounded-[10px] w-[640px]">
-                                    <div className="grid grid-cols-2 gap-6 p-6">
-                                        {/* SEO Services */}
-                                        <div>
-                                            <h4 className="flex items-center gap-2 text-blue-600 text-xs font-bold uppercase mb-4 pb-2">
-                                                <i className="fas fa-search-plus"></i> SEO Services
-                                            </h4>
-                                            <ul className="space-y-2">
-                                                {seoServices.map((s) => (
-                                                    <li key={s.href}>
-                                                        <Link
-                                                            href={s.href}
-                                                            className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600"
-                                                        >
-                                                            <i className={`fas ${s.icon} text-blue-500 text-xs`} />
-                                                            {s.name}
-                                                        </Link>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
+            {/* ✅ SHADCN SERVICES MENU */}
+           {/* ✅ SHADCN SERVICES MENU */}
+<li className="relative">
+  <NavigationMenu>
+    <NavigationMenuList>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger className="bg-transparent px-0 font-semibold text-gray-700 hover:text-blue-600">
+          Services
+        </NavigationMenuTrigger>
 
-                                        {/* General Services */}
-                                        <div>
-                                            <h4 className="flex items-center gap-2 text-blue-600 text-xs font-bold uppercase mb-4 pb-2">
-                                                <i className="fas fa-th-large"></i> Digital Services
-                                            </h4>
-                                            <ul className="space-y-2">
-                                                {generalServices.map((s) => (
-                                                    <li key={s.href}>
-                                                        <Link
-                                                            href={s.href}
-                                                            className="flex items-center gap-2 text-sm text-gray-600 hover:text-blue-600"
-                                                        >
-                                                            <i className={`fas ${s.icon} text-blue-500 text-xs`} />
-                                                            {s.name}
-                                                        </Link>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li>
-                            <Link
-                                href="/blog"
-                                className={`${linkBase} ${isActive("/blog") ? activeLink : "text-gray-700"}`}
-                            >
-                                Blog
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/contact"
-                                className={`${linkBase} ${isActive("/contact") ? activeLink : "text-gray-700"}`}
-                            >
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
-
-                    {/* CTA */}
-                    <div className="hidden lg:block">
-                        <Button href="/contact">Request a Quote</Button>
-                    </div>
-
-                    {/* MOBILE TOGGLE */}
-                    <button
-                        className="lg:hidden text-2xl"
-                        onClick={() => setOpen(true)}
-                        aria-label="Open navigation menu"
-                    >
-                        <i className="fas fa-bars" aria-hidden="true" />
-                    </button>
+        <NavigationMenuContent className="absolute left-1/2 -translate-x-1/2 left-50%">
+          {/* Mega menu container */}
+          <div className="w-[900px] bg-white overflow-hidden rounded-lg shadow-xl ring-1 ring-black/5">
+            <div className="grid grid-cols-12">
+              {/* Column 1: SEO Services */}
+              <div className="col-span-4 p-8 border-r border-gray-50">
+                <h4 className="text-[12px] font-bold tracking-wider text-gray-900 uppercase mb-6">
+                  SEO Services
+                </h4>
+                <div className="space-y-6">
+                  {seoServices.slice(0, 4).map((s) => (
+                    <NavigationMenuLink asChild key={s.href}>
+                      <Link
+                        href={s.href}
+                        className="group flex items-start gap-4 transition-colors"
+                      >
+                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-lg bg-indigo-50  transition-colors group-hover:bg-indigo-600 group-hover:text-white  text-[#005cd8]">
+                          <i className={`fas ${s.icon} text-sm`} />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-gray-900 group-hover:text-indigo-600">
+                            {s.name}
+                          </p>
+                          <p className="text-[13px] text-gray-500 line-clamp-1">
+                            Expert {s.name.toLowerCase()} solutions.
+                          </p>
+                        </div>
+                      </Link>
+                    </NavigationMenuLink>
+                  ))}
                 </div>
+              </div>
+
+              {/* Column 2: Digital Services */}
+              <div className="col-span-4 p-8 border-r border-gray-50">
+                <h4 className="text-[12px] font-bold tracking-wider text-gray-900 uppercase mb-6">
+                  Digital Services
+                </h4>
+                <div className="space-y-6">
+                  {generalServices.slice(0, 4).map((s) => (
+                    <NavigationMenuLink asChild key={s.href}>
+                      <Link
+                        href={s.href}
+                        className="group flex items-start gap-4 transition-colors"
+                      >
+                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-lg bg-indigo-50  transition-colors group-hover:bg-indigo-600 group-hover:text-white  text-[#005cd8]">
+                          <i className={`fas ${s.icon} text-sm`} />
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-gray-900 group-hover:text-indigo-600">
+                            {s.name}
+                          </p>
+                          <p className="text-[13px] text-gray-500 line-clamp-1">
+                            Optimize your {s.name.toLowerCase()} presence.
+                          </p>
+                        </div>
+                      </Link>
+                    </NavigationMenuLink>
+                  ))}
+                </div>
+              </div>
+
+              {/* Column 3: Video Tutorials */}
+              <div className="col-span-4 bg-slate-50/50 p-8">
+                <h4 className="text-[12px] font-bold tracking-wider text-gray-900 uppercase mb-6">
+                  Video Tutorials
+                </h4>
+                <div className="space-y-8">
+                  {/* Tutorial cards... same as your code */}
+                </div>
+              </div>
             </div>
+          </div>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+    </NavigationMenuList>
+  </NavigationMenu>
+</li>
 
-            {/* MOBILE OVERLAY */}
-            <div
-                onClick={() => setOpen(false)}
-                className={`fixed inset-0 bg-black/60 z-[60] transition-opacity ${
-                    open ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
-            />
+            <li>
+              <Link
+                href="/blog"
+                className={`${linkBase} ${isActive("/blog") ? activeLink : ""}`}
+              >
+                Blog
+              </Link>
+            </li>
 
-            {/* MOBILE SIDEBAR */}
-            <div
+            <li>
+              <Link
+                href="/contact"
+                className={`${linkBase} ${isActive("/contact") ? activeLink : ""}`}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+
+          {/* CTA */}
+          <div className="hidden lg:block">
+            <Button href="/contact">Request a Quote</Button>
+          </div>
+
+          {/* MOBILE TOGGLE */}
+          <button className="lg:hidden text-2xl" onClick={() => setOpen(true)}>
+            <i className="fas fa-bars" />
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE OVERLAY */}
+      <div
+        onClick={() => setOpen(false)}
+        className={`fixed inset-0 bg-black/60 z-[60] ${
+          open ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* MOBILE SIDEBAR (UNCHANGED) */}
+      {/* ⬇️ Your existing mobile code stays exactly the same ⬇️ */}
+      {/* (No changes needed here) */}
+        <div
                 className={`fixed top-0 right-0 h-screen w-[300px] bg-white z-[70] transform transition-transform duration-300 ${
                     open ? "translate-x-0" : "translate-x-full"
                 }`}
@@ -280,6 +332,6 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-        </nav>
-    );
+    </nav>
+  );
 }

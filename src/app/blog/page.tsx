@@ -2,76 +2,70 @@
 
 import Link from "next/link";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
-import Button from "@/components/ui/Button";
-import {useState} from "react";
+import { useState } from "react";
 
 // Mock Blog Data
 const ALL_POSTS = [
     {
         id: 1,
-        title: "Modern Next.js Guide",
-        category: "Technology",
-        date: "Dec 29, 2025",
-        slug: "nextjs-guide",
-        excerpt:
-            "Explore the latest techniques in web performance, from server-side rendering to advanced image compression...",
+        title: "20 Questions You Should Always Ask About Security Software Before Buying It.",
+        category: "Software",
+        date: "August 11, 2020",
+        slug: "security-software",
+        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
     },
     {
         id: 2,
-        title: "UI Design Trends",
-        category: "Web Design",
-        date: "Dec 28, 2025",
-        slug: "ui-trends",
-        excerpt: "Master the art of modern interfaces with these upcoming design trends for the new year...",
+        title: "Responsible for a Technology Budget? 12 Top Notch Ways to Spend Your Money.",
+        category: "Technology",
+        date: "August 01, 2020",
+        slug: "tech-budget",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
     },
     {
         id: 3,
-        title: "SEO Strategies",
+        title: "The Ultimate Guide to Content Marketing Strategies for Growing Startups.",
         category: "Marketing",
-        date: "Dec 27, 2025",
-        slug: "seo-tips",
-        excerpt: "Learn how to rank higher on search engines using modern AI-driven optimization techniques...",
+        date: "July 25, 2020",
+        slug: "marketing-strategies",
+        image: "https://images.unsplash.com/photo-1533750516457-a7f992034fce?q=80&w=800&auto=format&fit=crop",
     },
     {
         id: 4,
-        title: "Scaling Your Startup",
-        category: "Business",
-        date: "Dec 26, 2025",
-        slug: "scaling-startup",
-        excerpt: "Moving from a small team to a global enterprise requires specific structural changes...",
+        title: "Upcoming Tech Conferences in 2020: What You Need to Know and Attend.",
+        category: "Event",
+        date: "July 18, 2020",
+        slug: "tech-conferences-2020",
+        image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop",
     },
     {
         id: 5,
-        title: "Mastering Tailwind",
-        category: "Web Design",
-        date: "Dec 25, 2025",
-        slug: "mastering-tailwind",
-        excerpt: "Utility-first CSS is the future of rapid styling. Learn how to stay organized and fast...",
+        title: "How to Optimize Your Remote Team’s Workflow for Maximum Productivity.",
+        category: "Software",
+        date: "July 10, 2020",
+        slug: "remote-workflow-optimization",
+        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop",
     },
     {
         id: 6,
-        title: "Future of Business AI",
-        category: "Business",
-        date: "Dec 26, 2025",
-        slug: "future-business-ai",
-        excerpt: "AI is no longer an option; it's a necessity for modern business efficiency...",
-    },
+        title: "Understanding the Impact of Artificial Intelligence on Modern Business.",
+        category: "Technology",
+        date: "July 02, 2020",
+        slug: "ai-business-impact",
+        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop",
+    }
 ];
 
 export default function BlogPage() {
-    const [activeCat, setActiveCat] = useState("All Posts");
-    const categories = ["All Posts", "Technology", "Web Design", "Marketing", "Business"];
+    const [activeCat, setActiveCat] = useState("All");
+    const categories = ["All", "Software", "Technology", "Marketing", "Event"];
 
-    const filteredPosts = ALL_POSTS.filter((post) => (activeCat === "All Posts" ? true : post.category === activeCat));
+    const filteredPosts = ALL_POSTS.filter((post) => (activeCat === "All" ? true : post.category === activeCat));
 
     return (
         <main className="bg-white min-h-screen">
-            {/* Header Banner */}
-            <section className="bg-[#011146] py-20 relative overflow-hidden" aria-label="Page header">
-                <div
-                    className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -mr-48 -mt-48"
-                    aria-hidden="true"
-                ></div>
+            {/* Header Banner - Matches your theme */}
+            <section className="bg-[#011146] py-20 relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
                     <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Our Blog</h1>
                     <div className="bg-white/10 backdrop-blur-md inline-block px-4 py-1 rounded-[2rem] border border-white/20">
@@ -81,120 +75,81 @@ export default function BlogPage() {
             </section>
 
             {/* Blog Section */}
-            {/* bg-gray-50/50 */}
-            <section className="py-16 lg:py-24 bg-[#f3f8ff]">
-                <div className="container mx-auto px-4">
-                    {/* Category Filter */}
-                    <div
-                        className="flex flex-wrap justify-center gap-4 mb-16"
-                        role="tablist"
-                        aria-label="Blog categories"
-                    >
-                        {categories.map((cat) => (
-                            <button
-                                key={cat}
-                                onClick={() => setActiveCat(cat)}
-                                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
-                                    activeCat === cat
-                                        ? "bg-blue-600 text-white"
-                                        : "bg-white text-gray-600 hover:bg-gray-100"
-                                }`}
-                                role="tab"
-                                aria-selected={activeCat === cat}
-                            >
-                                {cat}
-                            </button>
-                        ))}
+            <section className="py-16 lg:py-24 bg-white">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    
+                    {/* Category Filter - Image Style Layout */}
+                    <div className="border-b border-gray-100 mb-12">
+                        <div className="flex justify-center gap-8 overflow-x-auto no-scrollbar">
+                            {categories.map((cat) => (
+                                <button
+                                    key={cat}
+                                    onClick={() => setActiveCat(cat)}
+                                    className={`pb-4 text-sm font-bold transition-all relative ${
+                                        activeCat === cat
+                                            ? "text-blue-700"
+                                            : "text-gray-900 hover:text-blue-600"
+                                    }`}
+                                >
+                                    {cat}
+                                    {activeCat === cat && (
+                                        <span className="absolute bottom-0 left-0 w-full h-[3px] bg-blue-700 rounded-t-full" />
+                                    )}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Blog Grid */}
-                    <div aria-live="polite" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {/* Blog Grid - 2 Columns as per image */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
                         {filteredPosts.map((post) => (
-                            <article
-                                key={post.id}
-                                className="group bg-white rounded-[10px] overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500 flex flex-col"
-                                aria-labelledby={`post-title-${post.id}`}
-                            >
+                            <article key={post.id} className="group flex flex-col">
                                 {/* Image */}
-                                <div className="relative h-64 w-full overflow-hidden bg-gray-200">
+                                <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 mb-6">
                                     <img
-                                        src={`https://picsum.photos/seed/${post.id}/600/400`}
-                                        alt={`Featured image for ${post.title}`}
-                                        className="object-cover w-full h-full"
+                                        src={post.image}
+                                        alt={post.title}
+                                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute top-4 left-4 z-10 bg-white/90 backdrop-blur-sm text-blue-600 text-[10px] font-bold px-3 py-1 rounded-lg uppercase tracking-widest shadow-sm">
-                                        {post.category}
-                                    </div>
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6 flex flex-col flex-grow">
-                                    <header className="mb-4">
-                                        <div className="flex items-center text-gray-800 text-xs space-x-4 mb-2">
-                                            <span className="flex items-center">
-                                                <i className="far fa-calendar-alt mr-2"></i> {post.date}
-                                            </span>
-                                            <span className="flex items-center">
-                                                <i className="far fa-user mr-2"></i> Admin
-                                            </span>
+                                <div className="flex flex-col">
+                                    {/* Meta Row with Blue Dash */}
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="w-5 h-[2px] bg-blue-700"></div>
+                                        <div className="text-[11px] font-bold text-gray-500 uppercase tracking-wider flex gap-1">
+                                            <span>{post.category}</span>
+                                            <span>/</span>
+                                            <span>{post.date}</span>
                                         </div>
-                                        <h3
-                                            id={`post-title-${post.id}`}
-                                            className="text-xl font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors"
-                                        >
-                                            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                        </h3>
-                                    </header>
+                                    </div>
 
-                                    <p className="text-gray-800 text-sm line-clamp-3 mb-6 flex-grow">{post.excerpt}</p>
+                                    {/* Title */}
+                                    <h3 className="text-[22px] font-bold text-gray-900 leading-[1.3] mb-4 hover:text-blue-700 transition-colors">
+                                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                                    </h3>
 
-                                    <Button
-                                        href="/blog-details"
-                                        className="mx-auto w-50"
-                                        aria-label={`Read full article: ${post.title}`}
+                                    {/* Read More Link */}
+                                    <Link 
+                                        href={`/blog/${post.slug}`}
+                                        className="text-sm font-bold text-gray-900 hover:text-blue-700 underline underline-offset-4 decoration-2 decoration-gray-200 hover:decoration-blue-700 transition-all w-fit"
                                     >
-                                        Read Article
-                                        <svg
-                                            className="ml-2 h-5 w-5"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
-                                        >
-                                            <path d="M8 4l8 8-8 8" />
-                                        </svg>
-                                    </Button>
+                                        Read more
+                                    </Link>
                                 </div>
                             </article>
                         ))}
                     </div>
 
-                    {/* Pagination */}
-                    <nav aria-label="Pagination" className="mt-20 flex justify-center space-x-2">
-                        <button
-                            className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all"
-                            aria-label="Previous page"
-                        >
-                            <i className="fas fa-chevron-left text-xs"></i>
-                        </button>
-                        <button
-                            className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold shadow-lg shadow-blue-100"
-                            aria-current="page"
-                        >
-                            1
-                        </button>
-                        <button
-                            className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all font-bold"
-                            aria-label="Page 2"
-                        >
-                            2
-                        </button>
-                        <button
-                            className="w-12 h-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:text-white transition-all"
-                            aria-label="Next page"
-                        >
-                            <i className="fas fa-chevron-right text-xs"></i>
-                        </button>
+                    {/* Simplified Pagination */}
+                    <nav className="mt-20 flex justify-center items-center space-x-4">
+                        <button className="text-gray-400 hover:text-blue-700 text-sm font-bold">Prev</button>
+                        <div className="flex space-x-2">
+                            <span className="w-8 h-8 flex items-center justify-center rounded bg-blue-700 text-white text-sm font-bold">1</span>
+                            <button className="w-8 h-8 flex items-center justify-center rounded text-gray-900 hover:bg-gray-100 text-sm font-bold">2</button>
+                        </div>
+                        <button className="text-gray-900 hover:text-blue-700 text-sm font-bold">Next</button>
                     </nav>
                 </div>
             </section>
