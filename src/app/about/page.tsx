@@ -3,6 +3,7 @@ import AchievementsSection from "@/components/AchievementsSection";
 import TestimonialSlider from "@/components/TestimonialSection";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Button from "@/components/ui/Button";
+import { Link } from "lucide-react";
 import Image from "next/image";
 
 const Aboutus = () => {
@@ -20,83 +21,82 @@ const Aboutus = () => {
             </section>
 
             <AboutSection />
-            <section className="py-16 px-6 md:px-12 lg:px-24 overflow-hidden">
-                <div className="mx-auto px-4 space-y-20 lg:space-y-32">
-                    {/* OUR VISION - Image Left, Text Right */}
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        {/* Image */}
-                        <div className="order-2 lg:order-1 flex justify-center">
-                            <div className="relative w-full max-w-lg aspect-square lg:aspect-video">
-                                <Image
-                                    src="/images/about/vision.webp"
-                                    alt="Illustration representing Syscorp's vision to become a top global brand"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                        </div>
 
-                        {/* Text */}
-                        <div className="order-1 lg:order-2 space-y-6">
-                            <h3 className="text-3xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4 uppercase tracking-wider">
-                                Our Vision
-                            </h3>
-                            <p className="text-lg text-gray-600 leading-relaxed">
-                                At Syscorp, our vision is to establish ourselves as one of the top global brands by
-                                enhancing technology to deliver world-class business solutions. We are committed to
-                                creating opportunities for everyone associated with us to achieve their highest
-                                potential.
-                            </p>
-                        </div>
-                    </div>
+            
+          <section className="bg-[#E9F7EF] py-20 px-6 md:px-12 lg:px-24 font-sans">
+      <div className="container mx-auto">
+        
+        {/* Top Header Section */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16 items-start">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-[#0D3B31]">✦</span>
+              <span className="text-sm font-semibold text-[#0D3B31] tracking-wider uppercase">Our Approach</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0D3B31] leading-tight">
+              Empowering businesses with <span className="text-[#86EFAC]">tailored solutions</span>
+            </h2>
+          </div>
+          <div className="lg:pt-10">
+            <p className="text-[#0D3B31]/70 text-lg leading-relaxed">
+              We believe every business is unique, and so are its challenges. Our approach focuses on understanding your specific needs and delivering personalized solutions that drive growth, streamline operations, and maximize efficiency. With a commitment to innovation and collaboration, we empower businesses to achieve their full potential and adapt to an ever-changing market landscape.
+            </p>
+          </div>
+        </div>
 
-                    {/* OUR MISSION - Image Right, Text Left */}
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        {/* Text */}
-                        <div className="space-y-6">
-                            <h3 className="text-3xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4 uppercase tracking-wider">
-                                Our Mission
-                            </h3>
-                            <h4 className="text-xl font-semibold text-[#0F2453]">
-                                Best Website Development company in Chennai
-                            </h4>
-                            <p className="text-lg text-gray-600 leading-relaxed">
-                                Our mission is to empower businesses by enhancing their online presence and connecting
-                                them to a global audience. We aim to help small, medium, and large enterprises succeed
-                                by ensuring their businesses thrive on the internet, enabling them to compete on a
-                                global scale.
-                            </p>
+        {/* Content Section */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          
+          {/* Left Column: Mission & Vision Cards */}
+          <div className="space-y-12">
+            {/* Our Mission */}
+            <div className="group">
+              <div className="mb-6 relative inline-block">
+                <div className="absolute -top-1 -right-2 w-8 h-8 bg-[#86EFAC] rounded-full opacity-50 -z-10 group-hover:scale-110 transition-transform"></div>
+                <i className="fas fa-server text-3xl text-[#0D3B31]"></i>
+              </div>
+              <h3 className="text-2xl font-bold text-[#0D3B31] mb-4">Our Mission</h3>
+              <p className="text-[#0D3B31]/70 leading-relaxed max-w-md">
+                Our mission is to establish ourselves as one of the top global brands by enhancing technology to deliver world-class business solutions.
+              </p>
+              <div className="h-px w-full bg-[#0D3B31]/10 mt-12"></div>
+            </div>
 
-                            <Button href="#">
-                                Get Started Now
-                                <svg
-                                    className="w-5 h-5"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <path d="M8 4l8 8-8 8" />
-                                </svg>
-                            </Button>
-                        </div>
+            {/* Our Vision */}
+            <div className="group">
+              <div className="mb-6 relative inline-block">
+                <div className="absolute -top-1 -right-2 w-8 h-8 bg-[#86EFAC] rounded-full opacity-50 -z-10 group-hover:scale-110 transition-transform"></div>
+                <i className="fas fa-gem text-3xl text-[#0D3B31]"></i>
+              </div>
+              <h3 className="text-2xl font-bold text-[#0D3B31] mb-4">Our Vision</h3>
+              <p className="text-[#0D3B31]/70 leading-relaxed max-w-md">
+                Our mission is to empower businesses by enhancing their online presence and connecting them to a global audience.
+              </p>
+            </div>
+          </div>
 
-                        {/* Image */}
-                        <div className="flex justify-center">
-                            <div className="relative w-full max-w-lg aspect-square lg:aspect-video">
-                                <Image
-                                    src="/images/about/mission.webp"
-                                    alt="Illustration representing Syscorp's mission to empower businesses online"
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          {/* Right Column: Featured Image */}
+          <div className="relative w-full aspect-[4/3] overflow-hidden shadow-2xl">
+            <Image
+              src="/images/about/approach-main.jpg" 
+              alt="Team analyzing data on screens"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Footer Link */}
+        <div className="text-center mt-20">
+          <p className="text-[#0D3B31] font-medium">
+            Let's Work Together To Turn Your Goals Into Reality.{" "}
+            <Link href="/contact" className="underline font-bold hover:text-[#0D3B31]/70 transition-colors">
+              Contact Us Today
+            </Link>
+          </p>
+        </div>
+      </div>
+    </section>
 
             <AchievementsSection />
 
