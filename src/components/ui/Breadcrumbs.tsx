@@ -1,6 +1,6 @@
 "use client";
 
-import {usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const Breadcrumbs = () => {
@@ -28,29 +28,47 @@ const Breadcrumbs = () => {
                 {pathSegments.map((segment, index) => {
                     const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
                     const isLast = index === pathSegments.length - 1;
+                    // const isDisabled = segment === "services";
 
                     // Convert slug to readable text
                     const label = decodeURIComponent(segment)
-                    .replace(/-/g, " ")
-                    .replace(/\b\w/g, (c) => c.toUpperCase());
+                        .replace(/-/g, " ")
+                        .replace(/\b\w/g, (c) => c.toUpperCase());
 
                     return (
                         <li key={href} className="flex items-center leading-none">
                             {/* Separator */}
-                            <i className="fas fa-chevron-right mx-3 text-gray-400 text-[10px]"></i>
+                            <i className="fas fa-chevron-right mx-1 text-gray-400 text-[10px]"></i>
 
                             {isLast ? (
+                                <span className="text-white tracking-wide" aria-current="page">
+                                    {label}
+                                </span>
+                            ) : (
+                                <Link
+                                    href={href}
+                                    className="hover:text-blue-500 transition-colors font-medium text-white font-medium"
+                                >
+                                    {label}
+                                </Link>
+                            )}
+                            {/* {isLast || isDisabled ? (
                                 <span
-                                    className="text-gray-400 font-semibold uppercase tracking-wide"
-                                    aria-current="page"
+                                    className={`tracking-wide ${
+                                        isLast ? "text-white" : "text-gray-400 cursor-default"
+                                    }`}
+                                    aria-current={isLast ? "page" : undefined}
                                 >
                                     {label}
                                 </span>
                             ) : (
-                                <Link href={href} className="hover:text-blue-500 transition-colors font-medium">
+                                <Link
+                                    href={href}
+                                    className="hover:text-blue-500 transition-colors text-white font-medium"
+                                >
                                     {label}
                                 </Link>
-                            )}
+                            )} */}
                         </li>
                     );
                 })}

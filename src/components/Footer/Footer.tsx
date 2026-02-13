@@ -77,7 +77,7 @@ const Footer = () => {
                                     placeholder="Email Address"
                                     className="w-full bg-transparent text-gray-900 px-3 text-sm outline-none placeholder:text-gray-400"
                                 />
-                                <button className="bg-[#00A3FF] text-white p-2.5 rounded-md hover:bg-blue-600 transition-colors">
+                                <button type="button" aria-label="Open link" className="bg-[#00A3FF] text-white p-2.5 rounded-md hover:bg-blue-600 transition-colors">
                                     <svg
                                         className="w-5 h-5"
                                         viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ const Footer = () => {
 
                         {/* Navigation Columns */}
                         <div className="space-y-6 lg:pl-8">
-                            <h4 className="text-lg font-bold">Resource</h4>
+                            <h3 className="text-lg font-bold">Resource</h3>
                             <ul className="space-y-4 text-gray-400 text-sm">
                                 <li>
                                     <Link href="#" className="hover:text-white transition-colors">
@@ -119,7 +119,7 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-6">
-                            <h4 className="text-lg font-bold">Quick Link</h4>
+                            <h3 className="text-lg font-bold">Quick Link</h3>
                             <ul className="space-y-4 text-gray-400 text-sm">
                                 <li>
                                     <Link href="#" className="hover:text-white transition-colors">
@@ -145,7 +145,7 @@ const Footer = () => {
                         </div>
 
                         <div className="space-y-6">
-                            <h4 className="text-lg font-bold">Company</h4>
+                            <h3 className="text-lg font-bold">Company</h3>
                             <ul className="space-y-4 text-gray-400 text-sm">
                                 <li>
                                     <Link href="#" className="hover:text-white transition-colors">
@@ -172,7 +172,7 @@ const Footer = () => {
 
                         {/* Contact Information */}
                         <div className="space-y-6">
-                            <h4 className="text-lg font-bold">Contact</h4>
+                            <h3 className="text-lg font-bold">Contact</h3>
 
                             <ul className="space-y-4 text-gray-400 text-sm">
                                 {/* Address */}
@@ -203,8 +203,8 @@ const Footer = () => {
 
             {/* SCROLL TO TOP BUTTON */}
             <div className="flex justify-center -mb-6 relative z-30">
-                <button
-                    onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
+                <button type="button"
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Scroll to top"
                     className="bg-[#00A3FF] p-3 rounded-lg text-white shadow-lg hover:bg-blue-600 transition-all"
                 >
                     <svg

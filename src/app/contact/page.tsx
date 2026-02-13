@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 
 export default function ContactUs() {
@@ -53,7 +53,8 @@ export default function ContactUs() {
                                     <i className="fas fa-map-marker-alt text-3xl text-[#1a5cdd] relative z-10"></i>
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-bold text-[#1a5cdd] mb-2">Address</h4>
+                                    {/* <h4 className="text-xl font-bold text-[#1a5cdd] mb-2">Address</h4> */}
+                                    <p className="text-xl font-bold text-[#1a5cdd] mb-2">Address</p>
                                     <p className="leading-relaxed">
                                         123 Street Avenue, 403, Port
                                         <br />
@@ -69,7 +70,8 @@ export default function ContactUs() {
                                     <i className="fas fa-envelope text-3xl text-[#1a5cdd] relative z-10"></i>
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-bold text-[#1a5cdd] mb-2">Email</h4>
+                                    {/* <h4 className="text-xl font-bold text-[#1a5cdd] mb-2">Email</h4> */}
+                                    <p className="text-xl font-bold text-[#1a5cdd] mb-2">Email</p>
                                     <p className="leading-relaxed">
                                         info@domainname.com
                                         <br />
@@ -135,19 +137,22 @@ export default function ContactUs() {
                                 <button
                                     type="submit"
                                     disabled={loading}
+                                    aria-busy={loading}
                                     className="w-full md:w-auto bg-gradient-to-r from-[#3FB5FD] to-[#0B6EDA] text-white px-12 py-4 font-bold hover:bg-blue-700 transition-all flex items-center justify-center shadow-lg shadow-blue-200 active:scale-95 disabled:opacity-70 disabled:pointer-events-none"
                                 >
                                     {loading ? (
                                         <>
-                                            <i className="fas fa-circle-notch fa-spin mr-3"></i> Processing...{" "}
+                                            <i className="fas fa-circle-notch fa-spin mr-3" aria-hidden="true"></i>
+                                            <span>Processing...</span>
                                         </>
                                     ) : (
                                         <>
-                                            Send Message
-                                            <i className="fas fa-paper-plane ml-3 text-sm opacity-70"></i>{" "}
+                                            <span>Send Message</span>
+                                            <i className="fas fa-paper-plane ml-3 text-sm opacity-70" aria-hidden="true"></i>
                                         </>
                                     )}
                                 </button>
+
                             </div>
                         </form>
                     </div>
@@ -158,10 +163,12 @@ export default function ContactUs() {
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.455807650604!2d79.80274197373379!3d11.942911588285844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536179f6a96021%3A0x6928eb4736d20045!2sSyscorp%20Technology%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1767345645119!5m2!1sen!2sin"
                     className="w-full h-full border-0"
+                    title="Syscorp Technology Pvt Ltd Location Map"
                     allowFullScreen
                     loading="lazy"
                 ></iframe>
             </section>
+
         </main>
     );
 }

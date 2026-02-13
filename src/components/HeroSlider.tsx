@@ -16,7 +16,7 @@ const Hero = () => {
             {/* Hero Section */}
             <section className="relative w-full overflow-hidden bg-[#020826] pt-20 pb-32">
                 {/* Animated Background Globes */}
-                <div className="absolute -right-32 top-0 h-[500px] w-[500px] opacity-40 animate-[spin_60s_linear_infinite] pointer-events-none">
+                {/* <div className="absolute -right-32 top-0 h-[500px] w-[500px] opacity-40 animate-[spin_60s_linear_infinite] pointer-events-none">
                     <Image
                         src="/images/home/globe.png"
                         alt="Globe Decor"
@@ -35,6 +35,52 @@ const Hero = () => {
                         height={400}
                         priority
                         className="h-full w-full object-cover"
+                    />
+                </div> */}
+                <div
+                    className="
+    absolute 
+    -right-20 top-10 
+    h-[220px] w-[220px]
+    opacity-20
+    animate-[spin_60s_linear_infinite]
+    pointer-events-none
+
+    sm:h-[260px] sm:w-[260px]
+    md:h-[360px] md:w-[360px]
+    lg:-right-32 lg:top-0 lg:h-[500px] lg:w-[500px] lg:opacity-40
+"
+                >
+                    <Image
+                        src="/images/home/globe.png"
+                        alt="Globe Decor"
+                        width={600}
+                        height={600}
+                        priority
+                        className="h-full w-full object-contain"
+                    />
+                </div>
+                <div
+                    className="
+    absolute 
+    -left-20 top-16 
+    h-[240px] w-[240px]
+    opacity-20
+    animate-[spin_80s_linear_reverse_infinite]
+    pointer-events-none
+
+    sm:h-[280px] sm:w-[280px]
+    md:h-[400px] md:w-[400px]
+    lg:-left-32 lg:top-0 lg:h-[600px] lg:w-[600px] lg:opacity-40
+"
+                >
+                    <Image
+                        src="/images/home/globe.png"
+                        alt="Globe Decor"
+                        width={600}
+                        height={600}
+                        priority
+                        className="h-full w-full object-contain"
                     />
                 </div>
 

@@ -17,34 +17,34 @@ import FAQSection from "@/components/FaqSection";
 import BlogSection from "@/components/BlogSection";
 
 export default function Home() {
-  return (
-    <div className="bg-zinc-50 font-sans dark:bg-black">
-      {/* Hero Slider (Client) */}
-      <HeroSlider />
+    return (
+        <div className="bg-zinc-50 font-sans dark:bg-black">
+            {/* Hero Slider (Client) */}
+            <HeroSlider />
 
-      {/* About Section (Server) */}
-      <AboutSection />
+            {/* About Section (Server) */}
+            <AboutSection />
 
-      {/* Achievements Section */}
-      <AchievementsSection />
+            {/* Achievements Section */}
+            <AchievementsSection />
 
-      {/* Services Section */}
-      <ServicesSection />
+            {/* Services Section */}
+            <ServicesSection />
 
-      {/* Community Section */}
-      <CommunitySection />
+            {/* Community Section */}
+            <CommunitySection />
 
-      {/* Testimonial Slider (Client) */}
-      <TestimonialSlider />
+            {/* Testimonial Slider (Client) */}
+            <TestimonialSlider />
 
-      {/* Service Company Section */}
-      <ServiceCompany />
+            {/* Service Company Section */}
+            <ServiceCompany />
 
-      {/* FAQ Section */}
-      <FAQSection />
+            {/* FAQ Section */}
+            <FAQSection />
 
-      {/* Blog Section */}
-      <BlogSection />
-    </div>
-  );
+            {/* Blog Section */}
+            <BlogSection />
+        </div>
+    );
 }

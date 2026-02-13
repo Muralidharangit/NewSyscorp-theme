@@ -15,7 +15,7 @@ export default function Button({href, children, className = "", onClick, ariaLab
         "transition-all duration-500 ease-out focus-visible:outline-none focus-visible:ring-4 " +
         "focus-visible:ring-[#1A5CDD]/30";
 
-    const gradientStyles = "bg-gradient-to-r from-[#3FB5FD] to-[#0B6EDA] bg-[length:200%_200%] bg-left hover:bg-right";
+    const gradientStyles = "bg-gradient-to-r from-[#3FB5FD] to-[#0B6EDA] bg-[length:200%_200%] bg-left hover:bg-right ";
 
     const finalClass = `${baseStyles} ${gradientStyles} ${className}`;
 
