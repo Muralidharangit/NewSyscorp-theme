@@ -1,156 +1,198 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Breadcrumbs from "@/components/ui/Breadcrumbs"; // SSR for faster LCP
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { fetchStrapi } from "@/lib/strapi";
 
-// Mock Blog Data
-const ALL_POSTS = [
-    {
-        id: 1,
-        title: "20 Questions You Should Always Ask About Security Software Before Buying It.",
-        category: "Software",
-        date: "August 11, 2020",
-        slug: "security-software",
-        image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        id: 2,
-        title: "Responsible for a Technology Budget? 12 Top Notch Ways to Spend Your Money.",
-        category: "Technology",
-        date: "August 01, 2020",
-        slug: "tech-budget",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        id: 3,
-        title: "The Ultimate Guide to Content Marketing Strategies for Growing Startups.",
-        category: "Marketing",
-        date: "July 25, 2020",
-        slug: "marketing-strategies",
-        image: "https://images.unsplash.com/photo-1533750516457-a7f992034fce?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        id: 4,
-        title: "Upcoming Tech Conferences in 2020: What You Need to Know and Attend.",
-        category: "Event",
-        date: "July 18, 2020",
-        slug: "tech-conferences-2020",
-        image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        id: 5,
-        title: "How to Optimize Your Remote Team’s Workflow for Maximum Productivity.",
-        category: "Software",
-        date: "July 10, 2020",
-        slug: "remote-workflow-optimization",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop",
-    },
-    {
-        id: 6,
-        title: "Understanding the Impact of Artificial Intelligence on Modern Business.",
-        category: "Technology",
-        date: "July 02, 2020",
-        slug: "ai-business-impact",
-        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop",
-    },
-];
+const STRAPI_URL =
+    process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
 export default function BlogPage() {
+    const [posts, setPosts] = useState<any[]>([]);
+    const [categories, setCategories] = useState<string[]>(["All"]);
     const [activeCat, setActiveCat] = useState("All");
-    const categories = ["All", "Software", "Technology", "Marketing", "Event"];
+    const [loading, setLoading] = useState(true);
 
-    const filteredPosts = useMemo(
-        () => ALL_POSTS.filter(post => activeCat === "All" ? true : post.category === activeCat),
-        [activeCat]
-    );
+    useEffect(() => {
+        async function loadData() {
+            try {
+                const postsRes = await fetchStrapi("blog-posts", {
+                    populate: "*",
+                });
+
+                const postsData = postsRes?.data || [];
+                setPosts(postsData);
+
+                const catsRes = await fetchStrapi("blog-categories");
+                const catNames =
+                    catsRes?.data?.map((cat: any) => cat.name || cat.attributes?.name) ||
+                    [];
+
+                setCategories(["All", ...catNames]);
+            } catch (error) {
+                console.error("Error loading blog:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        loadData();
+    }, []);
+
+    const filteredPosts = useMemo(() => {
+        return posts.filter((post) => {
+            if (activeCat === "All") return true;
+
+            const item = post.attributes || post;
+            const cats = item.blog_categories?.data || item.blog_categories || [];
+
+            return Array.isArray(cats)
+                ? cats.some((cat: any) => {
+                    const name = cat.name || cat.attributes?.name;
+                    return name === activeCat;
+                })
+                : false;
+        });
+    }, [posts, activeCat]);
 
     return (
         <main className="bg-white min-h-screen">
-            {/* Hero Section */}
+            {/* Hero */}
             <section className="bg-[#011146] py-20 text-center">
-                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">Our Blog</h1>
-                <div className="bg-white/10 md:backdrop-blur-md inline-block px-4 py-1 rounded-[2rem] border border-white/20">
+                <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                    Our Blog
+                </h1>
+                <div className="bg-white/10 inline-block px-4 py-1 rounded-[2rem] border border-white/20">
                     <Breadcrumbs />
                 </div>
             </section>
 
-            {/* Blog Grid */}
+            {/* Blog Section */}
             <section className="py-16 lg:py-24 bg-white">
                 <div className="container mx-auto px-4 max-w-6xl">
                     {/* Categories */}
                     <div className="border-b border-gray-100 mb-12">
-                        <div className="flex justify-center gap-8 overflow-x-auto no-scrollbar">
+                        <div className="flex justify-center gap-8 overflow-x-auto">
                             {categories.map((cat) => (
                                 <button
                                     key={cat}
                                     onClick={() => setActiveCat(cat)}
-                                    className={`pb-4 text-sm font-bold transition-all relative focus:outline-none focus:ring-blue-500 ${activeCat === cat ? "text-blue-700" : "text-gray-800 hover:text-blue-600"
+                                    className={`pb-4 text-sm font-bold ${activeCat === cat
+                                        ? "text-blue-700"
+                                        : "text-gray-800 hover:text-blue-600"
                                         }`}
-                                    aria-pressed={activeCat === cat}
                                 >
                                     {cat}
-                                    {activeCat === cat && <span className="absolute bottom-0 left-0 w-full h-[3px] bg-blue-700 rounded-t-full" />}
                                 </button>
                             ))}
                         </div>
                     </div>
 
-                    {/* Posts Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-                        {filteredPosts.map(post => (
-                            <article key={post.id} className="group flex flex-col">
-                                <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 mb-6 rounded-lg">
-                                    <Image
-                                        src={post.image}
-                                        alt={post.title}
-                                        width={800}
-                                        height={500}
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                        className="object-cover w-full h-full transition-transform duration-500 md:group-hover:scale-105 rounded-lg"
-                                        loading="lazy"
-                                    />
-                                </div>
-
-                                <div className="flex flex-col">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <div className="w-5 h-[2px] bg-blue-700"></div>
-                                        <div className="text-[11px] font-bold text-gray-700 uppercase tracking-wider flex gap-1">
-                                            <span>{post.category}</span>/<span>{post.date}</span>
-                                        </div>
-                                    </div>
-
-                                    <h2 className="font-bold mb-4 hover:text-blue-700 transition-colors line-clamp-2">
-                                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                    </h2>
-
-                                    <Link
-                                        href={`/blog/${post.slug}`}
-                                        aria-label={`Read more about ${post.title}`}
-                                        className="text-sm font-bold text-gray-900 hover:text-blue-700 underline underline-offset-4 decoration-2 decoration-gray-200 hover:decoration-blue-700 transition-all w-fit"
-                                    >
-                                        Read more
-                                    </Link>
-                                </div>
-                            </article>
-                        ))}
-                    </div>
-
-                    {/* Pagination */}
-                    <nav className="mt-20 flex justify-center items-center space-x-4" aria-label="Pagination">
-                        <button aria-label="Previous Page" className="p-2 rounded-full border border-gray-200 hover:bg-blue-100 text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        <div className="flex space-x-2">
-                            <span aria-current="page" className="w-8 h-8 flex items-center justify-center rounded bg-blue-700 text-white text-sm font-bold">1</span>
-                            <button aria-label="Page 2" className="w-8 h-8 flex items-center justify-center rounded text-gray-900 hover:bg-gray-100 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">2</button>
+                    {/* Loading */}
+                    {loading ? (
+                        <div className="text-center py-20">
+                            <p>Loading posts...</p>
                         </div>
-                        <button aria-label="Next Page" className="p-2 rounded-full border border-gray-200 hover:bg-blue-100 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <ChevronRight className="w-4 h-4" />
-                        </button>
-                    </nav>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                            {filteredPosts.length > 0 ? (
+                                filteredPosts.map((post) => {
+                                    const item = post.attributes || post;
+                                    const { title, slug, date } = item;
+
+                                    /* ---------- IMAGE FIX ---------- */
+                                    let imageUrl = "https://via.placeholder.com/1200x600?text=No+Image";
+                                    const img = item.image;
+
+                                    if (img) {
+                                        // Strapi 5 format (flattened)
+                                        if (img.url) {
+                                            imageUrl = img.url.startsWith("http") ? img.url : `${STRAPI_URL}${img.url}`;
+                                        }
+                                        // Strapi 4 format (nested .data.attributes)
+                                        else if (img.data?.attributes?.url) {
+                                            const url = img.data.attributes.url;
+                                            imageUrl = url.startsWith("http") ? url : `${STRAPI_URL}${url}`;
+                                        }
+                                        // Handle potential array
+                                        else if (Array.isArray(img) && img[0]?.url) {
+                                            imageUrl = img[0].url.startsWith("http") ? img[0].url : `${STRAPI_URL}${img[0].url}`;
+                                        }
+                                    }
+
+                                    console.log(`[BlogPage] Post: ${title}, URL: ${imageUrl}`, { img_structure: img });
+
+                                    /* ---------- CATEGORY FIX ---------- */
+                                    const cats =
+                                        item.blog_categories?.data ||
+                                        item.blog_categories ||
+                                        [];
+
+                                    const firstCat =
+                                        cats[0]?.attributes || cats[0] || null;
+
+                                    const categoryName =
+                                        firstCat?.name || "Uncategorized";
+
+                                    return (
+                                        <article key={post.id} className="group flex flex-col">
+                                            <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 mb-6 rounded-lg">
+                                                <Image
+                                                    src={imageUrl}
+                                                    alt={title || "Blog Post"}
+                                                    width={800}
+                                                    height={500}
+                                                    className="object-cover w-full h-full rounded-lg"
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <p className="text-xs uppercase text-gray-500 mb-2">
+                                                    {categoryName} /{" "}
+                                                    {date
+                                                        ? new Date(date).toLocaleDateString()
+                                                        : "N/A"}
+                                                </p>
+
+                                                <h2 className="font-bold mb-4 hover:text-blue-700">
+                                                    <Link href={`/blog/${slug}`}>{title}</Link>
+                                                </h2>
+
+                                                <Link
+                                                    href={`/blog/${slug}`}
+                                                    className="text-sm font-bold underline"
+                                                >
+                                                    Read more
+                                                </Link>
+                                            </div>
+                                        </article>
+                                    );
+                                })
+                            ) : (
+                                <p className="text-center col-span-full">
+                                    No posts found.
+                                </p>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Pagination (Static Demo) */}
+                    {!loading && filteredPosts.length > 0 && (
+                        <nav className="mt-20 flex justify-center gap-4">
+                            <button className="p-2 border rounded">
+                                <ChevronLeft size={16} />
+                            </button>
+                            <span className="px-3 py-2 bg-blue-700 text-white rounded">
+                                1
+                            </span>
+                            <button className="p-2 border rounded">
+                                <ChevronRight size={16} />
+                            </button>
+                        </nav>
+                    )}
                 </div>
             </section>
         </main>
