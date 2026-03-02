@@ -51,14 +51,15 @@ export default function ResponsiveUIUX() {
                             </p>
                         </div>
 
-                        <div className="flex justify-center md:justify-end">
+                        <div className="relative w-full max-w-[500px] h-[350px]">
                             <Image
                                 src="/images/services/ui-ux.jpg"
                                 alt="Responsive UI UX Design Company in Chennai"
-                                width={500}
-                                height={400}
-                                className="object-contain"
+                                fill
                                 priority
+                                fetchPriority="high"
+                                className="object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
                             />
                         </div>
                     </div>
@@ -76,6 +77,7 @@ export default function ResponsiveUIUX() {
                                 width={500}
                                 height={400}
                                 className="object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
                             />
                         </div>
 

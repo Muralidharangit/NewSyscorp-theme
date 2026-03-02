@@ -5,18 +5,18 @@ import Image from "next/image";
 export default function AchievementsSection() {
     const stats = [
         {
-            number: "15+",
-            label: "Team members",
+            number: "150+",
+            label: "Expert Team Members",
             img: "/images/icons/3.svg",
         },
         {
-            number: "100+",
+            number: "1000+",
             label: "Projects delivered",
             img: "/images/icons/4.svg",
         },
         {
-            number: "7M",
-            label: "Awards won",
+            number: "100+",
+            label: "Awards & Recognitions",
             img: "/images/icons/5.svg",
         },
     ];
@@ -31,7 +31,7 @@ export default function AchievementsSection() {
                     </span>
 
                     <h2 id="achievements-heading" className="heading-1 font-extrabold leading-[1.2] text-gray-900">
-                        Future-ready solutions that go beyond defense
+                        Best Software Company in Chennai
                     </h2>
                 </div>
 

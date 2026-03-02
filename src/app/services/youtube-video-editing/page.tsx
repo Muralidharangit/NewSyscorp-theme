@@ -46,7 +46,7 @@ export default function YouTubeVideoEditingPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free Consultation
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -302,7 +302,7 @@ export default function YouTubeVideoEditingPage() {
                         </div>
                     </div>
                 </div>
-                            
+
             </section >
 
             {/* CTA SECTION */}

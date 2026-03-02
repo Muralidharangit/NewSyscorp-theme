@@ -53,11 +53,12 @@ export default function HighImpactPerformanceAdsPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/High-Impact-Performance.webp"
-                            alt="On Page SEO Service"
+                            src="/images/services/High-Impact-Performance-1.png"
+                            alt="High-ROI Performance Marketing & Advertising Agency in Chennai"
                             width={500}
                             height={400}
-                            className="w-full max-w-md object-cover"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain rounded-2xl"
                         />
                     </div>
                 </div>
@@ -79,11 +80,12 @@ export default function HighImpactPerformanceAdsPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
-                                alt="On Page SEO Service"
+                                src="/images/services/High-Impact-Performance-2.png"
+                                alt="High-Impact Performance Advertising Services in Chennai"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-cover"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain rounded-2xl"
                             />
                         </div>
 
@@ -233,13 +235,14 @@ export default function HighImpactPerformanceAdsPage() {
                         </div>
 
                         {/* RIGHT SIDE IMAGE */}
-                        <div className="flex justify-center">
+                        <div className="flex justify-center ">
                             <Image
-                                src="/images/services/technical-seo.webp"
-                                alt="Local SEO Importance"
+                                src="/images/services/High-Impact-Performance-3.png"
+                                alt="Importance of High-Impact Performance Advertising Services in Chennai"
                                 width={500}
                                 height={400}
-                                className="object-contain rounded-2xl"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="object-contain rounded-2xl w-full max-w-[500px] h-auto"
                             />
                         </div>
                     </div>
@@ -249,7 +252,7 @@ export default function HighImpactPerformanceAdsPage() {
             {/* PROCESS SECTION */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-14">
+                    <div className="text-center max-w-3xl mx-auto ">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                             Industries We Serve
                         </h2>
@@ -262,11 +265,12 @@ export default function HighImpactPerformanceAdsPage() {
                         {/* LEFT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
-                                alt="Local SEO Process"
+                                src="/images/services/High-Impact-Performance-4.png"
+                                alt="High-Impact Performance Advertising Services for Multiple Industries in Chennai"
                                 width={500}
                                 height={400}
-                                className="object-contain rounded-2xl"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="object-contain rounded-2xl w-full max-w-[500px] h-auto"
                             />
                         </div>
 

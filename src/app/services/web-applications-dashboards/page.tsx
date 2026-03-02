@@ -48,14 +48,16 @@ export default function WebApplicationsDashboards() {
                         </p>
                     </div>
 
-                    <div className="flex justify-center md:justify-end">
-
+                    <div className="flex justify-center">
                         <Image
                             src="/images/services/webapplication.png"
-                            alt="E-Commerce Website Development"
+                            alt="Web Applications and Dashboard Development Company in Chennai"
                             width={500}
                             height={400}
                             className="object-contain"
+                            priority
+                            fetchPriority="high"
+                            sizes="(max-width: 768px) 100vw, 500px"
                         />
                     </div>
                 </div>
@@ -65,14 +67,13 @@ export default function WebApplicationsDashboards() {
             <section className="bg-gray-50 py-14">
                 <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
                     <div className="flex justify-center">
-
                         <Image
-                            src="/images/services/ecommorce-e-commerce.png"
-                            alt="E-Commerce Solutions Company in Chennai"
+                            src="/images/services/webapplication-2.webp"
+                            alt="Web Application Development Company in Chennai"
                             width={500}
                             height={400}
                             className="object-contain"
-                            priority
+                            sizes="(max-width: 768px) 100vw, 500px"
                         />
                     </div>
 
@@ -166,7 +167,7 @@ export default function WebApplicationsDashboards() {
                 <div className="max-w-7xl mx-auto px-6">
 
                     {/* INDUSTRIES SECTION */}
-                    <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
 
                         <div>
                             <h2 className="text-3xl font-bold mb-6">
@@ -182,7 +183,7 @@ export default function WebApplicationsDashboards() {
                             ].map((item, i) => (
                                 <div
                                     key={i}
-                                    className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg bg-white mb-3 hover:shadow-md transition"
+                                    className="flex items-center gap-4 p-3"
                                 >
                                     <span className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1a5cdd] text-white text-sm font-semibold">
                                         {i + 1}
@@ -202,7 +203,7 @@ export default function WebApplicationsDashboards() {
 
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/ecommorce-e-commerce.png"
+                                src="/images/services/webapplication-3.webp"
                                 alt="E-Commerce Solutions Company in Chennai"
                                 width={400}
                                 height={300}
@@ -222,12 +223,12 @@ export default function WebApplicationsDashboards() {
 
                         <div className="flex justify-center order-2 md:order-1">
                             <Image
-                                src="/images/services/ecommorce-e-commerce.png"
-                                alt="E-Commerce Solutions Company in Chennai"
+                                src="/images/services/webapplication-1.webp"
+                                alt="Web Application Development Company in Chennai"
                                 width={400}
                                 height={300}
                                 className="object-contain"
-                                priority
+                                sizes="(max-width: 768px) 100vw, 400px"
                             />
                         </div>
 
@@ -245,7 +246,7 @@ export default function WebApplicationsDashboards() {
                             ].map((step, i) => (
                                 <div
                                     key={i}
-                                    className="flex items-center gap-4 p-4 border border-gray-200 rounded-lg bg-white mb-3 hover:shadow-md transition"
+                                    className="flex items-center gap-4 p-3"
                                 >
                                     <span className="w-8 h-8 flex items-center justify-center rounded-full bg-[#1a5cdd] text-white text-sm font-semibold">
                                         {i + 1}

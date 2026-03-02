@@ -88,17 +88,29 @@ const CorporateWebsites = () => {
                                     As a trusted Corporate Website Company in Chennai, we create corporate websites are
                                     visually polished, user-friendly, secure, and optimized performance.
                                 </p>
+                                <div className="mt-8 flex gap-4 flex-wrap">
+                                    <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
+                                        Get Free Quatation
+                                    </button>
+
+                                    <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
+                                        Contact Us
+                                    </button>
+                                </div>
                             </div>
 
                             <div className="flex justify-center md:justify-end">
-                                <Image
-                                    src="/images/services/ui-ux.jpg"
-                                    alt="Corporate Website Design Company in Chennai"
-                                    width={500}
-                                    height={400}
-                                    className="object-cover w-full h-auto"
-                                    priority
-                                />
+
+                                <div className="relative w-full max-w-[500px] h-[350px]">
+                                    <Image
+                                        src="/images/services/Corporate-website.png"
+                                        alt="Corporate Website Design Company in Chennai"
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, 500px"
+                                        priority
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -110,11 +122,12 @@ const CorporateWebsites = () => {
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <div className="flex justify-center">
                                 <Image
-                                    src="/images/services/custom-web.png"
+                                    src="/images/services/Corporate-website-1.webp"
                                     alt="Corporate Website Development"
                                     width={500}
                                     height={400}
                                     className="object-contain"
+                                    sizes="(max-width: 768px) 100vw, 500px"
                                 />
                             </div>
 

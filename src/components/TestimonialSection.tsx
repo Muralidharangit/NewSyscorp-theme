@@ -1,25 +1,31 @@
 "use client";
-import React, {useCallback} from "react";
+import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Button from "./ui/Button";
 
 const testimonials = [
     {
-        name: "John Carter",
-        role: "CTO, FinSecure Ltd.",
+        name: "Marketing Director",
+        role: "Real Estate Firm",
         company: "SYSCORP",
-        quote: "Partnering with this cybersecurity team has completely transformed the way we protect our digital assets. Their proactive monitoring and immediate response have given us total confidence.",
+        quote: "Since partnering with Syscorp, our online visibility and lead generation have improved dramatically. Their SEO and paid ad strategies deliver consistent results month after month. We continue to stay with them because they truly understand our business goals.",
     },
     {
-        name: "Sarah Jenkins",
-        role: "CEO, TechFlow",
-        company: "TECHFLOW",
-        quote: "The best business consulting we've ever had. Our productivity increased by 40% in the first quarter alone after implementing their strategic insights.",
+        name: "Founder",
+        role: "E-commerce Brand",
+        company: "SYSCORP",
+        quote: "Their team works like an extension of our internal marketing department. From social media creatives to performance campaigns, everything is handled professionally. Staying with Syscorp has been one of our best business decisions.",
+    },
+    {
+        name: "Operations Head",
+        role: "Healthcare Company",
+        company: "SYSCORP",
+        quote: "What we value most is their transparency. We receive detailed reports and clear insights into campaign performance. No hidden numbers — just real growth. That’s why we continue our partnership.",
     },
 ];
 
 export default function TestimonialsSection() {
-    const [emblaRef, emblaApi] = useEmblaCarousel({loop: true});
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
     const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
     const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -34,11 +40,11 @@ export default function TestimonialsSection() {
                     </span>
 
                     <h2 id="testimonials-heading" className="heading-1 font-extrabold leading-tight text-gray-900">
-                        What our clients say about staying secure with us
+                        What Our Clients Say About Staying With Us?
                     </h2>
 
                     <p className="text-gray-700 text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
-                        Empowering businesses to operate with total confidence through expert strategy.
+                        At Syscorp, client satisfaction is our biggest achievement. Our long-term partnerships reflect the trust, transparency, and measurable results we deliver.
                     </p>
 
                     <Button href="#" aria-label="View more services">

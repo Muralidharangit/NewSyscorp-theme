@@ -3,7 +3,7 @@ import AchievementsSection from "@/components/AchievementsSection";
 import TestimonialSlider from "@/components/TestimonialSection";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Button from "@/components/ui/Button";
-import {Link} from "lucide-react";
+import { Link } from "lucide-react";
 import Image from "next/image";
 
 const Aboutus = () => {
@@ -33,16 +33,16 @@ const Aboutus = () => {
                                 </span>
                             </div>
                             <h2 className="heading-1 font-extrabold text-[#0D3B31] leading-tight">
-                                Empowering businesses with <span className="text-[#1a5cdd]">tailored solutions</span>
+                                Building Smart, Scalable & Future-Ready <span className="text-[#1a5cdd]">Software Solutions</span>
+                                {/* Empowering businesses with <span className="text-[#1a5cdd]">tailored solutions</span> */}
                             </h2>
                         </div>
                         <div className="lg:pt-10">
                             <p className="text-lg leading-relaxed">
-                                We believe every business is unique, and so are its challenges. Our approach focuses on
-                                understanding your specific needs and delivering personalized solutions that drive
-                                growth, streamline operations, and maximize efficiency. With a commitment to innovation
-                                and collaboration, we empower businesses to achieve their full potential and adapt to an
-                                ever-changing market landscape.
+                                Syscorp is a technology-driven software development company dedicated to building powerful, scalable, and customized digital solutions for modern businesses.
+                            </p>
+                            <p className="text-lg leading-relaxed">
+                                From startups to enterprises, help businesses leverage technology to streamline operations and create competitive advantages. At Syscorp, we believe great software is built on strong architecture, clean coding practices, and a deep understanding of business goals
                             </p>
                         </div>
                     </div>
@@ -61,8 +61,7 @@ const Aboutus = () => {
                                 <h3 className="text-2xl font-bold text-[#1a5cdd] mb-3">Our Mission</h3>
 
                                 <p className="leading-relaxed max-w-md mb-6">
-                                    Our mission is to establish ourselves as one of the top global brands by enhancing
-                                    technology to deliver world-class business solutions.
+                                    To empower businesses with innovative software solutions that enhance productivity, efficiency, and digital transformation.
                                 </p>
 
                                 {/* Divider */}
@@ -79,8 +78,7 @@ const Aboutus = () => {
                                 <h3 className="text-2xl font-bold text-[#1a5cdd] mb-3">Our Vision</h3>
 
                                 <p className="leading-relaxed max-w-md">
-                                    Our mission is to establish ourselves as one of the top global brands by enhancing
-                                    technology to deliver world-class business solutions.
+                                    Become a trusted technology partner for businesses seeking reliable and future-ready software development solutions.
                                 </p>
                             </div>
                         </div>

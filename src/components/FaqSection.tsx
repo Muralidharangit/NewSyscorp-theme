@@ -1,27 +1,37 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Button from "./ui/Button";
-
 const faqData = [
     {
-        question: "Why is cybersecurity important for my business?",
-        answer: "Cybersecurity is critical because it protects all categories of data from theft and damage. This includes sensitive data, personally identifiable information (PII), protected health information (PHI), intellectual property, and governmental and industry information systems.",
+        question: "What services does Syscorp offer?",
+        answer: "Syscorp provides complete digital marketing solutions including SEO, Social Media Marketing, Performance Ads (Google & Meta), Branding & Creative Design, and Website Development.",
     },
     {
-        question: "What industries do you provide cybersecurity services for?",
-        answer: "We work with businesses across various industries including finance, healthcare, e-commerce, and technology, tailoring solutions to meet each sector's unique security needs.",
+        question: "How can Syscorp help my business grow?",
+        answer: "We create customized, data-driven marketing strategies that increase brand visibility, generate qualified leads, and improve conversions. Our focus is on measurable ROI and long-term business growth.",
     },
     {
-        question: "Do small businesses really need cybersecurity?",
-        answer: "Yes, small businesses are often targets because they may have weaker security infrastructure than larger corporations. We provide scalable solutions tailored specifically for small business budgets and needs.",
+        question: "Do you provide customized digital marketing strategies?",
+        answer: "Yes. Every business is different, so we develop personalized marketing plans based on your industry, competition, target audience, and specific business goals.",
     },
     {
-        question: "How often should we conduct security audits?",
-        answer: "We recommend comprehensive audits at least annually, or whenever significant changes are made to your network infrastructure or after any security incident.",
+        question: "How long does SEO take to show results?",
+        answer: "SEO is a long-term strategy. Typically, noticeable improvements can be seen within 3 to 6 months depending on your industry competition and the current condition of your website.",
+    },
+    {
+        question: "Do you run paid advertising campaigns?",
+        answer: "Yes. We manage Google Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, and YouTube Ads. Our campaigns are performance-focused and optimized for maximum ROI.",
+    },
+    {
+        question: "Will I receive performance reports?",
+        answer: "Absolutely. We provide transparent monthly reports detailing traffic growth, leads generated, ad performance, keyword rankings, and campaign insights.",
+    },
+    {
+        question: "Do you work with small businesses and startups?",
+        answer: "Yes. We work with startups, small businesses, and large enterprises. Our strategies are scalable and designed according to your budget and growth stage.",
     },
 ];
-
 export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(1);
 
@@ -37,12 +47,12 @@ export default function FAQSection() {
                     </div>
 
                     <h2 id="faq-heading" className="heading-1 font-extrabold text-[#0D1C16] leading-tight">
-                        Everything you want to know about cybersecurity
+                        Got Questions? We’ve Got Clear, Honest Answers
                     </h2>
 
                     <p className="text-gray-700 text-lg leading-relaxed">
-                        From service details to protection strategies, we provide clear explanations to help you make
-                        informed decisions.
+                        Learn how our strategies drive real business growth. From SEO and paid ads to complete digital solutions,
+                        we break down everything in simple terms so you can move forward with confidence.
                     </p>
 
                     <Button href="#" aria-label="View more services">
@@ -68,10 +78,10 @@ export default function FAQSection() {
                         return (
                             <div
                                 key={index}
-                                className={`bg-white rounded-xl shadow-sm border transition-all duration-300 ${
-                                    isOpen ? "border-blue-200" : "border-blue-50"
-                                }`}
+                                className={`bg-white rounded-xl shadow-sm border transition-all duration-300 ${isOpen ? "border-blue-200" : "border-blue-50"
+                                    }`}
                             >
+
                                 <button
                                     onClick={() => setOpenIndex(isOpen ? null : index)}
                                     className="w-full p-6 flex items-center justify-between text-left group"
@@ -79,19 +89,21 @@ export default function FAQSection() {
                                     aria-controls={`faq-panel-${index}`}
                                     id={`faq-button-${index}`}
                                 >
+
                                     <span
-                                        className={`text-lg font-bold transition-colors ${
-                                            isOpen ? "text-[#1A5CDD]" : "text-[#0D1C16]"
-                                        }`}
-                                    >
+                                        className={`text-lg font-bold transition-colors ${isOpen ? "text-[#1A5CDD]" : "text-[#0D1C16]"
+                                            }`}
+                                    > {/* Number */}
+                                        <span className="font-extrabold mr-3">
+                                            {String(index + 1).padStart(2)}.
+                                        </span>
                                         {item.question}
                                     </span>
 
                                     {/* Toggle Icon */}
                                     <div
-                                        className={`w-8 h-8 flex-shrink-0 rounded-md flex items-center justify-center transition-all ${
-                                            isOpen ? "bg-[#3FB5FD] text-white" : "bg-[#E9F2FF] text-[#3FB5FD]"
-                                        }`}
+                                        className={`w-8 h-8 flex-shrink-0 rounded-md flex items-center justify-center transition-all ${isOpen ? "bg-[#3FB5FD] text-white" : "bg-[#E9F2FF] text-[#3FB5FD]"
+                                            }`}
                                     >
                                         {isOpen ? (
                                             <svg
@@ -130,9 +142,8 @@ export default function FAQSection() {
                                     id={`faq-panel-${index}`}
                                     role="region"
                                     aria-labelledby={`faq-button-${index}`}
-                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                                        isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                                    }`}
+                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                                        }`}
                                 >
                                     <div className="p-6 pt-0 text-gray-700 leading-relaxed border-t border-gray-50">
                                         {item.answer}

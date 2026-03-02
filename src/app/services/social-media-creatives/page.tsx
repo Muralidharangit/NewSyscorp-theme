@@ -47,7 +47,7 @@ export default function SocialMediaCreativesPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free Consultation
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -60,10 +60,11 @@ export default function SocialMediaCreativesPage() {
                     <div className="flex justify-center">
                         <Image
                             src="/images/services/social-media-creatives-1.png"
-                            alt="Social Media Creatives"
+                            alt="Social Media Creatives & Marketing Designs"
                             width={500}
                             height={400}
-                            className="w-full max-w-md object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain"
                         />
                     </div>
                 </div>
@@ -332,10 +333,11 @@ export default function SocialMediaCreativesPage() {
                         <div className="flex justify-center">
                             <Image
                                 src="/images/services/social-media-creatives-3.png"
-                                alt="Social Media Creatives Growth"
+                                alt="Social Media Creatives Growth Strategy"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
                     </div>
@@ -350,10 +352,11 @@ export default function SocialMediaCreativesPage() {
                         <div className="flex justify-center">
                             <Image
                                 src="/images/services/social-media-creatives-4.png"
-                                alt="Industries We Serve"
+                                alt="Industries We Serve – Social Media Creative Solutions"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
 

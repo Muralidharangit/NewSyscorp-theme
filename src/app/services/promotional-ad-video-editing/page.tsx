@@ -250,7 +250,6 @@ export default function PromotionalAdVideoEditingPage() {
             </section>
 
 
-
             {/* WHO WE WORK WITH SECTION */}
             <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">

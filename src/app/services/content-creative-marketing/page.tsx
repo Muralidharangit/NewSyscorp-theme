@@ -41,7 +41,7 @@ export default function ContentCreativeMarketingPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free SEO Audit
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -53,7 +53,7 @@ export default function ContentCreativeMarketingPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/Creative-Marketing.png"
+                            src="/images/services/Creative-Marketing-1.png"
                             alt="Content Marketing Service"
                             width={500}
                             height={400}
@@ -79,7 +79,7 @@ export default function ContentCreativeMarketingPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/custom-web.png"
+                                src="/images/services/Creative-Marketing-2.png"
                                 alt="Content Creative Marketing"
                                 width={500}
                                 height={400}
@@ -234,7 +234,7 @@ export default function ContentCreativeMarketingPage() {
                         {/* RIGHT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/Importance-of-Content.png"
+                                src="/images/services/Creative-Marketing-3.png"
                                 alt="Content Marketing Importance"
                                 width={400}
                                 height={400}
@@ -248,7 +248,7 @@ export default function ContentCreativeMarketingPage() {
             {/* PROCESS SECTION */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-14">
+                    <div className="text-center max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                             Industries We Work With
                         </h2>
@@ -261,7 +261,7 @@ export default function ContentCreativeMarketingPage() {
                         {/* LEFT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/digital-marketing-campaign.jpg"
+                                src="/images/services/Creative-Marketing-4.png"
                                 alt="Industries We Work With"
                                 width={500}
                                 height={400}

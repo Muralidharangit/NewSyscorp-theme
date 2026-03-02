@@ -35,7 +35,7 @@ export default function LogoBrandIdentityDesignPage() {
                             Logo & Brand Identity Design Company in Chennai
                         </h2>
 
-                        <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+                        <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl">
                             Syscorp is a creative and professional Logo & Brand Identity Design
                             company in Chennai helping businesses build powerful visual
                             identities that leave a lasting impression. Your logo and brand
@@ -48,7 +48,7 @@ export default function LogoBrandIdentityDesignPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free Consultation
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -60,11 +60,12 @@ export default function LogoBrandIdentityDesignPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/logo-brand-1.png"
-                            alt="Logo & Brand Identity Design"
+                            src="/images/services/Custom_Logo_Design-1.png"
+                            alt="Professional Logo & Brand Identity Design Services"
                             width={500}
                             height={400}
-                            className="w-full max-w-md object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain"
                         />
                     </div>
                 </div>
@@ -90,11 +91,12 @@ export default function LogoBrandIdentityDesignPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/brand-and-logo-2.png"
-                                alt="Brand Identity Design"
+                                src="/images/services/Custom_Logo_Design-2.webp"
+                                alt="Professional Brand Identity Design Services"
                                 width={400}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 400px"
+                                className="w-full max-w-[400px] h-auto object-contain"
                             />
                         </div>
 
@@ -239,11 +241,12 @@ export default function LogoBrandIdentityDesignPage() {
                         {/* RIGHT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/Brand-foucs.png"
-                                alt="Brand Identity Design Growth"
+                                src="/images/services/Custom_Logo_Design-4.webp"
+                                alt="Brand Identity Design Growth Strategy"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
                     </div>
@@ -257,11 +260,12 @@ export default function LogoBrandIdentityDesignPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/Brand-foucs.png"
-                                alt="Industries We Serve"
+                                src="/images/services/Custom_Logo_Design-7.png"
+                                alt="Industries We Serve – Logo & Branding Solutions"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
 

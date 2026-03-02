@@ -263,13 +263,14 @@ export default function VideoSEOOptimizationPage() {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         {/* LEFT IMAGE */}
-                        <div className="flex justify-center ">
+                        <div className="flex justify-center">
                             <Image
-                                src="/images/services/Video-Optimization-For-SEO-3.png"
-                                alt="Who We Work With"
+                                src="/images/services/Video-Optimization-For-SEO-2.webp"
+                                alt="Video SEO Optimization Services for Businesses in Chennai"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[400px] h-auto object-contain rounded-2xl"
                             />
                         </div>
 

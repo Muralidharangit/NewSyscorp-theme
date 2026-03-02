@@ -262,7 +262,7 @@ export default function YouTubeAdsPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/youtube-ads-3.png"
+                                src="/images/services/youtube-ads-44.png"
                                 alt="Industries We Serve"
                                 width={500}
                                 height={400}
@@ -290,7 +290,7 @@ export default function YouTubeAdsPage() {
                                 ].map((step, index) => (
                                     <div
                                         key={index}
-                                        className="flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:bg-green-50 hover:border-green-200 transition"
+                                        className="flex items-center gap-4"
                                     >
                                         <span className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#1a5cdd] to-[#00a3ff] text-white text-sm font-bold shadow">
                                             {index + 1}

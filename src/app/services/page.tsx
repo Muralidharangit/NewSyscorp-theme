@@ -43,7 +43,7 @@ export default function ServiceDetailsPage() {
             icon: <Megaphone size={22} />,
             services: [
                 { name: "Brand-Focused Marketing Strategy", href: "/services/brand-focused-marketing-strategy" },
-                { name: "Premium Social Media Management", href: "/services/social-media-management" },
+                { name: "Premium Social Media Management", href: "/services/premium-social-media-management" },
                 { name: "High-Impact Performance Ads", href: "/services/performance-ads" },
                 { name: "Content & Creative Marketing", href: "/services/content-marketing" },
                 { name: "Instagram Ads", href: "/services/instagram-ads" },

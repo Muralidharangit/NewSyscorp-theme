@@ -47,7 +47,7 @@ export default function TwitterAdsPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free SEO Audit
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -59,7 +59,7 @@ export default function TwitterAdsPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/twitter-x-4.webp"
+                            src="/images/services/twitter-ads-2.png"
                             alt="Twitter Ads Service"
                             width={500}
                             height={400}
@@ -72,7 +72,7 @@ export default function TwitterAdsPage() {
             {/* WHY CHOOSE SECTION */}
             <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-4xl mx-auto mb-14">
+                    <div className="text-center max-w-4xl mx-auto">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                             Why Choose Syscorp as Your Twitter (X) Ads Company in Chennai
                         </h2>
@@ -88,7 +88,7 @@ export default function TwitterAdsPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/twitter-x-1.webp"
+                                src="/images/services/twitter-ads-1.png"
                                 alt="Twitter Ads Company"
                                 width={400}
                                 height={400}
@@ -253,7 +253,7 @@ export default function TwitterAdsPage() {
                         {/* RIGHT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/twitter-x-2.webp"
+                                src="/images/services/twitter-ads-3.png"
                                 alt="Twitter Ads Growth"
                                 width={500}
                                 height={400}
@@ -271,7 +271,7 @@ export default function TwitterAdsPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/twitter-x-3.webp"
+                                src="/images/services/twitter-ads-4.png"
                                 alt="Industries We Serve"
                                 width={500}
                                 height={400}

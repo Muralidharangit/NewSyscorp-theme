@@ -15,7 +15,11 @@ import CommunitySection from "@/components/CommunitySection";
 import ServiceCompany from "@/components/ServiceCompany";
 import FAQSection from "@/components/FaqSection";
 import BlogSection from "@/components/BlogSection";
-
+export const metadata = {
+    title: "Best Software Company in Chennai | Syscorp",
+    description:
+        "Choose the best software company in Chennai – Syscorp delivers custom software development, web solutions, and digital transformation services for businesses of all sizes.",
+};
 export default function Home() {
     return (
         <div className="bg-zinc-50 font-sans dark:bg-black">

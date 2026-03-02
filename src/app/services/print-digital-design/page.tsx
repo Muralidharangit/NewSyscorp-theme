@@ -31,7 +31,7 @@ export default function PrintDigitalDesignPage() {
                 <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                     {/* LEFT CONTENT */}
                     <div>
-                        <h2 className="text-3xl font-bold mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                             Print & Digital Design Company in Chennai
                         </h2>
 
@@ -48,7 +48,7 @@ export default function PrintDigitalDesignPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free Consultation
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -61,10 +61,11 @@ export default function PrintDigitalDesignPage() {
                     <div className="flex justify-center">
                         <Image
                             src="/images/services/print-digital-design-1.png"
-                            alt="Print & Digital Design"
+                            alt="Professional Print & Digital Design Services in Chennai"
                             width={500}
                             height={400}
-                            className="w-full max-w-md object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain"
                         />
                     </div>
                 </div>
@@ -90,10 +91,11 @@ export default function PrintDigitalDesignPage() {
                         <div className="flex justify-center">
                             <Image
                                 src="/images/services/print-digital-design-2.png"
-                                alt="Why Choose Print & Digital Design"
+                                alt="Benefits of Professional Print & Digital Design Services in Chennai"
                                 width={400}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 400px"
+                                className="w-full max-w-[400px] h-auto object-contain"
                             />
                         </div>
 
@@ -333,10 +335,11 @@ export default function PrintDigitalDesignPage() {
                         <div className="flex justify-center">
                             <Image
                                 src="/images/services/print-digital-design-3.png"
-                                alt="Print Digital Design Growth"
+                                alt="Business Growth Through Professional Print & Digital Design Services in Chennai"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
                     </div>
@@ -350,11 +353,12 @@ export default function PrintDigitalDesignPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/print-digital-design-4.png"
-                                alt="Industries We Serve"
+                                src="/images/services/High-Impact-Performance-4.png"
+                                alt="Print & Digital Design Services for Multiple Industries in Chennai"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
 

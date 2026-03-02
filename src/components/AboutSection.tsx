@@ -82,13 +82,12 @@ export default function AboutSection() {
                         About Us
                     </span>
                     {/* Section Heading */}
-                    <h2 id="about-heading" className="heading font-black leading-[1.1] text-gray-900">
-                        Ensure The Success Of Your Business Venture
+                    <h2 id="about-heading" className="heading-1 font-extrabold text-[#0D3B31] leading-tight">
+                        Best Software Company in Chennai – Syscorp
                     </h2>
 
                     <p className="max-w-xl text-lg leading-relaxed text-gray-700">
-                        Business consulting is a dynamic field that helps organizations succeed through informed
-                        strategy, planning, and execution.
+                        As the Best Software Company in Chennai, Syscorp delivers custom software development, web applications, mobile apps, enterprise solutions designed to operations and maximize ROI.
                     </p>
 
                     {/* Features */}
@@ -99,21 +98,13 @@ export default function AboutSection() {
                                 className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-100 bg-white shadow-md"
                                 aria-hidden="true"
                             >
-                                {/* <svg
-                                    className="h-7 w-7 text-[#1A5CDD]"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2.5"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg> */}
+
                                 <img src="images/icons/1.svg" alt="" className="h-7 w-7 text-[#1A5CDD]" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900">Simplifying Complexity</h3>
+                                <h3 className="text-xl font-bold text-gray-900">Data-Driven Development Approach</h3>
                                 <p className="mt-1 text-sm leading-snug text-gray-700">
-                                    We transform complex business data into clear, actionable insights.
+                                    At Syscorp, Leverage analytics, technology insights, modern development frameworks to create high-performing solutions.
                                 </p>
                             </div>
                         </div>
@@ -124,21 +115,13 @@ export default function AboutSection() {
                                 className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-100 bg-white shadow-md"
                                 aria-hidden="true"
                             >
-                                {/* <svg
-                                    className="h-7 w-7 text-[#1A5CDD]"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2.5"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-                                </svg> */}
+
                                 <img src="images/icons/2.svg" alt="" className="h-7 w-7 text-[#1A5CDD]" />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900">Empowering Growth</h3>
+                                <h3 className="text-xl font-bold text-gray-900">Creativity Performance Focus</h3>
                                 <p className="mt-1 text-sm leading-snug text-gray-700">
-                                    Our strategies are designed to scale your business safely and sustainably.
+                                    Our expert team combines innovative design with performance optimization to ensure secure, scalable, and user-friendly.
                                 </p>
                             </div>
                         </div>

@@ -53,11 +53,12 @@ export default function FacebookAdsPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/fbadsdesign.png"
+                            src="/images/services/fb-ads-1.png"
                             alt="Facebook Ads Service"
                             width={500}
                             height={400}
-                            className="w-full max-w-md object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain rounded-2xl"
                         />
                     </div>
                 </div>
@@ -79,11 +80,12 @@ export default function FacebookAdsPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/fbicons.png"
+                                src="/images/services/fb-ads-2.png"
                                 alt="Facebook Ads Company"
                                 width={400}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 400px"
+                                className="w-full max-w-[400px] h-auto object-contain rounded-2xl"
                             />
                         </div>
 
@@ -247,11 +249,12 @@ export default function FacebookAdsPage() {
                         <div className="flex justify-center">
                             {/* <div className=""> */}
                             <Image
-                                src="/images/services/fbicons.png"
+                                src="/images/services/fb-ads-3.png"
                                 alt="Facebook Ads Company"
                                 width={450}
                                 height={400}
-                                className="w-full max-w-sm object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain rounded-2xl"
                             />
                             {/* </div> */}
                         </div>
@@ -267,11 +270,12 @@ export default function FacebookAdsPage() {
                         <div className="flex justify-center">
                             {/* <div className=""> */}
                             <Image
-                                src="/images/services/fbicons.png"
+                                src="/images/services/fb-ads-4.png"
                                 alt="Facebook Ads Company"
                                 width={450}
                                 height={400}
-                                className="w-full max-w-sm object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain rounded-2xl"
                             />
                             {/* </div> */}
                         </div>

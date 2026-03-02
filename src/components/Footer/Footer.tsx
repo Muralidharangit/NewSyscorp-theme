@@ -15,11 +15,11 @@ const Footer = () => {
                     {/* Content Side */}
                     <div className="flex-1 p-10 md:p-16 flex flex-col justify-center relative z-10">
                         <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                            Looking For Professional <br /> Business Consultant ?
+                            From Idea to Innovation.
+                          
                         </h2>
                         <p className="text-white/90 text-sm md:text-base max-w-xl leading-relaxed">
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                            blanditiis praesentium voluptatum deleniti atque corrupti dolorese
+                             We Develop Software That Performs, We transform your ideas into high-performing, custom-built digital products that drive real business growth.
                         </p>
                     </div>
 

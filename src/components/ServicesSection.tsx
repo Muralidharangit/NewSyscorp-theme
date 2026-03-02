@@ -1,43 +1,44 @@
 "use client";
 import Image from "next/image";
 import Button from "./ui/Button";
+import Link from "next/link";
 
 const services = [
     {
-        title: "Business Planning",
-        desc: "We help you create a solid plan for growth, minimizing risks and maximizing returns.",
+        title: "Custom Software Development",
+        desc: "We build scalable, secure, and high-performance software to your unique business requirements.",
         image: "/images/card/card-bg.png",
         img: "/images/icons/6.svg",
     },
     {
-        title: "Marketing & Branding",
-        desc: "We develop powerful branding and marketing strategies to grow your audience and impact.",
+        title: "Web Application Development",
+        desc: "Modern, responsive, SEO-friendly websites & enhance user experience & boost conversions.",
         image: "/images/card/card-bg.png",
         img: "/images/icons/7.svg",
     },
     {
-        title: "Sales Consulting",
-        desc: "We optimize your sales process to increase revenue and strengthen client relationships.",
+        title: "E-Commerce Development",
+        desc: "Powerful online store solutions with secure payment integration and user experience.",
         image: "/images/card/card-bg.png",
         img: "/images/icons/8.svg",
     },
 ];
 const services_1 = [
     {
-        title: "Seo Planning",
-        desc: "We help you create a solid plan for growth, minimizing risks and maximizing returns.",
+        title: "Software Maintenance & Support",
+        desc: "Ongoing monitoring, updates, and technical support to ensure peak performance and security.",
         image: "/images/card/card-bg.png",
         img: "/images/icons/9.svg",
     },
     {
-        title: "Marketing & Branding",
-        desc: "We develop powerful branding and marketing strategies to grow your audience and impact.",
+        title: "Search Engine Optimization",
+        desc: "Data-driven SEO strategies to improve Google rankings, increase organic traffic, and boost online visibility.",
         image: "/images/card/card-bg.png",
         img: "/images/icons/10.svg",
     },
     {
-        title: "Website Main",
-        desc: "We optimize your sales process to increase revenue and strengthen client relationships.",
+        title: "Digital Marketing Services",
+        desc: "Performance-based including Google Ads, social media marketing and lead generation campaigns.",
         image: "/images/card/card-bg.png",
         img: "/images/icons/11.svg",
     },
@@ -54,7 +55,7 @@ export default function ServicesSection() {
                             Our Services
                         </span>
                         <h2 id="services-heading" className="heading-1 font-extrabold text-gray-900 leading-[1.2]">
-                            Empower Your Business <br /> To Succeed & Grow
+                            we provide end-to-end technology solutions
                         </h2>
                     </div>
 
@@ -111,12 +112,18 @@ export default function ServicesSection() {
                                 <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
                                 <p className="text-gray-800 text-sm leading-relaxed">{service.desc}</p>
 
-                                <button
+                                {/* <button
                                     className="mt-4 bg-white text-gray-900 font-bold py-2.5 px-8 rounded-full shadow-sm border border-gray-100 text-sm transition-colors duration-300 hover:bg-[#0b6eda] hover:text-white cursor-pointer"
                                     aria-label={`Learn more about ${service.title}`}
                                 >
                                     Learn More
-                                </button>
+                                </button> */}
+                                <Link
+                                    href="/services"
+                                    className="mt-4 inline-block bg-white text-gray-900 font-bold py-2.5 px-8 rounded-full shadow-sm border border-gray-100 text-sm transition-colors duration-300 hover:bg-[#0b6eda] hover:text-white"
+                                >
+                                    Learn More
+                                </Link>
                             </div>
                         </div>
                     ))}
@@ -157,12 +164,18 @@ export default function ServicesSection() {
                                 <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
                                 <p className="text-gray-800 text-sm leading-relaxed">{service.desc}</p>
 
-                                <button
+                                {/* <button
                                     className="mt-4 bg-white text-gray-900 font-bold py-2.5 px-8 rounded-full shadow-sm border border-gray-100 text-sm transition-colors duration-300 hover:bg-[#0b6eda] hover:text-white cursor-pointer"
                                     aria-label={`Learn more about ${service.title}`}
                                 >
                                     Learn More
-                                </button>
+                                </button> */}
+                                <Link
+                                    href="/services"
+                                    className="mt-4 inline-block bg-white text-gray-900 font-bold py-2.5 px-8 rounded-full shadow-sm border border-gray-100 text-sm transition-colors duration-300 hover:bg-[#0b6eda] hover:text-white"
+                                >
+                                    Learn More
+                                </Link>
                             </div>
                         </div>
                     ))}

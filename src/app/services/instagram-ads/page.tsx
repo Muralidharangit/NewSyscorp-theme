@@ -41,7 +41,7 @@ export default function InstagramAdsPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free SEO Audit
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -79,7 +79,7 @@ export default function InstagramAdsPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/instagram-targeted-audience.webp"
+                                src="/images/services/instagram-add-1.png"
                                 alt="Instagram Ads Company"
                                 width={300}
                                 height={300}
@@ -222,7 +222,7 @@ export default function InstagramAdsPage() {
                                 ].map((step, index) => (
                                     <div
                                         key={index}
-                                        className="flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-gray-50 hover:bg-blue-50 hover:border-blue-200 transition"
+                                        className="flex items-center gap-4"
                                     >
                                         <span className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#1a5cdd] to-[#00a3ff] text-white text-sm font-bold shadow">
                                             {index + 1}
@@ -244,7 +244,7 @@ export default function InstagramAdsPage() {
                         <div className="flex justify-center">
                             {/* <div className="w-full flex justify-center"> */}
                             <Image
-                                src="/images/services/Brand-foucs.png"
+                                src="/images/services/instagram-add-2.png"
                                 alt="Instagram Ads Company"
                                 width={500}
                                 height={400}
@@ -266,7 +266,7 @@ export default function InstagramAdsPage() {
                         <div className="flex justify-center">
                             {/* <div className="w-full flex justify-center"> */}
                             <Image
-                                src="/images/services/Managed-E-commerce.svg"
+                                src="/images/services/instagram-add-3.png"
                                 alt="Instagram Ads Company"
                                 width={500}
                                 height={400}
@@ -295,7 +295,7 @@ export default function InstagramAdsPage() {
                                 ].map((step, index) => (
                                     <div
                                         key={index}
-                                        className="flex items-center gap-4 p-3 rounded-xl border border-gray-200 bg-white hover:bg-green-50 hover:border-green-200 transition"
+                                        className="flex items-center gap-4 "
                                     >
                                         <span className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#1a5cdd] to-[#00a3ff] text-white text-sm font-bold shadow">
                                             {index + 1}

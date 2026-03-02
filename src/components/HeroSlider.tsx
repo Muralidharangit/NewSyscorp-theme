@@ -15,28 +15,7 @@ const Hero = () => {
         <>
             {/* Hero Section */}
             <section className="relative w-full overflow-hidden bg-[#020826] pt-20 pb-32">
-                {/* Animated Background Globes */}
-                {/* <div className="absolute -right-32 top-0 h-[500px] w-[500px] opacity-40 animate-[spin_60s_linear_infinite] pointer-events-none">
-                    <Image
-                        src="/images/home/globe.png"
-                        alt="Globe Decor"
-                        width={600}
-                        height={600}
-                        priority
-                        className="h-full w-full object-cover"
-                    />
-                </div>
 
-                <div className="absolute -left-32 top-0 h-[600px] w-[600px] opacity-40 animate-[spin_80s_linear_reverse_infinite] pointer-events-none">
-                    <Image
-                        src="/images/home/globe.png"
-                        alt="Globe Decor"
-                        width={400}
-                        height={400}
-                        priority
-                        className="h-full w-full object-cover"
-                    />
-                </div> */}
                 <div
                     className="
     absolute 
@@ -94,12 +73,11 @@ const Hero = () => {
                     </div>
 
                     <h1 className="heading mx-auto mb-6 max-w-4xl font-bold tracking-tight text-white lg:leading-[1.15]">
-                        Powerful, scalable & intelligent security solutions that adapt to new threats
+                        Best Software Company in Chennai Scalable & Performance Solutions
                     </h1>
 
                     <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-400">
-                        Our experts combine advanced technology with years of experience to deliver end-to-end
-                        protection, ensuring your business runs securely and without interruption.
+                        As the Best Software Company in Chennai, we combine innovation, technology & strategic thinking to build secure, high-performing digital systems.
                     </p>
 
                     <button className="rounded-full bg-blue-500 px-10 py-3 text-lg font-bold text-white transition-all hover:bg-blue-600 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] active:scale-95">

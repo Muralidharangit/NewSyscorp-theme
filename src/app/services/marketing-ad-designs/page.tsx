@@ -47,7 +47,7 @@ export default function MarketingAdDesignsPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free Consultation
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -60,10 +60,12 @@ export default function MarketingAdDesignsPage() {
                     <div className="flex justify-center">
                         <Image
                             src="/images/services/marketing-ads-11.png"
-                            alt="Marketing & Ad Designs"
+                            alt="Marketing & Ad Designs Company in Chennai – Creative Advertising Services"
                             width={500}
                             height={400}
-                            className="w-full max-w-md object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain"
+                            priority
                         />
                     </div>
                 </div>
@@ -89,11 +91,12 @@ export default function MarketingAdDesignsPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/marketing-ads-12.png"
-                                alt="Marketing & Ad Designs Company"
+                                src="/images/services/marketing-ads-4.webp"
+                                alt="Professional Marketing & Ad Designs Company in Chennai"
                                 width={400}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 400px"
+                                className="w-full max-w-[400px] h-auto object-contain"
                             />
                         </div>
 
@@ -228,13 +231,14 @@ export default function MarketingAdDesignsPage() {
                         </div>
 
                         {/* RIGHT IMAGE */}
-                        <div className="flex justify-center">
+                        <div className="flex justify-center md:justify-end">
                             <Image
-                                src="/images/services/marketing-ads-13.png"
-                                alt="Marketing & Ad Designs"
+                                src="/images/services/marketing-ads-3.webp"
+                                alt="High-Conversion Marketing & Ad Designs in Chennai"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
                     </div>
@@ -249,10 +253,11 @@ export default function MarketingAdDesignsPage() {
                         <div className="flex justify-center">
                             <Image
                                 src="/images/services/marketing-ads-14.png"
-                                alt="Marketing & Ad Designs"
+                                alt="Creative Digital Marketing & Ad Design Services in Chennai"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
 
@@ -345,10 +350,11 @@ export default function MarketingAdDesignsPage() {
                         <div className="flex justify-center">
                             <Image
                                 src="/images/services/marketing-ads-15.png"
-                                alt="Marketing & Ad Designs"
+                                alt="Professional Advertising Campaign Design Services in Chennai"
                                 width={500}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 500px"
+                                className="w-full max-w-[500px] h-auto object-contain"
                             />
                         </div>
                     </div>

@@ -57,11 +57,13 @@ export default function HostingDomainSetup() {
 
                     <div className="flex justify-center md:justify-end">
                         <Image
-                            src="/images/services/domain-hosting.png"
-                            alt="Hosting & Domain Setup"
+                            src="/images/services/hosting-domain.png"
+                            alt="Hosting & Domain Setup Services"
                             width={500}
                             height={400}
-                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain"
+                            priority
                         />
                     </div>
                 </div>
@@ -72,11 +74,12 @@ export default function HostingDomainSetup() {
                 <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/custom-web.png"
-                            alt="Custom Website Design Company in Chennai"
+                            src="/images/services/Hosting-domain-1.webp"
+                            alt="Custom Website Design Company in Chennai – Hosting & Domain Services"
                             width={500}
                             height={400}
-                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain"
                             priority
                         />
                     </div>
@@ -201,12 +204,12 @@ export default function HostingDomainSetup() {
 
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/Custom-Website.webp"
-                            alt="Custom Website Design"
+                            src="/images/services/hosting-domain-5.png"
+                            alt="Custom Website Design and Hosting Services"
                             width={480}
                             height={420}
-                            className="object-contain"
-                            priority={false}
+                            sizes="(max-width: 768px) 100vw, 480px"
+                            className="w-full max-w-[480px] h-auto object-contain"
                         />
                     </div>
                 </div>

@@ -50,10 +50,13 @@ export default function Ecommerce() {
 
                         <Image
                             src="/images/services/e-commerce-business.png"
-                            alt="E-Commerce Website Development"
+                            alt="E-Commerce Website Development Company in Chennai"
                             width={500}
                             height={400}
                             className="object-contain"
+                            priority
+                            fetchPriority="high"
+                            sizes="(max-width: 768px) 100vw, 500px"
                         />
                     </div>
                 </div>
@@ -71,6 +74,7 @@ export default function Ecommerce() {
                             height={300}
                             className="object-contain"
                             priority
+                            sizes="(max-width: 768px) 100vw, 400px"
                         />
                     </div>
 
@@ -193,12 +197,10 @@ export default function Ecommerce() {
                     </div>
 
                     <div className="flex justify-center">
-                        <Image
+                        <img
                             src="/images/services/Managed-E-commerce.svg"
-                            alt="E-Commerce Website Development"
-                            width={500}
-                            height={400}
-                            className="object-contain"
+                            alt="E-Commerce Website Development Company in Chennai"
+                            className="w-full max-w-[500px] h-auto object-contain"
                         />
                     </div>
                 </div>

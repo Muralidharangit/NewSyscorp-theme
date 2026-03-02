@@ -5,12 +5,12 @@ import Button from "./ui/Button";
 
 export default function CommunitySection() {
     const advantages = [
-        "Guiding Your Business Success",
-        "Available 24/7 to Assist You Anytime",
-        "Evaluate Issues Hindering Your Progress",
-        "Expert Consultants Expertise",
-        "Strategic Insights for Business Growth",
-        "Free Consultation to Collaboration",
+        "ROI-Focused Campaigns",
+        "Creative + Analytical Approach",
+        "Transparent Reporting",
+        "Experienced Digital Experts",
+        "Complete Digital Solutions Under One Roof",
+        "Faster Response & Dedicated Support",
     ];
 
     return (
@@ -27,7 +27,7 @@ export default function CommunitySection() {
                         </span>
 
                         <h2 id="community-heading" className="heading-1 font-extrabold text-gray-900 leading-tight">
-                            Build a Thriving Community and Unlock Limitless Possibilities
+                            We build strategies that deliver measurable results.
                         </h2>
                     </div>
 
@@ -58,9 +58,9 @@ export default function CommunitySection() {
                             <div className="bg-gradient-to-r from-[#34A5F6] to-[#1E87E7] p-8 rounded-2xl text-white shadow-xl">
                                 <h3 className="text-2xl font-bold mb-4">Headquarter</h3>
                                 <p className="leading-relaxed">
-                                    2715 Ash Dr. San Jose, South Dakota
+                                    No.151 Raahat plaza Arcot road, <br />Ottagapalayam Vadapalani
                                     <br />
-                                    83475
+                                    Chennai-26.
                                 </p>
                             </div>
 
@@ -68,8 +68,8 @@ export default function CommunitySection() {
                             <div className="bg-white p-8 rounded-2xl shadow-sm border border-blue-50">
                                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Email Us</h3>
                                 <div className="space-y-1 text-gray-700 font-medium">
-                                    <p>yourtheme@gmail.com</p>
-                                    <p>helptheme@gmail.com</p>
+                                    <p>syscorptechno@gmail.com</p>
+                                    <p>hr@itsk.in</p>
                                 </div>
                             </div>
                         </div>

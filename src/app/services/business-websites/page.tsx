@@ -82,16 +82,16 @@ const BusinessWebsites = () => {
                             </p>
                         </div>
 
-                        <div className="flex justify-center md:justify-end">
-                            <Image
-                                src="/images/services/Bussiness-website-1.png"
-                                alt="Responsive UI UX Design Company in Chennai"
-                                width={500}
-                                height={400}
-                                className="object-cover w-full h-auto"
-                                priority
-                            />
-                        </div>
+                        <Image
+                            src="/images/services/Bussiness-website-1.png"
+                            alt="Responsive UI UX Design Company in Chennai"
+                            width={500}
+                            height={400}
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            priority
+                            fetchPriority="high"
+                        />
                     </div>
                 </div>
             </section>
@@ -101,13 +101,15 @@ const BusinessWebsites = () => {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="flex justify-center">
-                            <Image
-                                src="/images/services/custom-web.png"
-                                alt="Responsive UI UX Company in Chennai"
-                                width={500}
-                                height={400}
-                                className="object-contain"
-                            />
+                            <div className="relative w-full max-w-[500px] h-[350px]">
+                                <Image
+                                    src="/images/services/Bussiness-website-2.png"
+                                    alt="Responsive UI UX Company in Chennai"
+                                    fill
+                                    className="object-contain"
+                                    sizes="(max-width: 768px) 100vw, 500px"
+                                />
+                            </div>
                         </div>
 
                         <div>
@@ -182,35 +184,32 @@ const BusinessWebsites = () => {
                         </p>
                     </div>
 
-                    <div className="">
-                        <div className="flex justify-center md:justify-end">
-                            <Image
-                                src="/images/services/Custom-Website.webp"
-                                alt="Responsive UI UX Design Company in Chennai"
-                                width={500}
-                                height={400}
-                                className="object-cover w-full h-auto"
-                                priority
-                            />
-                        </div>
+
+                    <div className="relative w-full max-w-[500px] h-[350px] mx-auto md:ml-auto">
+                        <Image
+                            src="/images/services/Bussiness-website-4.png"
+                            alt="Responsive UI UX Design Company in Chennai"
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                        />
                     </div>
+
                 </div>
             </section>
 
             {/* Process Section */}
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-                    <div className="">
-                        <div className="flex justify-center md:justify-end">
-                            <Image
-                                src="/images/services/Custom-Website.webp"
-                                alt="Responsive UI UX Design Company in Chennai"
-                                width={500}
-                                height={400}
-                                className="object-cover w-full h-auto"
-                                priority
-                            />
-                        </div>
+                    <div className="flex justify-center md:justify-end">
+                        <Image
+                            src="/images/services/Custom-Website.webp"
+                            alt="Custom Website Development Company in Chennai"
+                            width={500}
+                            height={400}
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                        />
                     </div>
                     <div>
                         <h2 className="text-3xl font-bold mb-6">Our Business Website Development Process</h2>

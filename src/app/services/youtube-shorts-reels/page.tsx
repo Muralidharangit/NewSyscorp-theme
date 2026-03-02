@@ -47,7 +47,7 @@ export default function YouTubeShortsReelsEditingPage() {
 
                         <div className="mt-8 flex gap-4 flex-wrap">
                             <button className="bg-[#00A3FF] text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-blue-600 transition">
-                                Get Free Consultation
+                                Get Quotation
                             </button>
 
                             <button className="border border-gray-300 px-6 py-3 rounded-full font-semibold text-gray-800 hover:bg-gray-100 transition">
@@ -59,11 +59,12 @@ export default function YouTubeShortsReelsEditingPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/YouTube-Shorts-Reels-1.png"
-                            alt="YouTube Shorts & Reels Editing"
+                            src="/images/services/youtube-shorts-11.png"
+                            alt="Professional YouTube Shorts & Instagram Reels Video Editing Services in Chennai"
                             width={500}
                             height={400}
-                            className="w-full max-w-md object-contain"
+                            sizes="(max-width: 768px) 100vw, 500px"
+                            className="w-full max-w-[500px] h-auto object-contain rounded-2xl"
                         />
                     </div>
                 </div>
@@ -90,11 +91,12 @@ export default function YouTubeShortsReelsEditingPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/YouTube-Shorts-Reels-2.png"
-                                alt="Shorts & Reels Editing Company"
+                                src="/images/services/YouTube-Shorts-1.png"
+                                alt="Creative YouTube Shorts & Instagram Reels Editing Company in Chennai"
                                 width={400}
                                 height={400}
-                                className="w-full max-w-md object-contain"
+                                sizes="(max-width: 768px) 100vw, 400px"
+                                className="w-full max-w-[400px] h-auto object-contain rounded-2xl"
                             />
                         </div>
 
@@ -239,7 +241,7 @@ export default function YouTubeShortsReelsEditingPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/YouTube-Shorts-Reels-3.png"
+                            src="/images/services/YouTube-Shorts-3.png"
                             alt="Shorts & Reels Growth"
                             width={500}
                             height={400}
