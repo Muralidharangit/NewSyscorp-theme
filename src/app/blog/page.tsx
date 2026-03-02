@@ -21,6 +21,7 @@ export default function BlogPage() {
             try {
                 const postsRes = await fetchStrapi("blog-posts", {
                     populate: "*",
+                    "sort[0]": "date:desc",
                 });
 
                 const postsData = postsRes?.data || [];
