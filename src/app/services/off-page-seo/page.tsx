@@ -67,10 +67,10 @@ export default function OffPageSEOPage() {
 
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/off-page.png"
+                            src="/images/services_images/keyword_research_10.png"
                             alt="On Page SEO Service"
                             width={500}
-                            height={400}
+                            height={700}
                             className="w-full max-w-md object-cover"
                         />
                     </div>
@@ -97,7 +97,7 @@ export default function OffPageSEOPage() {
                         {/* LEFT SIDE - IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/off-page.png"
+                                src="/images/services_images/off_page_001.png"
                                 alt="On Page SEO Service"
                                 width={500}
                                 height={400}

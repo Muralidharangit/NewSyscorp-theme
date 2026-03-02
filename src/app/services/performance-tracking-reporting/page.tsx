@@ -59,7 +59,7 @@ export default function PerformanceTrackingReportingPage() {
                     {/* RIGHT IMAGE */}
                     <div className="flex justify-center">
                         <Image
-                            src="/images/services/performance-tracking.png"
+                            src="/images/services_images/link_building_06.png"
                             alt="On Page SEO Service"
                             width={500}
                             height={400}
@@ -85,7 +85,7 @@ export default function PerformanceTrackingReportingPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/Performance.png"
+                                src="/images/services_images/performance_001.png"
                                 alt="On Page SEO Service"
                                 width={500}
                                 height={400}
@@ -234,7 +234,7 @@ export default function PerformanceTrackingReportingPage() {
                         {/* RIGHT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services_images/keyword_research_013.png"
                                 alt="Local SEO Importance"
                                 width={500}
                                 height={400}
@@ -261,7 +261,7 @@ export default function PerformanceTrackingReportingPage() {
                         {/* LEFT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services_images/performance_003.png"
                                 alt="Local SEO Process"
                                 width={500}
                                 height={400}
@@ -281,7 +281,7 @@ export default function PerformanceTrackingReportingPage() {
                                     "Optimization recommendations",
                                 ].map((step, index) => (
                                     <div key={index} className="flex items-center gap-4">
-                                        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#00A3FF] text-white font-bold text-lg shadow-md flex-shrink-0">
+                                        <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#00A3FF] text-white font-bold text-lg shadow-md flex-shrink-0">
                                             {index + 1}
                                         </div>
 
@@ -349,7 +349,7 @@ export default function PerformanceTrackingReportingPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/domain-hosting.png"
+                                src="/images/services_images/performance_002.png"
                                 alt="On Page SEO Service"
                                 width={500}
                                 height={400}

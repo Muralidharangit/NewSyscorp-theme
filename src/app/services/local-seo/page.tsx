@@ -87,7 +87,7 @@ export default function TechnicalSEOPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services_images/keyword_research_020.png"
                                 alt="On Page SEO Service"
                                 width={500}
                                 height={400}
@@ -245,7 +245,7 @@ export default function TechnicalSEOPage() {
                         {/* RIGHT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services_images/keyword_research_021.png"
                                 alt="Local SEO Importance"
                                 width={500}
                                 height={400}
@@ -272,7 +272,7 @@ export default function TechnicalSEOPage() {
                         {/* LEFT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services_images/keyword_research_019.png"
                                 alt="Local SEO Process"
                                 width={500}
                                 height={400}
@@ -292,7 +292,7 @@ export default function TechnicalSEOPage() {
                                     "Performance tracking and reporting"
                                 ].map((step, index) => (
                                     <div key={index} className="flex items-center gap-4">
-                                        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#00A3FF] text-white font-bold text-lg shadow-md flex-shrink-0">
+                                        <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#00A3FF] text-white font-bold text-lg shadow-md flex-shrink-0">
                                             {index + 1}
                                         </div>
 
@@ -360,7 +360,7 @@ export default function TechnicalSEOPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/domain-hosting.png"
+                                src="/images/services_images/keyword_research_022.png"
                                 alt="On Page SEO Service"
                                 width={500}
                                 height={400}

@@ -86,7 +86,7 @@ export default function TechnicalSEOPage() {
                         {/* LEFT IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services_images/keyword_research_15.png"
                                 alt="On Page SEO Service"
                                 width={500}
                                 height={400}
@@ -241,7 +241,7 @@ export default function TechnicalSEOPage() {
                         {/* RIGHT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/technical-seo.webp"
+                                src="/images/services_images/keyword_research_018.png"
                                 alt="Technical SEO Importance"
                                 width={500}
                                 height={400}
@@ -268,7 +268,7 @@ export default function TechnicalSEOPage() {
                         {/* LEFT SIDE IMAGE */}
                         <div className="flex justify-center">
                             <Image
-                                src="/images/services/keyword.webp"
+                                src="/images/services_images/keyword_research_017.png"
                                 alt="Technical SEO Process"
                                 width={500}
                                 height={400}
@@ -288,7 +288,7 @@ export default function TechnicalSEOPage() {
                                     "Performance monitoring and reporting"
                                 ].map((step, index) => (
                                     <div key={index} className="flex items-center gap-4">
-                                        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#00A3FF] text-white font-bold text-lg shadow-md flex-shrink-0">
+                                        <div className="w-9 h-9  flex items-center justify-center rounded-full bg-[#00A3FF] text-white font-bold text-lg shadow-md flex-shrink-0">
                                             {index + 1}
                                         </div>
 
