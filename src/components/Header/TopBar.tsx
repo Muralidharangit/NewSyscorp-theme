@@ -9,12 +9,12 @@ export default function TopBar() {
                 <div className="flex flex-col items-center justify-between gap-2 py-2 md:flex-row">
                     {/* Left */}
                     <div className="flex flex-wrap items-center gap-4">
-                        <a href="mailto:sales@itsk.in" className="flex items-center gap-2">
+                        <a href="mailto:sales@itsk.in" className="flex items-center gap-2 hover:text-[#00A3FF] transition">
                             <Mail size={16} />
                             <span>sales@itsk.in</span>
                         </a>
 
-                        <a href="tel:+919344430402" className="flex items-center gap-2">
+                        <a href="tel:+919344430402" className="flex items-center gap-2 hover:text-[#00A3FF] transition">
                             <Phone size={16} />
                             <span>+91 93444 30402</span>
                         </a>
@@ -25,7 +25,7 @@ export default function TopBar() {
                         <a
                             href="#"
                             aria-label="Visit our Facebook page"
-                            className="hover:text-blue-400 transition rounded"
+                            className="hover:text-[#00A3FF] transition rounded"
                         >
                             <Facebook size={16} />
                         </a>
@@ -33,7 +33,7 @@ export default function TopBar() {
                         <a
                             href="#"
                             aria-label="Visit our Twitter profile"
-                            className="hover:text-sky-400 transition rounded"
+                            className="hover:text-[#00A3FF] transition rounded"
                         >
                             <Twitter size={16} />
                         </a>
@@ -41,7 +41,7 @@ export default function TopBar() {
                         <a
                             href="#"
                             aria-label="Visit our Instagram profile"
-                            className="hover:text-pink-400 transition rounded"
+                            className="hover:text-[#00A3FF] transition rounded"
                         >
                             <Instagram size={16} />
                         </a>
@@ -49,7 +49,7 @@ export default function TopBar() {
                         <a
                             href="#"
                             aria-label="Visit our LinkedIn page"
-                            className="hover:text-blue-500 transition rounded"
+                            className="hover:text-[#00A3FF] transition rounded"
                         >
                             <Linkedin size={16} />
                         </a>

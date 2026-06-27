@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone, ChevronRight, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
     const year = new Date().getFullYear();
@@ -10,10 +10,10 @@ const Footer = () => {
     return (
         <footer className="bg-[#000B2E] text-white pt-20 relative font-sans">
             {/* CTA BANNER */}
-            <div className="max-w-7xl mx-auto px-6 relative z-20 -mb-32">
+            <div className="max-w-7xl mx-auto px-6 relative z-20 -mb-24 sm:-mb-32">
                 <div className="bg-[#00A3FF] rounded-xl flex flex-col lg:flex-row overflow-hidden min-h-[350px] relative shadow-2xl">
                     {/* Content Side */}
-                    <div className="flex-1 p-10 md:p-16 flex flex-col justify-center relative z-10">
+                    <div className="flex-1 p-6 sm:p-10 md:p-16 flex flex-col justify-center relative z-10">
                         <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
                             From Idea to Innovation.
                           
@@ -24,7 +24,7 @@ const Footer = () => {
                     </div>
 
                     {/* Action Side */}
-                    <div className="lg:w-1/3 flex flex-col items-center justify-center p-10 relative bg-[#00A3FF]">
+                    <div className="lg:w-1/3 flex flex-col items-center justify-center p-6 sm:p-10 relative bg-[#00A3FF]">
                         <div
                             className="absolute inset-0 opacity-20 pointer-events-none"
                             style={{
@@ -58,7 +58,7 @@ const Footer = () => {
             </div>
 
             {/* MAIN FOOTER CONTENT */}
-            <div className="bg-[#000B2E] pt-48 pb-16">
+            <div className="bg-[#000B2E] pt-36 sm:pt-48 pb-16">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
                         {/* Company Logo & Newsletter */}
@@ -99,6 +99,22 @@ const Footer = () => {
                                     </svg>
                                 </button>
                             </div>
+
+                            {/* Social Icons */}
+                            <div className="flex gap-4 pt-4">
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00A3FF] transition-colors" aria-label="Facebook">
+                                    <Facebook size={18} />
+                                </a>
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00A3FF] transition-colors" aria-label="Twitter">
+                                    <Twitter size={18} />
+                                </a>
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00A3FF] transition-colors" aria-label="Instagram">
+                                    <Instagram size={18} />
+                                </a>
+                                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00A3FF] transition-colors" aria-label="LinkedIn">
+                                    <Linkedin size={18} />
+                                </a>
+                            </div>
                         </div>
 
                         {/* Navigation Columns */}
@@ -106,23 +122,27 @@ const Footer = () => {
                             <h3 className="text-lg font-bold">Resource</h3>
                             <ul className="space-y-4 text-gray-400 text-sm">
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Product
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Product</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Services
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Services</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        About Us
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>About Us</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Benefits
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Benefits</span>
                                     </Link>
                                 </li>
                             </ul>
@@ -132,23 +152,27 @@ const Footer = () => {
                             <h3 className="text-lg font-bold">Quick Link</h3>
                             <ul className="space-y-4 text-gray-400 text-sm">
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Features
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Features</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Pricing Plan
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Pricing Plan</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Best Program
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Best Program</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Press Kit
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Press Kit</span>
                                     </Link>
                                 </li>
                             </ul>
@@ -158,23 +182,27 @@ const Footer = () => {
                             <h3 className="text-lg font-bold">Company</h3>
                             <ul className="space-y-4 text-gray-400 text-sm">
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        About
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>About</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Team Member
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Team Member</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Reviews
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Reviews</span>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="hover:text-white transition-colors">
-                                        Latest News
+                                    <Link href="#" className="flex items-center gap-2 hover:text-[#00A3FF] transition-colors group">
+                                        <ChevronRight size={14} className="text-[#00A3FF] opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0" />
+                                        <span>Latest News</span>
                                     </Link>
                                 </li>
                             </ul>
@@ -244,7 +272,7 @@ const Footer = () => {
                         Reserved
                     </p>
 
-                    <div className="flex gap-6 mt-4 md:mt-0">
+                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 md:mt-0">
                         <Link href="/privacy-policy" className="hover:text-white transition">
                             Privacy policy
                         </Link>

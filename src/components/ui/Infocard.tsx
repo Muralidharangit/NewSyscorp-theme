@@ -2,76 +2,109 @@
 import React from "react";
 
 interface InfoCardProps {
-    image: string;
-    badge: string;
-    title: string;
-    admin: string;
-    comments: string;
+  image: string;
+  badge: string;
+  title: string;
+  admin: string;
+  comments: string;
 }
 
 export const InfoCard: React.FC<InfoCardProps> = ({ image, badge, title, admin, comments }) => {
-    return (
-        <article className="group bg-white rounded-[10px] overflow-hidden hover:shadow-xl transition-all duration-300 border border-transparent hover:border-blue-50 h-full flex flex-col">
-            {/* Image Container */}
-            <div className="relative h-64 overflow-hidden">
-                <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute top-0 right-0 bg-[#1554DA] text-white text-sm font-bold px-6 py-3 rounded-bl-2xl">
-                    {badge}
-                </div>
-            </div>
+  return (
+    <article className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-[#1A5CDD]/20 hover:shadow-2xl transition-all duration-400 flex flex-col h-full"
+      style={{ transitionDuration: "350ms" }}>
+      {/* Image */}
+      <div className="relative h-56 overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        {/* Color overlay on hover */}
+        <div className="absolute inset-0 bg-[#1A5CDD]/0 group-hover:bg-[#1A5CDD]/10 transition-all duration-500" />
 
-            {/* Content Area */}
-            <div className="p-4 sm:p-6 md:p-6 space-y-5 flex flex-col flex-grow bg-[#F4F8FF]">
-                <div className="flex items-center justify-between gap-6 text-sm text-gray-600 font-medium">
-                    <div className="flex items-center gap-2">
-                        <svg className="w-4 h-4 text-[#258FEB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                            />
-                        </svg>
-                        By {admin}
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <svg className="w-4 h-4 text-[#258FEB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                            />
-                        </svg>
-                        Comments ({comments})
-                    </div>
-                </div>
+        {/* Date badge — glassmorphic */}
+        <div
+          className="absolute top-4 left-4 text-xs font-bold px-4 py-2 rounded-full text-white"
+          style={{
+            background: "rgba(5,12,31,0.75)",
+            backdropFilter: "blur(12px)",
+            border: "1px solid rgba(255,255,255,0.15)",
+          }}
+        >
+          {badge}
+        </div>
 
-                <h3
-                    className="card-heading font-bold text-[#0D1C16] leading-snug group-hover:text-[#1A5CDD] transition-colors cursor-pointer"
-                    tabIndex={0}
-                >
-                    {title}
-                </h3>
+        {/* Tag pill (top-right) */}
+        <div
+          className="absolute top-4 right-4 text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full text-[#4A9EFF]"
+          style={{
+            background: "rgba(26,92,221,0.15)",
+            backdropFilter: "blur(8px)",
+            border: "1px solid rgba(74,158,255,0.2)",
+          }}
+        >
+          Blog
+        </div>
+      </div>
 
-                <div className="mx-auto pt-4">
-                    <button className="bg-gradient-to-r from-[#3FB5FD] to-[#0B6EDA] hover:bg-[#1A5CDD] text-white font-bold py-3 px-8 rounded-full flex items-center gap-2 transition-all active:scale-95">
-                        Read More
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2.5"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </article>
-    );
+      {/* Content */}
+      <div className="p-7 flex flex-col gap-4 flex-grow bg-white">
+        {/* Meta */}
+        <div className="flex items-center gap-5 text-xs text-gray-400 font-bold uppercase tracking-wider">
+          <span className="flex items-center gap-1.5">
+            <svg className="w-3.5 h-3.5 text-[#1A5CDD]/70" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0" />
+            </svg>
+            By {admin}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <svg className="w-3.5 h-3.5 text-[#1A5CDD]/70" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 18" />
+            </svg>
+            {comments} Comments
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3
+          className="text-lg font-extrabold text-gray-900 leading-snug group-hover:text-[#1A5CDD] transition-colors duration-300 line-clamp-2"
+          tabIndex={0}
+        >
+          {title}
+        </h3>
+
+        {/* Divider */}
+        <div className="h-px bg-gray-100 mt-auto mb-1" />
+
+        {/* Read More */}
+        <div className="flex items-center justify-between">
+          <span
+            className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#1A5CDD] uppercase tracking-widest group-hover:text-blue-700 transition-colors"
+          >
+            Read More
+            <svg
+              className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform duration-300"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </span>
+
+          {/* Arrow circle */}
+          <div
+            className="w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0"
+            style={{ background: "linear-gradient(135deg, #1A5CDD, #0D3FA6)" }}
+          >
+            <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
 };

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
 
@@ -41,15 +41,22 @@ import {
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 24);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
     const isActive = (href: string) => pathname === href;
 
     const navTextStyles = "text-[16px] font-semibold text-gray-700";
 
-    const linkBase = `${navTextStyles} relative py-2 transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-blue-600 after:transition-all after:duration-300 hover:after:w-full`;
+    const linkBase = `${navTextStyles} relative py-2 transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#00A3FF] after:transition-all after:duration-300 hover:text-[#00A3FF] hover:after:w-full`;
 
-    const activeLink = "text-blue-600 after:w-full";
+    const activeLink = "text-[#00A3FF] after:w-full";
 
     const seoServices = [
         { name: "Custom Website Design", href: "/services/custom-website-design", icon: Palette },
@@ -92,12 +99,20 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="sticky top-0 z-50 bg-white shadow-sm">
+        <nav
+            className="sticky top-0 z-50 transition-all duration-300"
+            style={{
+                background: scrolled ? "rgba(255,255,255,0.92)" : "#ffffff",
+                backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
+                WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
+                boxShadow: scrolled ? "0 1px 40px rgba(0,0,0,0.07), 0 1px 0 rgba(0,0,0,0.04)" : "0 1px 0 rgba(0,0,0,0.06)",
+            }}
+        >
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-20">
                     {/* LOGO */}
                     <Link href="/">
-                        <img src="/images/logo/logo.webp" alt="Logo" className="h-10" />
+                        <img src="/images/logo/logo.webp" alt="Syscorp Logo" className="h-10 w-auto object-contain" />
                     </Link>
 
                     {/* DESKTOP MENU */}
@@ -123,9 +138,9 @@ export default function Navbar() {
                                             className={`
                         ${navTextStyles}
                         !bg-transparent !p-0 !h-auto 
-                        hover:!bg-transparent hover:text-blue-600 
-                        focus:!bg-transparent focus:text-blue-600
-                        data-[state=open]:!bg-transparent data-[state=open]:text-blue-600
+                        hover:!bg-transparent hover:text-[#00A3FF] 
+                        focus:!bg-transparent focus:text-[#00A3FF]
+                        data-[state=open]:!bg-transparent data-[state=open]:text-[#00A3FF]
                         data-[active]:!bg-transparent
                         transition-colors
                         group
@@ -289,7 +304,7 @@ export default function Navbar() {
                     }`}
             >
                 <div className="flex items-center justify-between p-6">
-                    <img src="/images/logo/logo.webp" className="h-8" alt="Logo" />
+                    <img src="/images/logo/logo.webp" className="h-8 w-auto object-contain" alt="Syscorp Logo" />
                     <button
                         onClick={() => setOpen(false)}
                         aria-label="Close menu"

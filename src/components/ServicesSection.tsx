@@ -1,186 +1,213 @@
 "use client";
 import Image from "next/image";
-import Button from "./ui/Button";
 import Link from "next/link";
 
 const services = [
-    {
-        title: "Custom Software Development",
-        desc: "We build scalable, secure, and high-performance software to your unique business requirements.",
-        image: "/images/card/card-bg.png",
-        img: "/images/icons/6.svg",
-    },
-    {
-        title: "Web Application Development",
-        desc: "Modern, responsive, SEO-friendly websites & enhance user experience & boost conversions.",
-        image: "/images/card/card-bg.png",
-        img: "/images/icons/7.svg",
-    },
-    {
-        title: "E-Commerce Development",
-        desc: "Powerful online store solutions with secure payment integration and user experience.",
-        image: "/images/card/card-bg.png",
-        img: "/images/icons/8.svg",
-    },
-];
-const services_1 = [
-    {
-        title: "Software Maintenance & Support",
-        desc: "Ongoing monitoring, updates, and technical support to ensure peak performance and security.",
-        image: "/images/card/card-bg.png",
-        img: "/images/icons/9.svg",
-    },
-    {
-        title: "Search Engine Optimization",
-        desc: "Data-driven SEO strategies to improve Google rankings, increase organic traffic, and boost online visibility.",
-        image: "/images/card/card-bg.png",
-        img: "/images/icons/10.svg",
-    },
-    {
-        title: "Digital Marketing Services",
-        desc: "Performance-based including Google Ads, social media marketing and lead generation campaigns.",
-        image: "/images/card/card-bg.png",
-        img: "/images/icons/11.svg",
-    },
+  {
+    title: "Custom Software Development",
+    desc: "Scalable, secure, high-performance software tailored to your unique business requirements.",
+    img: "/images/icons/6.svg",
+    tag: "Engineering",
+    accent: "#1A5CDD",
+    featured: true,
+  },
+  {
+    title: "Web Application Development",
+    desc: "Modern, responsive, SEO-friendly websites that enhance UX and boost conversions.",
+    img: "/images/icons/7.svg",
+    tag: "Web",
+    accent: "#0D8A6A",
+    featured: false,
+  },
+  {
+    title: "E-Commerce Development",
+    desc: "Powerful online store solutions with seamless payment integration and optimized flows.",
+    img: "/images/icons/8.svg",
+    tag: "Commerce",
+    accent: "#7C3AED",
+    featured: false,
+  },
+  {
+    title: "Software Maintenance & Support",
+    desc: "Ongoing monitoring, updates, and dedicated technical support for peak performance.",
+    img: "/images/icons/9.svg",
+    tag: "Support",
+    accent: "#EA580C",
+    featured: false,
+  },
+  {
+    title: "Search Engine Optimization",
+    desc: "Data-driven SEO to improve rankings, increase organic traffic, and boost visibility.",
+    img: "/images/icons/10.svg",
+    tag: "SEO",
+    accent: "#0891B2",
+    featured: false,
+  },
+  {
+    title: "Digital Marketing Services",
+    desc: "Performance-focused campaigns including Google Ads, social media, and lead generation.",
+    img: "/images/icons/11.svg",
+    tag: "Marketing",
+    accent: "#BE185D",
+    featured: false,
+  },
 ];
 
 export default function ServicesSection() {
-    return (
-        <section aria-labelledby="services-heading" className="bg-white py-24 px-6 md:px-12 lg:px-24">
-            <div className="mx-auto max-w-7xl">
-                {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                    <div className="space-y-4 text-center md:text-left">
-                        <span className="inline-block rounded-full bg-[#1A5CDD] px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-white ring-4 ring-[#1A5CDD]/10">
-                            Our Services
-                        </span>
-                        <h2 id="services-heading" className="heading-1 font-extrabold text-gray-900 leading-[1.2]">
-                            we provide end-to-end technology solutions
-                        </h2>
-                    </div>
+  const featured = services.find((s) => s.featured)!;
+  const rest = services.filter((s) => !s.featured);
 
-                    <Button href="/services" aria-label="View more services">
-                        More Services
-                        <svg
-                            className="w-5 h-5 ml-2"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path d="M8 4l8 8-8 8" />
-                        </svg>
-                    </Button>
-                </div>
+  return (
+    <section
+      aria-labelledby="services-heading"
+      className="relative bg-[#F5F4F4] overflow-hidden py-32 px-6 md:px-12 lg:px-24"
+    >
+      {/* Top decoration */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1A5CDD]/20 to-transparent" />
 
-                {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 bg-[#F4F8FF] rounded-xl p-6">
-                    {services.map((service, index) => (
-                        <div
-                            key={index}
-                            className="relative group rounded-3xl p-10 text-center overflow-hidden min-h-[400px] flex flex-col justify-center"
-                        >
-                            {/* Decorative Background */}
-                            <div
-                                className="absolute inset-0 z-0 opacity-30"
-                                style={{
-                                    backgroundImage: `url(${service.image})`,
-                                    backgroundSize: "contain",
-                                    backgroundPosition: "center",
-                                    backgroundRepeat: "no-repeat",
-                                }}
-                                aria-hidden="true"
-                            />
+      {/* BG glow */}
+      <div
+        className="absolute bottom-0 right-0 w-[700px] h-[500px] pointer-events-none"
+        aria-hidden="true"
+        style={{ background: "radial-gradient(circle at bottom right, rgba(26,92,221,0.06) 0%, transparent 65%)" }}
+      />
 
-                            {/* Icon */}
-                            <div className="relative z-20 mx-auto w-20 h-20 bg-gradient-to-b from-[#38ABF9] to-[#1C85E5] rounded-full flex items-center justify-center mb-8 shadow-lg shadow-blue-100">
-                                {/* {service.icon} */}
-                                <Image
-                                    src={service.img}
-                                    alt={service.title}
-                                    width={40}
-                                    height={40}
-                                    className="object-contain"
-                                />
-                            </div>
+      <div className="relative z-10 mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#1A5CDD]/20 bg-[#1A5CDD]/8 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.15em] text-[#1A5CDD] mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1A5CDD]" />
+              Our Services
+            </span>
+            <h2
+              id="services-heading"
+              className="font-extrabold text-gray-900 leading-[1.1] tracking-tight"
+              style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            >
+              End-to-end technology solutions
+              <br />
+              <span className="text-[#1A5CDD]">built for scale</span>
+            </h2>
+          </div>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 self-start px-7 py-3.5 rounded-full font-bold text-sm text-white transition-all duration-300 hover:shadow-xl active:scale-95"
+            style={{ background: "linear-gradient(135deg, #1A5CDD 0%, #0D3FA6 100%)", boxShadow: "0 8px 30px rgba(26,92,221,0.22)" }}
+          >
+            All Services
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
+        </div>
 
-                            {/* Content */}
-                            <div className="relative z-20 space-y-4">
-                                <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
-                                <p className="text-gray-800 text-sm leading-relaxed">{service.desc}</p>
+        {/* Asymmetric Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
 
-                                {/* <button
-                                    className="mt-4 bg-white text-gray-900 font-bold py-2.5 px-8 rounded-full shadow-sm border border-gray-100 text-sm transition-colors duration-300 hover:bg-[#0b6eda] hover:text-white cursor-pointer"
-                                    aria-label={`Learn more about ${service.title}`}
-                                >
-                                    Learn More
-                                </button> */}
-                                <Link
-                                    href="/services"
-                                    className="mt-4 inline-block bg-white text-gray-900 font-bold py-2.5 px-8 rounded-full shadow-sm border border-gray-100 text-sm transition-colors duration-300 hover:bg-[#0b6eda] hover:text-white"
-                                >
-                                    Learn More
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 bg-[#F4F8FF] rounded-xl p-6 mt-10">
-                    {services_1.map((service, index) => (
-                        <div
-                            key={index}
-                            className="relative group rounded-3xl p-10 text-center overflow-hidden min-h-[400px] flex flex-col justify-center"
-                        >
-                            {/* Decorative Background */}
-                            <div
-                                className="absolute inset-0 z-0 opacity-30"
-                                style={{
-                                    backgroundImage: `url(${service.image})`,
-                                    backgroundSize: "contain",
-                                    backgroundPosition: "center",
-                                    backgroundRepeat: "no-repeat",
-                                }}
-                                aria-hidden="true"
-                            />
+          {/* Featured card — spans 5 columns & 2 rows */}
+          <Link
+            href="/services"
+            className="group lg:col-span-5 lg:row-span-2 relative p-10 rounded-3xl border border-gray-200 bg-white hover:border-[#1A5CDD]/30 hover:shadow-2xl transition-all duration-400 flex flex-col gap-6 overflow-hidden"
+            style={{ minHeight: "340px", transitionDuration: "350ms" }}
+          >
+            {/* Hover glow */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
+              style={{ background: `radial-gradient(circle at 20% 20%, ${featured.accent}09 0%, transparent 60%)` }}
+            />
+            {/* Accent line top */}
+            <div
+              className="absolute top-0 left-8 right-8 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+              style={{ background: `linear-gradient(to right, transparent, ${featured.accent}, transparent)` }}
+            />
 
-                            {/* Icon */}
-                            <div className="relative z-20 mx-auto w-20 h-20 bg-gradient-to-br from-[#3FB5FD] to-[#1A5CDD] rounded-full flex items-center justify-center mb-8 shadow-lg shadow-blue-100">
-                                {/* {service.icon} */}
-                                <Image
-                                    src={service.img}
-                                    alt={service.title}
-                                    width={40}
-                                    height={40}
-                                    className="object-contain"
-                                />
-                            </div>
-
-                            {/* Content */}
-                            <div className="relative z-20 space-y-4">
-                                <h3 className="text-2xl font-bold text-gray-900">{service.title}</h3>
-                                <p className="text-gray-800 text-sm leading-relaxed">{service.desc}</p>
-
-                                {/* <button
-                                    className="mt-4 bg-white text-gray-900 font-bold py-2.5 px-8 rounded-full shadow-sm border border-gray-100 text-sm transition-colors duration-300 hover:bg-[#0b6eda] hover:text-white cursor-pointer"
-                                    aria-label={`Learn more about ${service.title}`}
-                                >
-                                    Learn More
-                                </button> */}
-                                <Link
-                                    href="/services"
-                                    className="mt-4 inline-block bg-white text-gray-900 font-bold py-2.5 px-8 rounded-full shadow-sm border border-gray-100 text-sm transition-colors duration-300 hover:bg-[#0b6eda] hover:text-white"
-                                >
-                                    Learn More
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            <div className="flex items-start justify-between">
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                style={{ background: `${featured.accent}15`, border: `1px solid ${featured.accent}25` }}
+              >
+                <Image src={featured.img} alt="" width={32} height={32} className="object-contain" />
+              </div>
+              <span
+                className="text-[10px] font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full"
+                style={{ background: `${featured.accent}12`, color: featured.accent }}
+              >
+                {featured.tag}
+              </span>
             </div>
-        </section>
-    );
+
+            <div className="flex-1 flex flex-col gap-4 mt-auto">
+              <h3 className="text-2xl font-extrabold text-gray-900 tracking-tight leading-[1.25]">
+                {featured.title}
+              </h3>
+              <p className="text-gray-500 leading-relaxed">{featured.desc}</p>
+            </div>
+
+            <div
+              className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest transition-colors duration-300"
+              style={{ color: featured.accent }}
+            >
+              Learn More
+              <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </div>
+          </Link>
+
+          {/* Remaining 5 cards in a 7-column grid */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {rest.map((s, i) => (
+              <Link
+                key={i}
+                href="/services"
+                className="group relative p-7 rounded-3xl border border-gray-200 bg-white hover:bg-white hover:border-[#1A5CDD]/20 hover:shadow-xl transition-all duration-400 flex flex-col gap-4 overflow-hidden"
+                style={{ transitionDuration: "320ms" }}
+              >
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
+                  style={{ background: `radial-gradient(circle at 20% 20%, ${s.accent}07 0%, transparent 60%)` }}
+                />
+
+                <div className="flex items-start justify-between">
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center p-2.5 transition-all duration-300 group-hover:scale-110"
+                    style={{ background: `${s.accent}15`, border: `1px solid ${s.accent}25` }}
+                  >
+                    <Image src={s.img} alt="" width={24} height={24} className="object-contain" />
+                  </div>
+                  <span
+                    className="text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                    style={{ background: `${s.accent}10`, color: s.accent }}
+                  >
+                    {s.tag}
+                  </span>
+                </div>
+
+                <div className="flex-1 flex flex-col gap-2">
+                  <h3 className="text-base font-extrabold text-gray-900 tracking-tight leading-[1.3]">{s.title}</h3>
+                  <p className="text-xs text-gray-500 leading-relaxed">{s.desc}</p>
+                </div>
+
+                <div
+                  className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest transition-colors duration-300"
+                  style={{ color: s.accent }}
+                >
+                  Learn More
+                  <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ background: `linear-gradient(to right, transparent, ${s.accent}, transparent)` }}
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

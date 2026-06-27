@@ -42,7 +42,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between h-20">
                     {/* LOGO */}
                     <Link href="/">
-                        <img src="/images/logo/logo.webp" alt="Logo" className="main-logo" />
+                        <img src="/images/logo/logo.png" alt="Logo" className="main-logo" />
                     </Link>
 
                     {/* DESKTOP MENU */}
@@ -164,7 +164,7 @@ export default function Navbar() {
                 }`}
             >
                 <div className="flex items-center justify-between p-6">
-                    <img src="/images/logo/logo.webp" className="h-8" />
+                    <img src="/images/logo/logo.png" className="h-8" />
                     <button
                         onClick={() => setOpen(false)}
                         className="p-2 rounded-full hover:bg-gray-100 transition"
