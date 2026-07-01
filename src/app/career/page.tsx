@@ -25,7 +25,7 @@ const CareerOpenings = () => {
 
             <section className="py-24 px-6 md:px-12 lg:px-24">
                 <div className="container mx-auto max-w-7xl">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* Card 1: Creative Medium */}
                         <div className="group bg-white dark:bg-[#0a1128] border border-blue-100 dark:border-blue-950/40 rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:border-blue-400/40 hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full">
                             <div className="flex justify-between items-start mb-6">
@@ -128,7 +128,7 @@ const CareerOpenings = () => {
                     </div>
 
                     {/* Pagination */}
-                    <div className="mt-16 flex justify-center items-center gap-2">
+                    <div data-animate="fade-up" className="mt-16 flex justify-center items-center gap-2">
                         <button
                             aria-label="Previous Page"
                             className="w-10 h-10 flex items-center justify-center rounded-lg border border-blue-100 dark:border-blue-950/40 bg-white dark:bg-[#0a1128] text-gray-600 dark:text-gray-300 hover:bg-[#1a5cdd] hover:text-white dark:hover:bg-blue-600 transition-all duration-300"

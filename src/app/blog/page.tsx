@@ -75,7 +75,7 @@ export default function BlogPage() {
             <section className="py-16 lg:py-24 bg-white">
                 <div className="container mx-auto px-4 max-w-6xl">
                     {/* Categories */}
-                    <div className="border-b border-gray-100 mb-12">
+                    <div data-animate="fade-up" className="border-b border-gray-100 mb-12">
                         <div className="flex justify-center gap-8 overflow-x-auto">
                             {categories.map((cat) => (
                                 <button
@@ -98,7 +98,7 @@ export default function BlogPage() {
                             <p>Loading posts...</p>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                             {filteredPosts.length > 0 ? (
                                 filteredPosts.map((post) => {
                                     const item = post.attributes || post;
@@ -182,7 +182,7 @@ export default function BlogPage() {
 
                     {/* Pagination (Static Demo) */}
                     {!loading && filteredPosts.length > 0 && (
-                        <nav className="mt-20 flex justify-center gap-4">
+                        <nav data-animate="fade-up" className="mt-20 flex justify-center gap-4">
                             <button className="p-2 border rounded">
                                 <ChevronLeft size={16} />
                             </button>

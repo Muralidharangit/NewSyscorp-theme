@@ -87,7 +87,7 @@ export default function HeaderBanner({
 
                 {/* Right Column: Title, Description, Scroll, Buttons */}
                 <div>
-                    <h1 className="text-3xl md:text-5xl lg:text-[54px] font-extrabold text-white leading-tight tracking-tight m-0 font-sans">
+                    <h1 data-animate="fade-up" className="text-3xl md:text-5xl lg:text-[54px] font-extrabold text-white leading-tight tracking-tight m-0 font-sans">
                         {title}
                     </h1>
 
@@ -100,10 +100,10 @@ export default function HeaderBanner({
                         </div>
                         {/* Subtext Paragraph and Actions */}
                         <div className="flex flex-col gap-6">
-                            <p className="text-gray-300 text-sm md:text-base leading-relaxed m-0 font-sans">
+                            <p data-animate="fade-up" className="text-gray-300 text-sm md:text-base leading-relaxed m-0 font-sans">
                                 {description}
                             </p>
-                            <div className="flex items-center gap-3">
+                            <div data-animate="fade-up" className="flex items-center gap-3">
                                 <a href={primaryBtnLink} className="border border-white/30 bg-white/10 hover:bg-white text-white hover:text-black rounded-full px-7 py-3 text-[11px] sm:text-xs font-bold transition-all duration-300 no-underline uppercase tracking-wider">
                                     {primaryBtnText}
                                 </a>

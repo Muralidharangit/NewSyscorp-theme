@@ -31,7 +31,7 @@ export default function HeroSlider() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
-  const words = ["ai automation", "business", "Websites", "CRM Sol"];
+  const words = ["Ai automation", "Business", "Websites", "Crm"];
   const colors = ["#a78bfa", "#60a5fa", "#34d399", "#22d3ee"];
 
   // Auto-play timer for the slider

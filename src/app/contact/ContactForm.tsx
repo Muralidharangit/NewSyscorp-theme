@@ -55,6 +55,7 @@ export default function ContactForm() {
             } else {
                 throw new Error("Failed to submit form");
             }
+            // fdf
         } catch (error: any) {
             console.error("Submission error:", error);
             const errorMessage = error.message || "Something went wrong. Please try again later.";

@@ -25,7 +25,7 @@ export default function ContactUs() {
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 items-center">
                         
                         {/* Left column: Giant text & indicator arrow */}
-                        <div className="space-y-6 flex flex-col justify-center">
+                        <div data-animate="fade-left" className="space-y-6 flex flex-col justify-center">
                             <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed max-w-sm">
                                 Let's bring your vision to life—reach out to us with any questions or ideas.
                             </p>
@@ -53,7 +53,7 @@ export default function ContactUs() {
                         </div>
 
                         {/* Right column: The map and overlaid details card */}
-                        <div className="w-full">
+                        <div data-animate="fade-right" className="w-full">
                             <ContactMap />
                         </div>
                     </div>
@@ -65,7 +65,7 @@ export default function ContactUs() {
                 <div className="container mx-auto max-w-5xl space-y-12">
                     
                     {/* Header */}
-                    <div className="flex flex-col items-center text-center space-y-3">
+                    <div data-animate="fade-up" className="flex flex-col items-center text-center space-y-3">
                         <span className="inline-block border border-blue-600/30 dark:border-blue-400/30 bg-blue-500/5 px-4 py-1.5 rounded-full text-[10px] font-extrabold uppercase tracking-widest text-blue-600 dark:text-blue-400">
                             ✦ Get In Touch
                         </span>
@@ -75,7 +75,9 @@ export default function ContactUs() {
                     </div>
 
                     {/* The Form container */}
-                    <ContactForm />
+                    <div data-animate="zoom-in">
+                        <ContactForm />
+                    </div>
                 </div>
             </section>
         </main>

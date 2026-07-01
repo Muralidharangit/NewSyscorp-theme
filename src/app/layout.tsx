@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import PageAnimationProvider from "@/components/PageAnimationProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,8 +25,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.variable} antialiased`}>
-                {/* Smooth inertia mouse-wheel scroll — zero dependencies */}
+                {/* Lenis smooth scroll — low-overhead RAF integration */}
                 <SmoothScrollProvider />
+                {/* GSAP scroll-trigger animations — runs only on main menu pages */}
+                <PageAnimationProvider />
                 <Header />
                 <main id="main-content">{children}</main>
                 <Footer />

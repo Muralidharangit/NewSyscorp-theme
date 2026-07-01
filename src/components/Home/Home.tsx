@@ -10,7 +10,6 @@ import TestimonialSlider from "@/components/TestimonialSection";
 
 // Server Components
 import AboutSection from "@/components/AboutSection";
-import AchievementsSection from "@/components/AchievementsSection";
 import ServicesSection from "@/components/ServicesSection";
 import CommunitySection from "@/components/CommunitySection";
 import ServiceCompany from "@/components/ServiceCompany";
@@ -31,213 +30,120 @@ export default function Home() {
         if (!container) return;
 
         const ctx = gsap.context(() => {
-            const ease = "power2.out";
-            const startTrigger = "top 88%";
+            const easeOut = "power3.out";
+            const easeBack = "back.out(1.35)";
 
-            // ── 2 ─ About Section (Fade Up) ──
+            // ── About Section — subtle fade-up + zoom out ──
             gsap.fromTo(
                 ".gsap-about-sec",
-                { y: 50, opacity: 0 },
+                { y: 55, scale: 1.04, opacity: 0 },
                 {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.9,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-about-sec",
-                        start: startTrigger,
-                        toggleActions: "play none none none",
-                    },
+                    y: 0, scale: 1, opacity: 1, duration: 1.1, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-about-sec", start: "top 85%", toggleActions: "play none none none" }
                 }
             );
 
-            // ── 3 ─ Services Section (Stagger Cards + Fade Up Header) ──
+            // ── Services Section — header fade-up ──
             gsap.fromTo(
                 ".gsap-services-header-box",
-                { y: 30, opacity: 0 },
+                { y: 35, opacity: 0 },
                 {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-services-sec",
-                        start: "top 85%",
-                        toggleActions: "play none none none",
-                    },
+                    y: 0, opacity: 1, duration: 0.9, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-services-sec", start: "top 85%", toggleActions: "play none none none" }
                 }
             );
+
+            // ── Services Cards — stagger spring entry ──
             gsap.fromTo(
                 ".gsap-service-card-item",
-                { y: 50, opacity: 0 },
+                { y: 65, scale: 0.94, opacity: 0 },
                 {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    stagger: 0.12,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-services-sec",
-                        start: "top 78%",
-                        toggleActions: "play none none none",
-                    },
+                    y: 0, scale: 1, opacity: 1, duration: 0.9,
+                    stagger: 0.09, ease: easeBack,
+                    scrollTrigger: { trigger: ".gsap-services-sec", start: "top 78%", toggleActions: "play none none none" }
                 }
             );
 
-            // ── 4 ─ Achievements Section (Scale In) ──
-            gsap.fromTo(
-                ".gsap-achievements-sec",
-                { scale: 0.9, opacity: 0 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.95,
-                    ease: "back.out(1.3)",
-                    scrollTrigger: {
-                        trigger: ".gsap-achievements-sec",
-                        start: startTrigger,
-                        toggleActions: "play none none none",
-                    },
-                }
-            );
-
-            // ── 5 ─ Service Company Section (Split Entrance) ──
+            // ── Service Company — split columns with tilt ──
             gsap.fromTo(
                 ".gsap-company-left-col",
-                { x: -60, opacity: 0 },
+                { x: -90, rotate: -2, opacity: 0 },
                 {
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.9,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-company-sec",
-                        start: startTrigger,
-                        toggleActions: "play none none none",
-                    },
+                    x: 0, rotate: 0, opacity: 1, duration: 1.15, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-company-sec", start: "top 82%", toggleActions: "play none none none" }
                 }
             );
             gsap.fromTo(
                 ".gsap-company-right-col",
-                { x: 60, opacity: 0 },
+                { x: 90, rotate: 2, opacity: 0 },
                 {
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.9,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-company-sec",
-                        start: startTrigger,
-                        toggleActions: "play none none none",
-                    },
+                    x: 0, rotate: 0, opacity: 1, duration: 1.15, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-company-sec", start: "top 82%", toggleActions: "play none none none" }
                 }
             );
 
-            // ── 6 ─ Community Section (Blur In) ──
+            // ── Community — blur + scale reveal ──
             gsap.fromTo(
                 ".gsap-community-sec",
-                { filter: "blur(12px)", y: 40, opacity: 0 },
+                { filter: "blur(16px)", scale: 0.94, y: 45, opacity: 0 },
                 {
-                    filter: "blur(0px)",
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.1,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-community-sec",
-                        start: "top 85%",
-                        toggleActions: "play none none none",
-                    },
+                    filter: "blur(0px)", scale: 1, y: 0, opacity: 1, duration: 1.2, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-community-sec", start: "top 85%", toggleActions: "play none none none" }
                 }
             );
 
-            // ── 7 ─ Testimonials Section (Slide Left/Right depending on preference, here Slide Left from Right edge) ──
+            // ── Testimonials — fade + rotate reveal ──
             gsap.fromTo(
                 ".gsap-testimonials-sec",
-                { x: 70, opacity: 0 },
+                { y: 75, rotate: 1.5, opacity: 0 },
                 {
-                    x: 0,
-                    opacity: 1,
-                    duration: 0.9,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-testimonials-sec",
-                        start: startTrigger,
-                        toggleActions: "play none none none",
-                    },
+                    y: 0, rotate: 0, opacity: 1, duration: 1.1, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-testimonials-sec", start: "top 82%", toggleActions: "play none none none" }
                 }
             );
 
-            // ── 8 ─ Pricing Section (Scale In + Cards Stagger) ──
+            // ── Pricing header ──
             gsap.fromTo(
                 ".gsap-pricing-header-box",
                 { y: 30, opacity: 0 },
                 {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-pricing-sec",
-                        start: "top 85%",
-                        toggleActions: "play none none none",
-                    },
+                    y: 0, opacity: 1, duration: 0.85, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-pricing-sec", start: "top 85%", toggleActions: "play none none none" }
                 }
             );
+
+            // ── Pricing cards — stagger spring ──
             gsap.fromTo(
                 ".gsap-pricing-card-item",
-                { y: 50, scale: 0.92, opacity: 0 },
+                { y: 75, scale: 0.92, opacity: 0 },
                 {
-                    y: 0,
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.8,
-                    stagger: 0.15,
-                    ease: "back.out(1.2)",
-                    scrollTrigger: {
-                        trigger: ".gsap-pricing-sec",
-                        start: "top 78%",
-                        toggleActions: "play none none none",
-                    },
+                    y: 0, scale: 1, opacity: 1, duration: 0.9,
+                    stagger: 0.11, ease: easeBack,
+                    scrollTrigger: { trigger: ".gsap-pricing-sec", start: "top 78%", toggleActions: "play none none none" }
                 }
             );
 
-            // ── 9 ─ FAQ Section (Fade Up) ──
+            // ── FAQ — slide up ──
             gsap.fromTo(
                 ".gsap-faq-sec",
-                { y: 50, opacity: 0 },
+                { y: 45, scale: 0.98, opacity: 0 },
                 {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.9,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-faq-sec",
-                        start: startTrigger,
-                        toggleActions: "play none none none",
-                    },
+                    y: 0, scale: 1, opacity: 1, duration: 1.0, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-faq-sec", start: "top 85%", toggleActions: "play none none none" }
                 }
             );
 
-            // ── 10 ─ Blog Section (Blur In) ──
+            // ── Blog — blur + zoom reveal ──
             gsap.fromTo(
                 ".gsap-blog-sec",
-                { filter: "blur(10px)", y: 40, opacity: 0 },
+                { filter: "blur(12px)", scale: 1.03, y: 50, opacity: 0 },
                 {
-                    filter: "blur(0px)",
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.0,
-                    ease,
-                    scrollTrigger: {
-                        trigger: ".gsap-blog-sec",
-                        start: "top 85%",
-                        toggleActions: "play none none none",
-                    },
+                    filter: "blur(0px)", scale: 1, y: 0, opacity: 1, duration: 1.15, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-blog-sec", start: "top 85%", toggleActions: "play none none none" }
                 }
             );
 
-        }, container);
+        }, container); // ← scoped to container only — never touches About or other pages
 
         return () => ctx.revert();
     }, []);
@@ -245,11 +151,11 @@ export default function Home() {
     return (
         <div ref={containerRef} className="bg-white font-sans dark:bg-black overflow-hidden">
 
-            {/* 1 ─ Hero banner (self-animated on mount) */}
+            {/* 1 ─ Hero banner */}
             <HeroSlider />
 
             {/* 2 ─ About */}
-            <div className="gsap-about-sec opacity-0">
+            <div className="gsap-about-sec">
                 <AboutSection />
             </div>
 
@@ -258,35 +164,33 @@ export default function Home() {
                 <ServicesSection />
             </div>
 
-          
-          {/* ewff */}
-            {/* 5 ─ Service Company */}
+            {/* 4 ─ Service Company */}
             <div className="gsap-company-sec">
                 <ServiceCompany />
             </div>
 
-            {/* 6 ─ Community */}
-            <div className="gsap-community-sec opacity-0">
+            {/* 5 ─ Community */}
+            <div className="gsap-community-sec">
                 <CommunitySection />
             </div>
 
-            {/* 7 ─ Testimonials */}
-            <div className="gsap-testimonials-sec opacity-0">
+            {/* 6 ─ Testimonials */}
+            <div className="gsap-testimonials-sec">
                 <TestimonialSlider />
             </div>
 
-            {/* 8 ─ Pricing */}
+            {/* 7 ─ Pricing */}
             <div className="gsap-pricing-sec">
                 <PricingSection />
             </div>
 
-            {/* 9 ─ FAQ */}
-            <div className="gsap-faq-sec opacity-0">
+            {/* 8 ─ FAQ */}
+            <div className="gsap-faq-sec">
                 <FAQSection />
             </div>
 
-            {/* 10 ─ Blog */}
-            <div className="gsap-blog-sec opacity-0">
+            {/* 9 ─ Blog */}
+            <div className="gsap-blog-sec">
                 <BlogSection />
             </div>
 
