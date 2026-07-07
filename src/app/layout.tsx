@@ -1,14 +1,22 @@
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import PageAnimationProvider from "@/components/PageAnimationProvider";
 import "./globals.css";
 
+const plusJakarta = Plus_Jakarta_Sans({
+    subsets: ["latin"],
+    variable: "--font-heading",
+    weight: ["400", "500", "600", "700", "800"],
+    display: "swap",
+});
+
 const inter = Inter({
     subsets: ["latin"],
-    variable: "--font-inter",
-    weight: ["300", "400", "500", "600", "700", "800", "900"],
+    variable: "--font-sans",
+    weight: ["400", "500", "600", "700", "800"],
+    display: "swap",
 });
 
 export const metadata = {
@@ -24,7 +32,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} antialiased`}>
+            <body className={`${plusJakarta.variable} ${inter.variable} font-sans antialiased`}>
                 {/* Lenis smooth scroll — low-overhead RAF integration */}
                 <SmoothScrollProvider />
                 {/* GSAP scroll-trigger animations — runs only on main menu pages */}

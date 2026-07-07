@@ -135,15 +135,68 @@ export default function AboutSection() {
       aria-labelledby="about-heading"
       className="sky-about-section bg-grid-pattern py-[100px] overflow-hidden relative bg-white dark:bg-slate-950 transition-colors duration-500"
     >
-      {/* Background decoration elements */}
-      <div className="absolute w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(26,92,221,0.05)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.12)_0%,transparent_70%)] top-[10%] left-[5%] pointer-events-none z-0" />
-      <div className="absolute w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(6,182,212,0.04)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(34,211,238,0.08)_0%,transparent_70%)] bottom-[5%] right-[5%] pointer-events-none z-0" />
+      {/* ── Animated overlay orbs ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Large drifting orb — blue */}
+        <div
+          className="absolute w-[560px] h-[560px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(26,92,221,0.13) 0%, transparent 70%)",
+            top: "-10%", left: "-8%",
+            animation: "skyAboutOrbDrift 18s ease-in-out infinite",
+          }}
+        />
+        {/* Medium orb — cyan */}
+        <div
+          className="absolute w-[380px] h-[380px] rounded-full"
+          style={{
+            background: "radial-gradient(circle, rgba(6,182,212,0.11) 0%, transparent 70%)",
+            bottom: "-5%", right: "-6%",
+            animation: "skyAboutOrbDrift 14s ease-in-out infinite reverse",
+            animationDelay: "4s",
+          }}
+        />
+        {/* Pulse ring */}
+        <div
+          className="absolute w-[200px] h-[200px] rounded-full border border-blue-200/30"
+          style={{
+            top: "30%", right: "10%",
+            animation: "skyAboutOrbPulse 6s ease-in-out infinite",
+          }}
+        />
+        {/* Shimmer sweep */}
+        <div
+          className="sky-about-shimmer absolute top-0 left-0 w-[40%] h-full"
+          style={{
+            background: "linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)",
+          }}
+        />
+      </div>
 
       {/* Bounce custom animation keyframes for floats */}
       <style>{`
         @keyframes skyAboutBounce {
           0%, 100% { transform: translateY(0); }
           50%      { transform: translateY(-8px); }
+        }
+        @keyframes skyAboutOrbPulse {
+          0%, 100% { opacity: 0.18; transform: scale(1); }
+          50%      { opacity: 0.32; transform: scale(1.12); }
+        }
+        @keyframes skyAboutOrbDrift {
+          0%   { transform: translate(0, 0) rotate(0deg); }
+          33%  { transform: translate(30px, -20px) rotate(120deg); }
+          66%  { transform: translate(-20px, 15px) rotate(240deg); }
+          100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        @keyframes skyAboutShimmer {
+          0%   { opacity: 0; transform: translateX(-60%) skewX(-15deg); }
+          40%  { opacity: 0.5; }
+          100% { opacity: 0; transform: translateX(160%) skewX(-15deg); }
+        }
+        .sky-about-shimmer {
+          animation: skyAboutShimmer 3.5s ease-in-out infinite;
+          animation-delay: 1.2s;
         }
       `}</style>
 
@@ -211,7 +264,7 @@ export default function AboutSection() {
                 Your Success
               </span>
               <h2 id="about-heading" className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight m-0 font-sans tracking-tight">
-                Building Digital Experiences That <span className="text-[#1A5CDD] dark:text-[#60A5FA]"> Love & Trust</span>
+                Building Digital Experiences That <span className="text-[#1A5CDD] dark:text-[#60A5FA]">Love & Trust</span>
               </h2>
             </div>
 

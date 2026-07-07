@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { Loader2, ArrowUpRight, CheckCircle2, AlertCircle } from "lucide-react";
-import { fetchStrapi } from "@/lib/strapi";
 
 const servicesList = [
     "Website Design",
@@ -36,30 +35,23 @@ export default function ContactForm() {
         setStatus(null);
 
         try {
-            const response = await fetchStrapi("contact-forms", {
-                data: formData
-            }, {
-                method: 'POST'
-            });
+            // Simulate API request delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            console.log("Contact Form Submission (Simulated Local Success):", formData);
 
-            if (response.data) {
-                setStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
-                setFormData({
-                    fullName: "",
-                    email: "",
-                    company: "",
-                    phoneNumber: "",
-                    service: "Website Design",
-                    message: ""
-                });
-            } else {
-                throw new Error("Failed to submit form");
-            }
-            // fdf
+            setStatus({ type: 'success', message: 'Thank you! Your message has been sent successfully.' });
+            setFormData({
+                fullName: "",
+                email: "",
+                company: "",
+                phoneNumber: "",
+                service: "Website Design",
+                message: ""
+            });
         } catch (error: any) {
             console.error("Submission error:", error);
-            const errorMessage = error.message || "Something went wrong. Please try again later.";
-            setStatus({ type: 'error', message: `Error: ${errorMessage}` });
+            setStatus({ type: 'error', message: "Something went wrong. Please try again later." });
         } finally {
             setLoading(false);
         }

@@ -13,6 +13,7 @@ import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import CommunitySection from "@/components/CommunitySection";
 import ServiceCompany from "@/components/ServiceCompany";
+import AchievementsSection from "@/components/AchievementsSection";
 import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FaqSection";
 import BlogSection from "@/components/BlogSection";
@@ -28,6 +29,9 @@ export default function Home() {
         if (typeof window === "undefined") return;
         const container = containerRef.current;
         if (!container) return;
+
+        // Prevent FOUC: Reveal container once hydration is complete and GSAP binds
+        gsap.set(container, { opacity: 1 });
 
         const ctx = gsap.context(() => {
             const easeOut = "power3.out";
@@ -79,6 +83,16 @@ export default function Home() {
                 {
                     x: 0, rotate: 0, opacity: 1, duration: 1.15, ease: easeOut,
                     scrollTrigger: { trigger: ".gsap-company-sec", start: "top 82%", toggleActions: "play none none none" }
+                }
+            );
+
+            // ── Achievements Section — subtle zoom + fade ──
+            gsap.fromTo(
+                ".gsap-achievements-sec",
+                { y: 55, scale: 0.96, opacity: 0 },
+                {
+                    y: 0, scale: 1, opacity: 1, duration: 1.1, ease: easeOut,
+                    scrollTrigger: { trigger: ".gsap-achievements-sec", start: "top 85%", toggleActions: "play none none none" }
                 }
             );
 
@@ -149,48 +163,62 @@ export default function Home() {
     }, []);
 
     return (
-        <div ref={containerRef} className="bg-white font-sans dark:bg-black overflow-hidden">
+        <div 
+            ref={containerRef} 
+            className="bg-white font-sans dark:bg-black overflow-hidden" 
+            style={{ opacity: 0, transition: "opacity 0.35s ease-out" }}
+        >
+            <noscript>
+                <style>{`
+                    .bg-white { opacity: 1 !important; }
+                `}</style>
+            </noscript>
 
             {/* 1 ─ Hero banner */}
             <HeroSlider />
 
             {/* 2 ─ About */}
-            <div className="gsap-about-sec">
+            <div className="gsap-about-sec relative z-20">
                 <AboutSection />
             </div>
 
             {/* 3 ─ Services */}
-            <div className="gsap-services-sec">
+            <div className="gsap-services-sec relative z-20">
                 <ServicesSection />
             </div>
 
             {/* 4 ─ Service Company */}
-            <div className="gsap-company-sec">
+            <div className="gsap-company-sec relative z-20">
                 <ServiceCompany />
             </div>
 
-            {/* 5 ─ Community */}
-            <div className="gsap-community-sec">
+            {/* 5 ─ Achievements & Key Metrics */}
+            <div className="gsap-achievements-sec relative z-20">
+                <AchievementsSection />
+            </div>
+
+            {/* 6 ─ Community */}
+            <div className="gsap-community-sec relative z-20">
                 <CommunitySection />
             </div>
 
             {/* 6 ─ Testimonials */}
-            <div className="gsap-testimonials-sec">
+            <div className="gsap-testimonials-sec relative z-20">
                 <TestimonialSlider />
             </div>
 
             {/* 7 ─ Pricing */}
-            <div className="gsap-pricing-sec">
+            <div className="gsap-pricing-sec relative z-20">
                 <PricingSection />
             </div>
 
             {/* 8 ─ FAQ */}
-            <div className="gsap-faq-sec">
+            <div className="gsap-faq-sec relative z-20">
                 <FAQSection />
             </div>
 
             {/* 9 ─ Blog */}
-            <div className="gsap-blog-sec">
+            <div className="gsap-blog-sec relative z-20">
                 <BlogSection />
             </div>
 

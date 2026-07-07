@@ -1,64 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import { ChevronLeft, ChevronRight, Calendar, User, ArrowUpRight } from "lucide-react";
 import HeaderBanner from "@/components/ui/HeaderBanner";
-import { fetchStrapi } from "@/lib/strapi";
-
-const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
+import { blogPosts } from "@/data/blogPosts";
 
 export default function BlogPage() {
-    const [posts, setPosts] = useState<any[]>([]);
-    const [categories, setCategories] = useState<string[]>(["All"]);
+    const categories = ["All", "Technology", "SEO", "Business"];
     const [activeCat, setActiveCat] = useState("All");
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function loadData() {
-            try {
-                const postsRes = await fetchStrapi("blog-posts", {
-                    populate: "*",
-                    "sort[0]": "date:desc",
-                });
-
-                const postsData = postsRes?.data || [];
-                setPosts(postsData);
-
-                const catsRes = await fetchStrapi("blog-categories");
-                const catNames =
-                    catsRes?.data?.map((cat: any) => cat.name || cat.attributes?.name) ||
-                    [];
-
-                setCategories(["All", ...catNames]);
-            } catch (error) {
-                console.error("Error loading blog:", error);
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        loadData();
-    }, []);
 
     const filteredPosts = useMemo(() => {
-        return posts.filter((post) => {
+        return blogPosts.filter((post) => {
             if (activeCat === "All") return true;
-
-            const item = post.attributes || post;
-            const cats = item.blog_categories?.data || item.blog_categories || [];
-
-            return Array.isArray(cats)
-                ? cats.some((cat: any) => {
-                    const name = cat.name || cat.attributes?.name;
-                    return name === activeCat;
-                })
-                : false;
+            return post.category === activeCat;
         });
-    }, [posts, activeCat]);
+    }, [activeCat]);
 
     return (
         <main className="bg-white min-h-screen">
@@ -72,19 +30,21 @@ export default function BlogPage() {
             />
 
             {/* Blog Section */}
-            <section className="py-16 lg:py-24 bg-white">
+            <section className="py-16 lg:py-24 bg-[#F0F8FF]/30">
                 <div className="container mx-auto px-4 max-w-6xl">
-                    {/* Categories */}
-                    <div data-animate="fade-up" className="border-b border-gray-100 mb-12">
-                        <div className="flex justify-center gap-8 overflow-x-auto">
+                    
+                    {/* Categories Filter */}
+                    <div data-animate="fade-up" className="mb-16">
+                        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
                             {categories.map((cat) => (
                                 <button
                                     key={cat}
                                     onClick={() => setActiveCat(cat)}
-                                    className={`pb-4 text-sm font-bold ${activeCat === cat
-                                        ? "text-blue-700"
-                                        : "text-gray-800 hover:text-blue-600"
-                                        }`}
+                                    className={`px-6 py-2.5 rounded-full text-sm font-extrabold transition-all duration-350 cursor-pointer ${
+                                        activeCat === cat
+                                            ? "bg-[#1A5CDD] text-white shadow-lg shadow-blue-500/20"
+                                            : "bg-white text-slate-800 border border-[#dbeafe] hover:bg-[#1A5CDD]/5 hover:text-[#1A5CDD] hover:border-[#1A5CDD]/20"
+                                    }`}
                                 >
                                     {cat}
                                 </button>
@@ -92,104 +52,92 @@ export default function BlogPage() {
                         </div>
                     </div>
 
-                    {/* Loading */}
-                    {loading ? (
-                        <div className="text-center py-20">
-                            <p>Loading posts...</p>
-                        </div>
-                    ) : (
-                        <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                            {filteredPosts.length > 0 ? (
-                                filteredPosts.map((post) => {
-                                    const item = post.attributes || post;
-                                    const { title, slug, date } = item;
+                    {/* Blog Grid */}
+                    <div data-animate="stagger-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {filteredPosts.length > 0 ? (
+                            filteredPosts.map((post) => {
+                                const { id, title, slug, date, category, image, excerpt, author } = post;
 
-                                    /* ---------- IMAGE FIX ---------- */
-                                    let imageUrl = "https://via.placeholder.com/1200x600?text=No+Image";
-                                    const img = item.image;
+                                return (
+                                    <article 
+                                        key={id} 
+                                        className="group bg-white border border-[#dbeafe] rounded-[24px] overflow-hidden shadow-[0_10px_30px_rgba(26,92,221,0.02)] hover:shadow-[0_20px_50px_rgba(26,92,221,0.08)] hover:-translate-y-1.5 transition-all duration-350 flex flex-col h-full"
+                                    >
+                                        <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-50 border-b border-[#dbeafe]">
+                                            <Image
+                                                src={image}
+                                                alt={title}
+                                                fill
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                                            />
+                                        </div>
 
-                                    if (img) {
-                                        // Strapi 5 format (flattened)
-                                        if (img.url) {
-                                            imageUrl = img.url.startsWith("http") ? img.url : `${STRAPI_URL}${img.url}`;
-                                        }
-                                        // Strapi 4 format (nested .data.attributes)
-                                        else if (img.data?.attributes?.url) {
-                                            const url = img.data.attributes.url;
-                                            imageUrl = url.startsWith("http") ? url : `${STRAPI_URL}${url}`;
-                                        }
-                                        // Handle potential array
-                                        else if (Array.isArray(img) && img[0]?.url) {
-                                            imageUrl = img[0].url.startsWith("http") ? img[0].url : `${STRAPI_URL}${img[0].url}`;
-                                        }
-                                    }
-
-                                    console.log(`[BlogPage] Post: ${title}, URL: ${imageUrl}`, { img_structure: img });
-
-                                    /* ---------- CATEGORY FIX ---------- */
-                                    const cats =
-                                        item.blog_categories?.data ||
-                                        item.blog_categories ||
-                                        [];
-
-                                    const firstCat =
-                                        cats[0]?.attributes || cats[0] || null;
-
-                                    const categoryName =
-                                        firstCat?.name || "Uncategorized";
-
-                                    return (
-                                        <article key={post.id} className="group flex flex-col">
-                                            <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100 mb-6 rounded-lg">
-                                                <Image
-                                                    src={imageUrl}
-                                                    alt={title || "Blog Post"}
-                                                    width={800}
-                                                    height={500}
-                                                    className="object-cover w-full h-full rounded-lg"
-                                                />
+                                        <div className="p-6 flex flex-col flex-1">
+                                            {/* Meta tags */}
+                                            <div className="flex items-center gap-3 text-xs text-slate-500 mb-3 font-semibold">
+                                                <span className="px-2.5 py-0.5 bg-[#1A5CDD]/10 text-[#1A5CDD] font-extrabold rounded-full text-[10px] uppercase tracking-wider">
+                                                    {category}
+                                                </span>
+                                                <div className="flex items-center gap-1">
+                                                    <Calendar size={12} className="text-slate-400" />
+                                                    <span>
+                                                        {new Date(date).toLocaleDateString("en-US", {
+                                                            month: "short",
+                                                            day: "numeric",
+                                                            year: "numeric",
+                                                        })}
+                                                    </span>
+                                                </div>
                                             </div>
 
-                                            <div>
-                                                <p className="text-xs uppercase text-gray-500 mb-2">
-                                                    {categoryName} /{" "}
-                                                    {date
-                                                        ? new Date(date).toLocaleDateString()
-                                                        : "N/A"}
-                                                </p>
+                                            {/* Title */}
+                                            <h2 className="text-lg font-extrabold text-[#011146] hover:text-[#1A5CDD] transition-colors duration-200 mb-3 leading-snug font-sans">
+                                                <Link href={`/blog/${slug}`}>{title}</Link>
+                                            </h2>
 
-                                                <h2 className="font-bold mb-4 hover:text-blue-700">
-                                                    <Link href={`/blog/${slug}`}>{title}</Link>
-                                                </h2>
+                                            {/* Excerpt */}
+                                            <p className="text-sm text-slate-600 mb-6 line-clamp-3 leading-relaxed flex-1">
+                                                {excerpt}
+                                            </p>
 
+                                            {/* Footer Actions */}
+                                            <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-7 h-7 rounded-full bg-slate-150 flex items-center justify-center text-slate-700">
+                                                        <User size={13} />
+                                                    </div>
+                                                    <span className="text-xs font-bold text-slate-800">By {author}</span>
+                                                </div>
                                                 <Link
                                                     href={`/blog/${slug}`}
-                                                    className="text-sm font-bold underline"
+                                                    className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#1A5CDD] group-hover:text-[#154ebc] transition-all"
                                                 >
-                                                    Read more
+                                                    Read post
+                                                    <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                                                 </Link>
                                             </div>
-                                        </article>
-                                    );
-                                })
-                            ) : (
-                                <p className="text-center col-span-full">
-                                    No posts found.
-                                </p>
-                            )}
-                        </div>
-                    )}
+                                        </div>
+                                    </article>
+                                );
+                            })
+                        ) : (
+                            <div className="text-center col-span-full py-16 bg-white border border-[#dbeafe] rounded-[24px] p-8">
+                                <p className="text-slate-500 font-bold">No articles found in this category.</p>
+                            </div>
+                        )}
+                    </div>
 
-                    {/* Pagination (Static Demo) */}
-                    {!loading && filteredPosts.length > 0 && (
-                        <nav data-animate="fade-up" className="mt-20 flex justify-center gap-4">
-                            <button className="p-2 border rounded">
+                    {/* Pagination (Styled & Functional fallbacks) */}
+                    {filteredPosts.length > 0 && (
+                        <nav data-animate="fade-up" className="mt-16 flex justify-center gap-3">
+                            <button className="w-10 h-10 border border-[#dbeafe] bg-white text-slate-600 hover:border-[#1A5CDD] hover:text-[#1A5CDD] rounded-xl flex items-center justify-center cursor-pointer transition-all">
                                 <ChevronLeft size={16} />
                             </button>
-                            <span className="px-3 py-2 bg-blue-700 text-white rounded">
+                            <button className="w-10 h-10 bg-[#1A5CDD] text-white shadow-md shadow-blue-500/20 font-bold rounded-xl flex items-center justify-center cursor-pointer">
                                 1
-                            </span>
-                            <button className="p-2 border rounded">
+                            </button>
+                            <button className="w-10 h-10 border border-[#dbeafe] bg-white text-slate-600 hover:border-[#1A5CDD] hover:text-[#1A5CDD] rounded-xl flex items-center justify-center cursor-pointer transition-all">
                                 <ChevronRight size={16} />
                             </button>
                         </nav>

@@ -3,55 +3,50 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "START", href: "/" },
-  { label: "IDENTITY", href: "/about" },
-  { label: "EXPERTISE", href: "/services", hasDropdown: true },
-  { label: "CAREERS", href: "/career" },
-  { label: "JOURNAL", href: "/blog" },
-  { label: "CONNECT", href: "/contact" },
+  { label: "HOME", href: "/" },
+  { label: "WHO WE ARE", href: "/about" },
+  { label: "SERVICES", href: "/services", hasDropdown: true },
+  { label: "CAREER", href: "/career" },
+  { label: "UPDATES", href: "/blog" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
 const megaMenuData = [
   {
-    title: "WEBSITE SERVICES",
+    title: "WEBSITE & SOFTWARE",
     items: [
-      { label: "Custom Website Design", href: "/services/website-design", icon: "Palette" },
-      { label: "Responsive UI/UX", href: "/services/ui-ux", icon: "Smartphone" },
-      { label: "Business Websites", href: "/services/business-websites", icon: "Briefcase" },
-      { label: "Corporate Website", href: "/services/corporate-websites", icon: "Building" },
-      { label: "E-Commerce", href: "/services/ecommerce", icon: "ShoppingCart" },
-      { label: "Web Applications And Dashboards", href: "/services/dashboards", icon: "Layout" },
-      { label: "Hosting And Domain", href: "/services/hosting", icon: "Server" },
-      { label: "Website Maintenance and Support", href: "/services/maintenance", icon: "Wrench" },
+      { label: "Custom Web Development", desc: "Next.js 15 & React enterprise web platforms", href: "/services/website-development", icon: "Code" },
+      { label: "Responsive UI/UX Design", desc: "Figma wireframes & fluid mobile design systems", href: "/services/website-development", icon: "Palette" },
+      { label: "Corporate Enterprise Sites", desc: "Scalable brand platforms & portal solutions", href: "/services/website-development", icon: "Building" },
+      { label: "E-Commerce Architecture", desc: "High-volume stores & secure checkout flows", href: "/services/website-development", icon: "ShoppingCart" },
+      { label: "SaaS & Web Dashboards", desc: "Interactive web applications & admin portals", href: "/services/website-development", icon: "Layout" },
+      { label: "Edge Hosting & Maintenance", desc: "300+ Edge POPs & 99.99% uptime SLA", href: "/services/website-development", icon: "Server" },
     ]
   },
   {
-    title: "SEO SERVICES",
+    title: "SEO & PERFORMANCE",
     items: [
-      { label: "SEO Audit", href: "/services/seo-audit", icon: "Code" },
-      { label: "Keyword Research", href: "/services/keyword-research", icon: "Search" },
-      { label: "On-Page SEO", href: "/services/on-page-seo", icon: "TrendingUp" },
-      { label: "Off-Page SEO", href: "/services/off-page-seo", icon: "Network" },
-      { label: "Technical SEO", href: "/services/technical-seo", icon: "Terminal" },
-      { label: "Local SEO", href: "/services/local-seo", icon: "MapPin" },
-      { label: "Link Building", href: "/services/link-building", icon: "Link" },
-      { label: "Performance Tracking and Reporting", href: "/services/seo-reporting", icon: "Activity" },
+      { label: "Core Web Vitals Audit", desc: "100/100 Lighthouse speed & performance", href: "/services#seo-services", icon: "Activity" },
+      { label: "Keyword Intent Strategy", desc: "Data-driven rank optimization & keyword maps", href: "/services#seo-services", icon: "Search" },
+      { label: "Technical SEO & Schema", desc: "Structured data, clean indexing & sitemaps", href: "/services#seo-services", icon: "Terminal" },
+      { label: "On-Page Content Tuning", desc: "Conversion copywriting & semantic SEO", href: "/services#seo-services", icon: "TrendingUp" },
+      { label: "Local & Regional SEO", desc: "Geo-targeted search visibility & Google maps", href: "/services#seo-services", icon: "MapPin" },
+      { label: "Authority & Link Building", desc: "High-authority digital PR & backlink growth", href: "/services#seo-services", icon: "Link" },
     ]
   },
   {
-    title: "DIGITAL MARKETING",
+    title: "GROWTH & MARKETING",
     items: [
-      { label: "Brand-Focused Marketing Strategy", href: "/services/marketing-strategy", icon: "Target" },
-      { label: "High-Impact Performance Ads", href: "/services/performance-ads", icon: "BarChart" },
-      { label: "Premium Social Media Management", href: "/services/social-media", icon: "Hash" },
-      { label: "Content & Creative Marketing", href: "/services/creative-marketing", icon: "Edit" },
-      { label: "Instagram Ads", href: "/services/instagram-ads", icon: "Instagram" },
-      { label: "Facebook Ads", href: "/services/facebook-ads", icon: "Facebook" },
-      { label: "SEO & Organic Growth", href: "/services/organic-growth", icon: "LineChart" },
+      { label: "Brand Growth Strategy", desc: "Market positioning & omnichannel campaigns", href: "/services#digital-marketing", icon: "Target" },
+      { label: "Performance Ads (PPC)", desc: "High-ROI Google & Meta ad acquisition", href: "/services#digital-marketing", icon: "BarChart" },
+      { label: "Social Audience Scaling", desc: "Executive social media & content creation", href: "/services#digital-marketing", icon: "Hash" },
+      { label: "Creative Content Marketing", desc: "High-converting blogs, copy & visual assets", href: "/services#digital-marketing", icon: "Edit" },
+      { label: "Meta & Instagram Scaling", desc: "Targeted social ads & retargeting funnels", href: "/services#digital-marketing", icon: "Instagram" },
+      { label: "Organic Funnel Analytics", desc: "Real-time conversion tracking & attribution", href: "/services#digital-marketing", icon: "LineChart" },
     ]
   }
 ];
@@ -248,6 +243,30 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
   const pathname = usePathname();
+
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setServiceOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setServiceOpen(false);
+    }, 150);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const fn = () => {
@@ -503,8 +522,8 @@ export default function Navbar() {
             {navLinks.map((link) =>
               link.hasDropdown ? (
                 <div key={link.href} className="lg:static relative"
-                  onMouseEnter={() => setServiceOpen(true)}
-                  onMouseLeave={() => setServiceOpen(false)}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <span
                     className={`sky-nav-link${pathname.startsWith("/services") ? " active" : ""}`}
@@ -524,76 +543,101 @@ export default function Navbar() {
                   </span>
 
                   {/* Mega Menu using strictly Tailwind utility classes with invisible hover bridge */}
-                  <div className={`absolute top-[calc(100%+8px)] left-6 right-6 bg-white dark:bg-[#0b0f19] rounded-[24px] shadow-[0_20px_50px_rgba(0,0,0,0.08),0_6px_20px_rgba(26,92,221,0.03)] border border-black/5 dark:border-white/5 p-9 z-[1000] grid grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8 max-h-[calc(100vh-120px)] overflow-y-auto box-sizing-border-box transition-all duration-300 ease-out transform before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 ${serviceOpen
+                  <div className={`absolute top-[calc(100%+8px)] left-6 right-6 bg-white dark:bg-[#061138] rounded-[28px] shadow-[0_25px_60px_rgba(0,0,0,0.12),0_10px_30px_rgba(26,92,221,0.08)] border border-slate-200/80 dark:border-white/10 p-8 z-[1000] box-sizing-border-box transition-all duration-300 ease-out transform before:content-[''] before:absolute before:-top-8 before:left-0 before:right-0 before:h-8 ${serviceOpen
                       ? "opacity-100 visible translate-y-0 pointer-events-auto"
                       : "opacity-0 invisible translate-y-3 pointer-events-none"
                     }`}>
-                    {megaMenuData.map((category) => (
-                      <div key={category.title} className="flex flex-col">
-                        <h4 className="text-[11px] font-extrabold text-[#6B7280] dark:text-gray-400 tracking-wider mb-5 uppercase font-sans">
-                          {category.title}
-                        </h4>
-                        <div className="flex flex-col gap-1">
-                          {category.items.map((item) => (
-                            <Link key={item.href} href="#" onClick={(e) => e.preventDefault()} className="group flex items-center gap-3.5 p-2.5 rounded-2xl transition-all duration-300 hover:bg-[#1A5CDD]/5 dark:hover:bg-[#3B82F6]/10 no-underline cursor-default">
-                              <div className="w-9 h-9 rounded-xl bg-[#1A5CDD]/5 dark:bg-[#3B82F6]/10 text-[#1A5CDD] dark:text-[#60A5FA] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#1A5CDD] dark:group-hover:bg-[#3B82F6] group-hover:text-white group-hover:scale-105">
-                                {getMenuIcon(item.icon)}
-                              </div>
-                              <span className="text-sm font-bold text-gray-800 dark:text-gray-200 transition-colors duration-200 group-hover:text-[#1A5CDD] dark:group-hover:text-[#60A5FA] font-sans">
-                                {item.label}
-                              </span>
-                            </Link>
-                          ))}
+                    
+                    {/* Top Columns Grid */}
+                    <div className="grid grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8 max-h-[calc(100vh-160px)] overflow-y-auto pr-1">
+                      {megaMenuData.map((category) => (
+                        <div key={category.title} className="flex flex-col">
+                          <h4 className="px-4 text-[11px] font-black text-[#1A5CDD] dark:text-[#38bdf8] tracking-widest mb-2 uppercase font-sans flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#1A5CDD] dark:bg-[#38bdf8] inline-block " />
+                            {category.title}
+                          </h4>
+                          <div className="flex flex-col gap-1">
+                            {category.items.map((item) => (
+                              <Link key={item.label} href={item.href} onClick={() => setServiceOpen(false)} className="group flex items-start gap-3.5 p-2.5 rounded-2xl transition-all duration-300 hover:bg-[#1A5CDD]/5 dark:hover:bg-white/5 no-underline">
+                                <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-white/10 text-[#1A5CDD] dark:text-[#38bdf8] flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#1A5CDD] dark:group-hover:bg-[#38bdf8] group-hover:text-white dark:group-hover:text-[#011146] group-hover:scale-105 mt-0.5 shadow-sm">
+                                  {getMenuIcon(item.icon)}
+                                </div>
+                                <div className="flex flex-col">
+                                  <span className="text-[13.5px] font-extrabold text-slate-800 dark:text-white transition-colors duration-200 group-hover:text-[#1A5CDD] dark:group-hover:text-[#38bdf8] font-sans leading-tight">
+                                    {item.label}
+                                  </span>
+                                  {item.desc && (
+                                    <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-1 line-clamp-1">
+                                      {item.desc}
+                                    </span>
+                                  )}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                        {category.title === "DIGITAL MARKETING" && (
-                          <div className="mt-6 flex">
-                            <Link href="/services" className="inline-flex items-center gap-2 bg-[#1A5CDD] dark:bg-[#3B82F6] text-white font-bold text-[13.5px] px-6 py-3 rounded-xl transition-all duration-300 hover:bg-[#154ebc] dark:hover:bg-[#2563EB] hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(26,92,221,0.25)] no-underline">
-                              View All Services
+                      ))}
+
+                      {/* 4th Column - Featured Enterprise Solution Card */}
+                      <div className="flex flex-col h-full justify-between">
+                        <h4 className="text-[11px] font-black text-[#1A5CDD] dark:text-[#38bdf8] tracking-widest mb-4 uppercase font-sans flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#1A5CDD] dark:bg-[#38bdf8] inline-block" />
+                          ENTERPRISE FEATURED
+                        </h4>
+                        <div className="relative overflow-hidden rounded-2xl flex-1 min-h-[220px] flex flex-col justify-end p-5 text-white border border-white/10 shadow-xl group/promo">
+                          <Image
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"
+                            alt="Featured Solution"
+                            fill
+                            className="object-cover absolute inset-0 z-0 transition-transform duration-500 group-hover/promo:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#011146] via-[#011146]/70 to-transparent z-10" />
+                          <div className="relative z-20">
+                            <span className="text-[9px] font-black tracking-widest uppercase bg-[#1A5CDD] text-white px-2.5 py-1 rounded-full w-fit mb-2 inline-block shadow-md">
+                              2026 ENTERPRISE STACK
+                            </span>
+                            <h4 className="text-[15px] font-extrabold leading-snug mb-1">
+                              Cloud Native Solutions
+                            </h4>
+                            <p className="text-[11px] text-slate-200 mb-4 line-clamp-2 leading-relaxed">
+                              Accelerate execution and automate operations with Syscorp microservice architecture.
+                            </p>
+                            <Link
+                              href="/contact"
+                              onClick={() => setServiceOpen(false)}
+                              className="inline-flex items-center gap-1.5 bg-[#38bdf8] text-[#011146] font-black text-xs px-4 py-2 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-0.5"
+                            >
+                              Consult Architect
                               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                               </svg>
                             </Link>
                           </div>
-                        )}
-                      </div>
-                    ))}
-
-                    {/* 4th Column - Featured Showcase */}
-                    <div className="flex flex-col h-full justify-between">
-                      <h4 className="text-[11px] font-extrabold text-[#6B7280] dark:text-gray-400 tracking-wider mb-5 uppercase font-sans">
-                        Featured Showcase
-                      </h4>
-                      <div className="relative overflow-hidden rounded-2xl flex-1 min-h-[220px] flex flex-col justify-end p-5 text-white border border-white/5 shadow-md group/promo">
-                        <Image
-                          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"
-                          alt="Featured Solution"
-                          fill
-                          className="object-cover absolute inset-0 z-0 transition-transform duration-500 group-hover/promo:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent z-10" />
-                        <div className="relative z-20">
-                          <span className="text-[9px] font-extrabold tracking-wider uppercase bg-[#1A5CDD] px-2 py-0.5 rounded-full w-fit mb-2 inline-block">
-                            2026 TRENDING
-                          </span>
-                          <h4 className="text-[15px] font-extrabold leading-snug mb-1">
-                            Enterprise Cloud Solutions
-                          </h4>
-                          <p className="text-[11px] text-gray-200 mb-4 line-clamp-2">
-                            Accelerate execution and automate operations with our microservice architecture.
-                          </p>
-                          <Link
-                            href="/contact"
-                            onClick={() => setServiceOpen(false)}
-                            className="inline-flex items-center gap-1.5 bg-white text-slate-900 font-extrabold text-xs px-4 py-2 rounded-xl transition-all duration-300 hover:bg-[#1A5CDD] hover:text-white hover:shadow-lg hover:-translate-y-0.5"
-                          >
-                            Get Started
-                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                            </svg>
-                          </Link>
                         </div>
                       </div>
                     </div>
+
+                    {/* Enterprise Bottom Bar */}
+                    <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/10 flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
+                      <div className="flex items-center gap-6">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          99.99% Guaranteed SLA
+                        </span>
+                        <span className="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+                        <span className="hidden sm:inline">
+                          ISO 27001 Security Standard
+                        </span>
+                      </div>
+                      <Link 
+                        href="/services" 
+                        onClick={() => setServiceOpen(false)}
+                        className="inline-flex items-center gap-1.5 text-[#1A5CDD] dark:text-[#38bdf8] font-extrabold hover:underline"
+                      >
+                        Explore All Engineering Capabilities →
+                      </Link>
+                    </div>
+
                   </div>
                 </div>
               ) : (
@@ -662,13 +706,12 @@ export default function Navbar() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-1">
                         {category.items.map((s) => (
                           <Link
-                            key={s.href}
-                            href="#"
-                            onClick={(e) => {
-                              e.preventDefault();
+                            key={s.label}
+                            href={s.href}
+                            onClick={() => {
                               setMobileOpen(false);
                             }}
-                            className="flex items-center gap-2.5 text-[13px] font-semibold text-gray-600 dark:text-gray-400 hover:text-[#1A5CDD] dark:hover:text-[#60A5FA] px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/30 no-underline cursor-default"
+                            className="flex items-center gap-2.5 text-[13px] font-semibold text-gray-600 dark:text-gray-400 hover:text-[#1A5CDD] dark:hover:text-[#60A5FA] px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-800/30 no-underline"
                           >
                             <div className="w-6 h-6 rounded-md bg-[#1A5CDD]/5 dark:bg-[#3B82F6]/10 text-[#1A5CDD] dark:text-[#60A5FA] flex items-center justify-center flex-shrink-0">
                               {getMenuIcon(s.icon)}
