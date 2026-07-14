@@ -75,34 +75,30 @@ export default function HeroSlider() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loadVideo, setLoadVideo] = useState(false);
+  const [videoActive, setVideoActive] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const isDesktop = () => window.innerWidth >= 768;
 
-    const tryLoadVideo = () => {
-      if (isDesktop()) setLoadVideo(true);
-    };
+    // Delay video loading to prioritize core interactive elements and initial page paint
+    const timer = setTimeout(() => {
+      if (isDesktop()) {
+        setLoadVideo(true);
+      }
+    }, 800);
 
     const handleResize = () => {
-      if (isDesktop() && !loadVideo) setLoadVideo(true);
+      if (isDesktop()) {
+        setLoadVideo(true);
+      }
     };
 
-    const handleLoad = () => {
-      // Delay video so initial FCP/LCP (the background image) paints first
-      setTimeout(tryLoadVideo, 500);
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
     window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("load", handleLoad);
+      clearTimeout(timer);
       window.removeEventListener("resize", handleResize);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -237,7 +233,7 @@ export default function HeroSlider() {
           justify-content: center;
           height: 100vh;
           width: 100%;
-          background: #02071f url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=75&w=1200&auto=format&fit=crop') no-repeat center center / cover;
+          background: #02071f;
         }
         @media (max-width: 767px) {
           .sky-banner-sec {
@@ -286,6 +282,7 @@ export default function HeroSlider() {
           object-position: center;
           pointer-events: none;
           z-index: 0;
+          transition: opacity 1s ease-out;
         }
         /* Full screen video cover styling using object-fit */
         .hero-video-mask video {
@@ -806,7 +803,7 @@ export default function HeroSlider() {
               alt=""
               aria-hidden="true"
               fetchPriority="high"
-              style={{ opacity: 0.35 }}
+              style={{ opacity: videoActive ? 0 : 0.12 }}
             />
             {/* Desktop-only video — not loaded on mobile to prevent massive bandwidth use */}
             {loadVideo && (
@@ -818,8 +815,10 @@ export default function HeroSlider() {
                 aria-label="Hero background video"
                 style={{ zIndex: 1, opacity: 0.22 }}
                 className="absolute inset-0 w-full h-full object-cover"
+                onPlay={() => setVideoActive(true)}
+                onPlaying={() => setVideoActive(true)}
               >
-                <source src="/videos/hero-bg.mp4" type="video/mp4" />
+                <source src="/videos/hero-sys.mp4" type="video/mp4" />
                 <track kind="captions" src="data:text/vtt,WEBVTT" default />
               </video>
             )}
