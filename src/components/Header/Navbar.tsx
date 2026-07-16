@@ -544,10 +544,10 @@ export default function Navbar() {
 
                   {/* Mega Menu using strictly Tailwind utility classes with invisible hover bridge */}
                   <div className={`absolute top-[calc(100%+8px)] left-6 right-6 bg-white dark:bg-[#061138] rounded-[28px] shadow-[0_25px_60px_rgba(0,0,0,0.12),0_10px_30px_rgba(26,92,221,0.08)] border border-slate-200/80 dark:border-white/10 p-8 z-[1000] box-sizing-border-box transition-all duration-300 ease-out transform before:content-[''] before:absolute before:-top-8 before:left-0 before:right-0 before:h-8 ${serviceOpen
-                      ? "opacity-100 visible translate-y-0 pointer-events-auto"
-                      : "opacity-0 invisible translate-y-3 pointer-events-none"
+                    ? "opacity-100 visible translate-y-0 pointer-events-auto"
+                    : "opacity-0 invisible translate-y-3 pointer-events-none"
                     }`}>
-                    
+
                     {/* Top Columns Grid */}
                     <div className="grid grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-8 max-h-[calc(100vh-160px)] overflow-y-auto pr-1">
                       {megaMenuData.map((category) => (
@@ -629,8 +629,8 @@ export default function Navbar() {
                           ISO 27001 Security Standard
                         </span>
                       </div>
-                      <Link 
-                        href="/services" 
+                      <Link
+                        href="/services"
                         onClick={() => setServiceOpen(false)}
                         className="inline-flex items-center gap-1.5 text-[#1A5CDD] dark:text-[#38bdf8] font-extrabold hover:underline"
                       >

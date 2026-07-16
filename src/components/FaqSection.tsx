@@ -2,47 +2,29 @@
 
 import React, { useState } from "react";
 
-const faqData = [
+interface FAQItem {
+  question: string;
+  answer: string;
+  bullets?: string[];
+}
+
+const faqData: FAQItem[] = [
   {
-    question: "Are your development processes transparent?",
-    answer: "Yes. We believe in full transparency — every project includes regular status updates, clear milestones, and open communication. You'll always know where your project stands and what comes next.",
-    bullets: [
-      "Providing Quality Web and Mobile Development Services Together",
-      "Expertise Across Software Engineering And Product Strategy Projects",
-    ],
+    question: "Why choose Syscorp as your Software Company in Pondicherry?",
+    answer: "We combine technical expertise, modern technologies, and business-focused strategies to deliver reliable software solutions tailored to your goals."
   },
   {
-    question: "Can you customize projects based on client needs?",
-    answer: "Absolutely. Every business is unique, so we develop personalized digital solutions based on your industry, target audience, competition, and specific business goals. No cookie-cutter approaches.",
-    bullets: [
-      "Custom architecture & tech stack selection",
-      "Scalable solutions designed for your growth stage",
-    ],
+    question: "What industries do you serve?",
+    answer: "Healthcare, Retail, Manufacturing, Education, Finance, Logistics, Hospitality, Real Estate, and more."
   },
   {
-    question: "Do you handle both web and mobile projects?",
-    answer: "Yes, we specialize in both web applications and mobile app development, delivering customized solutions based on client requirements, budget, and timelines.",
-    bullets: [
-      "Providing Quality Web And Mobile Development Services Together",
-      "Expertise Across Custom Software And Product Strategy Projects",
-    ],
+    question: "Do you provide post-launch support?",
+    answer: "Yes. We offer ongoing maintenance, monitoring, upgrades, and technical support after project delivery."
   },
   {
-    question: "What services does Syscorp offer?",
-    answer: "Syscorp provides complete digital solutions including Custom Software Development, Web & Mobile Apps, SEO, Social Media Marketing, Performance Ads (Google & Meta), Branding & Creative Design, and Website Development.",
-    bullets: [
-      "Full-stack web & software development",
-      "Digital marketing & SEO services",
-    ],
-  },
-  {
-    question: "How long does SEO take to show results?",
-    answer: "SEO is a long-term strategy. Noticeable improvements typically appear within 3–6 months, depending on industry competition, keyword difficulty, and your website's current state.",
-    bullets: [
-      "Keyword ranking improvements in 60–90 days",
-      "Organic traffic growth visible in 3–6 months",
-    ],
-  },
+    question: "Can you develop custom business software?",
+    answer: "Absolutely. We design and develop scalable software tailored to your workflows, business processes, and future growth."
+  }
 ];
 
 export default function FAQSection() {

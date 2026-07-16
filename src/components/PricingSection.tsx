@@ -3,54 +3,60 @@ import React from "react";
 
 const plans = [
   {
-    name: "Basic Plan",
-    price: "$39",
-    iconBg: "#011146",
+    name: "SEO & Growth Plan",
+    price: "$149",
+    iconBg: "#10B981", // Emerald
     isPopular: false,
+    desc: "Boost your online visibility, search rankings, and attract organic traffic with our growth services.",
     icon: (
       <svg width="20" height="20" fill="none" stroke="#fff" strokeWidth="2.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.5 4.5 6.75-6.75M21 9v6m0-6H15" />
       </svg>
     ),
     features: [
-      "Ideal for startups & scaleups",
-      "Modern Development Stack",
-      "Continuous Support & QA",
-      "Full Source Code & Setup",
+      "Keyword Research & Strategy",
+      "On-Page SEO Optimization",
+      "Technical SEO Auditing",
+      "High-Quality Link Building",
+      "Monthly Performance Analytics",
     ],
   },
   {
-    name: "Standard Plan",
-    price: "$49",
-    iconBg: "#1A5CDD",
+    name: "Website Development Plan",
+    price: "$299",
+    iconBg: "#1A5CDD", // Brand Blue
     isPopular: true,
+    desc: "Get a stunning, custom-built website optimized for performance, UX, and direct conversions.",
     icon: (
       <svg width="20" height="20" fill="none" stroke="#fff" strokeWidth="2.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
       </svg>
     ),
     features: [
-      "Ideal for startups & scaleups",
-      "Modern Development Stack",
-      "Continuous Support & QA",
-      "Full Source Code & Setup",
+      "Modern Next.js / React Stack",
+      "Custom UI/UX Premium Design",
+      "Fully Responsive & Mobile-First",
+      "Integrated Content CMS",
+      "SEO Optimized & Fast Loading",
     ],
   },
   {
-    name: "Premium Plan",
-    price: "$59",
-    iconBg: "#011146",
+    name: "Cloud & Hosting Plan",
+    price: "$89",
+    iconBg: "#8B5CF6", // Purple
     isPopular: false,
+    desc: "Secure, reliable, and high-performance server hosting designed for seamless scaling.",
     icon: (
       <svg width="20" height="20" fill="none" stroke="#fff" strokeWidth="2.5" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-.778.099-1.533.284-2.253" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.25h13.5m-13.5 4.5h13.5m-13.5 4.5h13.5m-13.5 4.5h13.5M3 3h18v18H3V3z" />
       </svg>
     ),
     features: [
-      "Ideal for startups & scaleups",
-      "Modern Development Stack",
-      "Continuous Support & QA",
-      "Full Source Code & Setup",
+      "99.99% Uptime Guarantee",
+      "SSL Certificate & DDoS Protection",
+      "Automated Daily System Backups",
+      "AWS / Cloudflare Deployment",
+      "24/7 Proactive Server Monitoring",
     ],
   },
 ];
@@ -78,10 +84,10 @@ export default function PricingSection() {
 
         /* Card Wrapper styling */
         .sky-pricing-card {
-          background: #F8FAFC;
+          background: #FFFFFF;
           border-radius: 28px;
           border: 1px solid rgba(26, 92, 221, 0.08);
-          padding: 20px;
+          padding: 24px;
           display: flex;
           flex-direction: column;
           gap: 20px;
@@ -93,12 +99,20 @@ export default function PricingSection() {
           box-shadow: 0 16px 40px rgba(26, 92, 221, 0.06);
           border-color: rgba(26, 92, 221, 0.2);
         }
+        .dark .sky-pricing-card {
+          background: #0d1527;
+          border-color: rgba(255, 255, 255, 0.06);
+        }
+        .dark .sky-pricing-card:hover {
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+          border-color: rgba(255, 255, 255, 0.12);
+        }
 
         .sky-pricing-card-popular {
           background: linear-gradient(135deg, #F0F4FF 0%, #E0EBFF 100%);
           border: 2px solid #1A5CDD;
           border-radius: 28px;
-          padding: 20px;
+          padding: 24px;
           display: flex;
           flex-direction: column;
           gap: 20px;
@@ -123,15 +137,30 @@ export default function PricingSection() {
           transform: translateY(-5px);
           box-shadow: 0 20px 48px rgba(26, 92, 221, 0.15);
         }
+        .dark .sky-pricing-card-popular {
+          background: linear-gradient(135deg, #0e1d3e 0%, #0c1833 100%);
+          border-color: #3B82F6;
+        }
+        .dark .sky-pricing-card-popular::before {
+          background: #3B82F6;
+          box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+        }
+        .dark .sky-pricing-card-popular:hover {
+          box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+        }
 
         /* Top White Panel */
         .sky-pricing-top-panel {
-          background: #FFFFFF;
+          background: #F8FAFC;
           border-radius: 20px;
           padding: 28px 24px;
           box-shadow: 0 4px 20px rgba(26, 92, 221, 0.02);
           display: flex;
           flex-direction: column;
+        }
+        .dark .sky-pricing-top-panel {
+          background: #111a2f;
+          box-shadow: none;
         }
 
         .sky-pricing-icon-btn {
@@ -149,28 +178,24 @@ export default function PricingSection() {
           width: 18px;
           height: 18px;
           border-radius: 50%;
-          background: #1A5CDD;
           display: flex;
           align-items: center;
           justify-content: center;
           color: #ffffff;
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 900;
           flex-shrink: 0;
         }
 
-        /* CTA Button */
+        /* CTA Button styles */
         .sky-pricing-cta {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #1A5CDD;
-          color: #fff;
           font-weight: 700;
           font-size: 14.5px;
-          padding: 14px;
+          padding: 13px 20px;
           border-radius: 50px;
-          text-decoration: none;
           transition: all 0.3s ease;
           width: 100%;
           text-align: center;
@@ -178,9 +203,45 @@ export default function PricingSection() {
           border: none;
           cursor: pointer;
         }
-        .sky-pricing-cta:hover {
+
+        .cta-popular {
+          background: #1A5CDD;
+          color: #ffffff;
+        }
+        .cta-popular:hover {
           background: #154ebc;
-          box-shadow: 0 8px 20px rgba(26, 92, 221, 0.2);
+          box-shadow: 0 8px 24px rgba(26, 92, 221, 0.25);
+        }
+        .dark .cta-popular {
+          background: #3B82F6;
+          color: #ffffff;
+        }
+        .dark .cta-popular:hover {
+          background: #2563EB;
+          box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+        }
+
+        .cta-standard {
+          background: #0f172a;
+          color: #ffffff;
+        }
+        .cta-standard:hover {
+          background: #1e293b;
+        }
+        .dark .cta-standard {
+          background: rgba(255, 255, 255, 0.08);
+          color: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .cta-standard:hover {
+          background: rgba(255, 255, 255, 0.12);
+        }
+
+        .light .highlight-italic {
+          color: #1A5CDD;
+        }
+        .dark .highlight-italic {
+          color: #38bdf8;
         }
       `}</style>
 
@@ -190,10 +251,10 @@ export default function PricingSection() {
         <div className="sky-about-badge-anim flex flex-col gap-[18px] items-center text-center mb-[64px]">
           <span className="inline-flex items-center gap-2 bg-[#1A5CDD]/10 border border-[#1A5CDD]/20 dark:bg-blue-500/10 dark:border-blue-500/20 rounded-full px-3.5 py-1 text-xs font-bold text-[#1A5CDD] dark:text-blue-400 w-fit uppercase tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1A5CDD] dark:bg-blue-400 inline-block animate-pulse" />
-            Our Pricing Plan
+            Our Service Plans
           </span>
           <h2 id="pricing-heading" className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight m-0 font-sans tracking-tight">
-            Transparent Pricing, Exceptional <span className="text-[#1A5CDD] dark:text-[#60A5FA]">Value Guaranteed</span>
+            Explore Our Service Plans, Exceptional <span className="highlight-italic">Value Guaranteed</span>
           </h2>
         </div>
 
@@ -202,36 +263,34 @@ export default function PricingSection() {
           {plans.map((p, idx) => (
             <div key={idx} className={`${p.isPopular ? "sky-pricing-card-popular" : "sky-pricing-card"} gsap-pricing-card-item`}>
 
-              {/* White Top Block */}
+              {/* Top Panel inside Card */}
               <div className="sky-pricing-top-panel">
                 <div className="sky-pricing-icon-btn" style={{ background: p.iconBg }}>
                   {p.icon}
                 </div>
-                <h3 style={{ fontSize: "16px", fontWeight: 800, color: "#011146", margin: "0 0 12px" }}>
+                <h3 className="text-slate-900 dark:text-white font-extrabold text-base mb-3 font-sans m-0">
                   {p.name}
                 </h3>
-                <div style={{ display: "flex", alignItems: "baseline", gap: "6px", marginBottom: "20px" }}>
-                  <span style={{ fontSize: "38px", fontWeight: 900, color: "#011146", lineHeight: 1 }}>{p.price}</span>
-                  <span style={{ fontSize: "12px", fontWeight: 600, color: "#64748B" }}>/Per Month</span>
-                </div>
-                <p style={{ fontSize: "13px", color: "#4B5563", lineHeight: 1.6, margin: 0 }}>
-                  We offer transparent &amp; flexible pricing plan to meet the need of every client.
+                <p className="text-slate-600 dark:text-slate-350 text-[13px] leading-relaxed m-0 font-sans">
+                  {p.desc}
                 </p>
               </div>
 
-              {/* Grey Bottom Block Features */}
+              {/* Bottom Panel Features */}
               <div style={{ display: "flex", flexDirection: "column", gap: "16px", padding: "12px 8px 12px" }}>
-                <p style={{ fontSize: "14px", fontWeight: 800, color: "#011146", margin: 0 }}>What Included Feature:</p>
+                <p className="text-slate-900 dark:text-slate-200 font-extrabold text-sm m-0 font-sans">Features Included:</p>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "12px", padding: 0, margin: 0 }}>
                   {p.features.map((f, fi) => (
-                    <li key={fi} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "13px", fontWeight: 600, color: "#4B5563" }}>
-                      <span className="sky-check-circle">✓</span>
+                    <li key={fi} className="text-slate-600 dark:text-slate-300 text-[13px] font-semibold flex items-center gap-2.5 font-sans">
+                      <span className="sky-check-circle" style={{ background: p.iconBg }}>✓</span>
                       {f}
                     </li>
                   ))}
                 </ul>
 
-                <button className="sky-pricing-cta">Get Started</button>
+                <button className={`sky-pricing-cta ${p.isPopular ? "cta-popular" : "cta-standard"}`}>
+                  Get Started
+                </button>
               </div>
 
             </div>
